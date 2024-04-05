@@ -12,11 +12,5 @@ export default {
   plugins: [
 //    require('@tailwindcss/forms')
   ],
-  postcss: {
-    plugins: [
-      require('tailwindcss'),
-      require('autoprefixer'),
-    ],
-  },
 }
 
