@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
   <div>
     <NuxtLayout>
@@ -5,11 +8,3 @@
     </NuxtLayout>
   </div>
 </template>
-
-<script setup>
-  useHead({
-    bodyAttrs: {
-      class: 'bg-gray-900 text-white'
-    }
-  })
-</script>
