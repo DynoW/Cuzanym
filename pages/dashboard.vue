@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
+if (!user) {
+    navigateTo('/')
+}
 </script>
 
 <template>
