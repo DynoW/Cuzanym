@@ -4,7 +4,11 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/supabase'],
+  modules: [
+    '@nuxtjs/supabase',
+    '@nuxtjs/tailwindcss',
+    //    '@nuxtjs/color-mode',  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
+  ],
   css: ['@/assets/css/main.css'],
   supabase: {
     redirect: false,
