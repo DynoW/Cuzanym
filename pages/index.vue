@@ -6,6 +6,6 @@
 
 <template>
     <div>
-        ntza
+        ntza {{user?.email}}
     </div>
 </template>
