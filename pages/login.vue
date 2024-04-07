@@ -13,7 +13,7 @@ supabase.auth.signInWithOAuth({
      data-ux_mode="popup"
      data-auto_select="true"
      data-itp_support="true"
-     data-login_uri="http://localhost:3000/login"
+     data-login_uri="https://login-system.cuzanym.pages.dev/login"
      data-auto_prompt="false">
 </div>
 
