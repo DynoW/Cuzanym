@@ -1,20 +1,14 @@
 <script setup lang="ts">
-  const user = useSupabaseUser()
-  const { auth } = useSupabaseClient()
-
-  const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
-
-  watchEffect(() => {
-    if (user.value) {
-      navigateTo('/dashboard')
-    }
-  })
+const user = useSupabaseUser()
+watch(user, () => {
+  if (!user.value) {
+    return navigateTo('/login')
+  }
+}, { immediate: true })
 </script>
 
 <template>
-    <div>
-      <button @click="auth.signInWithOAuth({ provider: 'google', options: { redirectTo } })">
-        Sign in with Google
-      </button>
-    </div>
+  <div>
+    Hola {{ user?.email }}
+  </div>
 </template>
