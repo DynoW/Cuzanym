@@ -2,7 +2,7 @@
 const user = useSupabaseUser()
 const { auth } = useSupabaseClient()
 
-const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
+// const redirectTo = `${useRuntimeConfig().public.baseUrl}`
 
 watchEffect(() => {
     if (user.value) {
@@ -20,7 +20,7 @@ watchEffect(() => {
                 </div>
                 <div class="p-3 rounded-full border shadow-md">
                     <button class="flex flex-row items-center justify-items-center gap-2"
-                        @click="auth.signInWithOAuth({ provider: 'google', options: { redirectTo } })">
+                        @click="auth.signInWithOAuth({ provider: 'google'})">
                         <img src="https://api.iconify.design/logos:google-icon.svg?color=%23655353" alt="google"
                             class="w-5 h-5 mt-1" />
                         <p>Sign in with Google</p>
