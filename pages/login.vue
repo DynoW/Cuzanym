@@ -12,7 +12,7 @@ watchEffect(() => {
 </script>
 
 <template>
-    <div class="h-screen w-screen flex justify-center items-center">
+    <div class="h-screen w-screen flex justify-center items-center login-bg">
         <div class="">
             <div class="flex flex-col items-center bg-white rounded-lg p-5 gap-5">
                 <div>
@@ -38,13 +38,3 @@ watchEffect(() => {
         </div>
     </div>
 </template>
-
-<style>
-body {
-    background-image: url('/assets/img/copaci.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-}
-</style>
