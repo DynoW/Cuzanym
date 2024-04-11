@@ -1,10 +1,6 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
-watch(user, () => {
-  if (user.value == null) {
-    return navigateTo('/login')
-  }
-}, { immediate: true })
+console.log(user.value)
 </script>
 
 <template>
