@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
 watch(user, () => {
-  if (!user.value) {
+  if (user == null) {
     return navigateTo('/login')
   }
 }, { immediate: true })
