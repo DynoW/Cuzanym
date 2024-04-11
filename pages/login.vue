@@ -3,7 +3,7 @@ const user = useSupabaseUser()
 const { auth } = useSupabaseClient()
 
 // const redirectTo = `${useRuntimeConfig().public.baseUrl}`
-
+console.log(user.value)
 watchEffect(() => {
     if (user.value) {
         navigateTo('/')
