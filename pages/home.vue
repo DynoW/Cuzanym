@@ -1,9 +1,16 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
+const client = useSupabaseClient()
+
+watchEffect(() => {
+    if (!user.value) {
+        navigateTo('/')
+    }
+})
 </script>
 
 <template>
-    <div>
+    <NuxtLayout>
         <p>Ntza {{ user?.email }}</p>
-    </div>
+    </NuxtLayout>
 </template>

@@ -7,6 +7,12 @@ watchEffect(() => {
     navigateTo('/home')
   }
 })
+
+const login = async () => {
+  const { data, error } = await auth.signInWithOAuth({
+    provider: 'google',
+  })
+}
 </script>
 
 <template>
@@ -18,7 +24,7 @@ watchEffect(() => {
         </div>
         <div class="p-3 rounded-full border shadow-md">
           <button class="flex flex-row items-center justify-items-center gap-2"
-            @click="auth.signInWithOAuth({ provider: 'google' })">
+            @click="login()">
             <img src="https://api.iconify.design/logos:google-icon.svg?color=%23655353" alt="google"
               class="w-5 h-5 mt-1" />
             <p>Sign in with Google</p>
