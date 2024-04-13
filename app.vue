@@ -1,15 +1,7 @@
 <template>
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtPage />
 </template>
 
 <script setup>
-  useHead({
-    bodyAttrs: {
-      class: 'bg-gray-900 text-white'
-    }
-  })
+
 </script>

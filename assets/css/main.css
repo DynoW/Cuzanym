@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.body {
-  @apply bg-slate-900 text-white;
+@layer components {
+    .login-bg {
+        background-image: url('/assets/img/banci.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
 }
