@@ -4,7 +4,7 @@ const { auth } = useSupabaseClient()
 
 watchEffect(() => {
   if (user.value) {
-    navigateTo('/home')
+    navigateTo('/forum')
   }
 })
 
@@ -20,19 +20,16 @@ const handleLogin = async () => {
 
 <template>
   <div class="h-screen w-full flex relative justify-center items-center">
-    <img src="/assets/img/banci.jpg" alt="login-bg" class="-z-10 w-full lg:w-3/5 h-full object-cover" />
+    <NuxtImg src="/img/banci.jpg" alt="login-bg" class="-z-10 w-full lg:w-3/5 h-full object-cover" />
     <div
       class="bg-neutral-100 p-5 lg:p-0 rounded-lg lg:rounded-none lg:h-full flex flex-col items-center justify-center absolute lg:static max-w-sm lg:max-w-full gap-5">
-      <div>
-        <img src="/assets/img/logo-login.png" alt="logo" class="scale-75" />
-      </div>
-      <div class="p-3 rounded-full border shadow-md">
-        <button class="flex flex-row items-center justify-items-center gap-2" @click="handleLogin()">
-          <img src="https://api.iconify.design/logos:google-icon.svg?color=%23655353" alt="google"
-            class="w-5 h-5 mt-1" />
-          <p>Sign in with Google</p>
-        </button>
-      </div>
+      <Logo class="text-7xl" />
+      <button
+        class="p-3 rounded-full border shadow-md cursor-pointer flex flex-row items-center justify-items-center gap-2"
+        @click="handleLogin()">
+        <Icon name="logos:google-icon" class="w-5 h-5 mt-1" />
+        <p>Sign in with Google</p>
+      </button>
       <div class="flex justify-center">
         <p class="text-md text-gray-500 text-center w-4/5">Ne rezervam dreptul de a permite accesul pe acest website
           doar

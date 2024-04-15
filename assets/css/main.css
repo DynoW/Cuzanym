@@ -3,11 +3,38 @@
 @tailwind utilities;
 
 @layer components {
-    .login-bg {
-        background-image: url('/assets/img/banci.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
+    @font-face {
+        font-family: Boldini;
+        src: url(/assets/fonts/Boldini.ttf);
+    }
+    @font-face {
+        font-family: Poppins;
+        src: url(/assets/fonts/Poppins.ttf);
+    }
+    @font-face {
+        font-family: Montserrat;
+        src: url(/assets/fonts/Montserrat.ttf);
+    }
+    .font-boldini {
+        font-family: Boldini;
+    }
+    .font-poppins {
+        font-family: Poppins;
+    }
+    .font-montserrat {
+        font-family: Montserrat;
+    }
+    .text-shadow {
+        text-shadow: 1px 1px 2px black;
+    }
+    .logo-shadow {
+        text-shadow: -1px 2px 4px black;
+    
+    }
+    .side-menu-title {
+        @apply text-lg font-semibold mb-4;
+    }
+    .side-menu-item {
+        @apply text-black border-b-2 pb-2 border-neutral-200 flex flex-row;
     }
 }
