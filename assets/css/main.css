@@ -12,17 +12,24 @@
         src: url(/assets/fonts/Poppins.ttf);
     }
     @font-face {
-        font-family: Montserrat;
-        src: url(/assets/fonts/Montserrat.ttf);
+        font-family: Montserrat-Regular;
+        src: url(/assets/fonts/Montserrat-Regular.ttf);
     }
+        @font-face {
+            font-family: Montserrat-SemiBold;
+            src: url(/assets/fonts/Montserrat-SemiBold.ttf);
+        }
     .font-boldini {
         font-family: Boldini;
     }
     .font-poppins {
         font-family: Poppins;
     }
-    .font-montserrat {
-        font-family: Montserrat;
+    .font-montserrat-regular {
+        font-family: Montserrat-Regular;
+    }
+    .font-montserrat-semibold {
+        font-family: Montserrat-SemiBold;
     }
     .text-shadow {
         text-shadow: 1px 1px 2px black;
@@ -36,5 +43,8 @@
     }
     .side-menu-item {
         @apply text-black border-b-2 pb-2 border-neutral-200 flex flex-row;
+    }
+    .main {
+        @apply container flex flex-col-reverse md:flex-row gap-10 mx-auto pb-96 sm:pb-72 md:pb-72 lg:pb-52 xl:pb-48 sm:pt-12;
     }
 }

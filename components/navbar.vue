@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { ref } from "vue";
+let input = ref("");
+async function search() {
+    await navigateTo("/search?q=" + input.value);
+    window.location.reload();
+}
+</script>
+
 <template>
     <div
         class="hidden sm:flex bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 w-full h-14 items-center justify-center text-white">
@@ -5,26 +14,28 @@
             <Logo class="text-3xl text-shadow" />
             <div class="text-center ">
                 <div class="flex flex-row gap-8">
-                    <NuxtLink to="/" class="text-lg text-shadow">Forum</NuxtLink>
+                    <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
                     <NuxtLink to="/" class="text-lg text-shadow">Evenimente</NuxtLink>
                     <NuxtLink to="/" class="text-lg text-shadow">Raportari</NuxtLink>
                     <NuxtLink to="/" class="text-lg text-shadow">Politici</NuxtLink>
                 </div>
             </div>
             <div>
-                <div class="bg-gray-200 rounded-full flex flex-row items-center justify-center p-[6px] gap-2">
-                    <Icon name="ph:magnifying-glass-bold" class="text-black cursor-pointer" />
-                    <input type="text" placeholder="Search" class="w-full bg-gray-200 focus:outline-none" />
+                <div
+                    class="bg-gray-200 rounded-full flex flex-row items-center justify-center p-[6px] gap-2 text-neutral-600">
+                    <Icon name="ph:magnifying-glass-bold" class="text-black" />
+                    <input type="text" id="search" v-model="input" placeholder="Search" @keyup.enter="search()"
+                        class="w-full bg-gray-200 focus:outline-none" />
                 </div>
             </div>
             <div class="flex flex-row gap-5 items-center">
-                <button class="">
+                <button title="notifiactions">
                     <Icon name="material-symbols:notifications-outline" class="cursor-pointer" />
                 </button>
-                <NuxtLink to="/profile">
+                <NuxtLink title="profile" to="/profile">
                     <Icon name="material-symbols:account-circle" class="cursor-pointer" />
                 </NuxtLink>
-                <button class="">
+                <button title="mode">
                     <span class="">
                         <Icon name="material-symbols:sunny-outline-rounded" class="cursor-pointer" />
                     </span>

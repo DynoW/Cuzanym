@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { capitalize } from 'vue';
-const topic = useRoute().params.topic.toString();
+const tag = useRoute().params.tag.toString();
 
-const { data } = await useFetch("/api/get/topics", {
+const { data } = await useFetch("/api/get/tags", {
     headers: useRequestHeaders(['cookie'])
 });
-const topics = data.value;
+const tags = data.value;
 
-if (!topics?.some((t) => t.name.toLowerCase() === topic.toLowerCase())){
-    throw createError({ status: 404, message: "Topic not found!" });
+if (!tags?.some((t) => t.name.toLowerCase() === tag.toLowerCase())) {
+    throw createError({ status: 404, message: "Tag not found!" });
 }
 </script>
 
@@ -19,14 +19,11 @@ if (!topics?.some((t) => t.name.toLowerCase() === topic.toLowerCase())){
         </nav>
         <main class="main">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-12">
-                <!-- <Announcement>
-                    <span class="not-italic">Topic: </span>{{ capitalize(topic) }}
-                </Announcement> -->
-                <PostsByTopic />
+                <PostsByTag />
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Announcement>
-                    <span class="not-italic">Topic: </span>{{ capitalize(topic) }}
+                    <span class="not-italic">Tag: </span>{{ capitalize(tag) }}
                 </Announcement>
                 <br />
                 <Tags />

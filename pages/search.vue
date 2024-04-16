@@ -1,10 +1,9 @@
 <script setup lang="ts">
-    const searchString = useRoute().query;
-    const { data } = await useFetch(`/api/search?q=${searchString}`, {
+    const searchString = useRoute().query.q;
+    const { data } = await useFetch(`/api/get/search?q=${searchString}`, {
         headers: useRequestHeaders(['cookie'])
     });
     const posts = data.value;
-    
 </script>
 
 <template>
@@ -12,12 +11,12 @@
         <nav>
             <Hierarchy />
         </nav>
-        <main class="container flex flex-col-reverse md:flex-row gap-10 mx-auto pb-80 sm:pb-56 md:pb-44 xl:pb-36 pt-12">
+        <main class="main">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-12">
                 <Announcement>
-                    Welcome to the forum!
+                    Search results for: <span class="not-italic">{{ searchString }}</span>
                 </Announcement>
-                <Topics />
+                <Posts :posts="posts" />
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Tags />

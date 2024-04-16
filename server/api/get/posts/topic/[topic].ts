@@ -1,4 +1,3 @@
-// ???
 import { serverSupabaseUser } from "#supabase/server";
 import { PrismaClient } from "@prisma/client";
 
@@ -10,7 +9,15 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
+        const topic = getRouterParam(event, "topic");
         const data = await prisma.post.findMany({
+            where: {
+                subreddit: {
+                    name: {
+                        equals: topic,
+                    },
+                },
+            },
         });
 
         return data;

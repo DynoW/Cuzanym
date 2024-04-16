@@ -1,34 +1,38 @@
 <template>
     <footer
-        class="absolute bottom-0 w-full flex justify-center bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-shadow font-montserrat text-white">
+        class="absolute bottom-0 w-full flex justify-center bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-shadow text-white">
         <div class="container flex flex-col sm:flex-row py-5 px-24">
             <div class="basis-1/4">
-                <h2 class="text-xl mb-3">Parteneri</h2>
+                <h2 class="text-xl mb-3 font-montserrat-semibold">Parteneri</h2>
                 <ul class="flex flex-col gap-1">
                     <li>
-                        <NuxtLink to="https://cuza.pages.dev/" target="_blank">Resurse Bacalaureat</NuxtLink>
+                        <NuxtLink to="https://cuza.pages.dev/" target="_blank" class="">Resurse
+                            Bacalaureat</NuxtLink>
                     </li>
                     <li>
                         <NuxtLink
                             to="https://www.facebook.com/p/Liceul-Teoretic-Alexandru-Ioan-Cuza-Bucuresti-100059320736208/?locale=ro_RO"
-                            target="_blank">Facebook</NuxtLink>
+                            target="_blank" class="">Facebook</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="https://www.laicuza.ro" target="_blank">Site Oficial</NuxtLink>
+                        <NuxtLink to="https://www.laicuza.ro" target="_blank" class="">Site
+                            Oficial</NuxtLink>
                     </li>
                 </ul>
             </div>
             <div class="basis-1/4">
-                <h2 class="text-xl mb-3">Ținem Legătura</h2>
+                <h2 class="text-xl mb-3 font-montserrat-semibold">Ținem Legătura</h2>
                 <ul class="flex flex-col gap-1">
                     <li>
-                        <NuxtLink to="">Termeni si Condiții</NuxtLink>
+                        <NuxtLink to="" class="">
+                            <p class="">Termeni si Condiții</p>
+                        </NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="">Politica de confidențialitate</NuxtLink>
+                        <NuxtLink to="" class="">Politica de confidențialitate</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="">Sesisează-ne o problemă</NuxtLink>
+                        <NuxtLink to="" class="">Sesisează-ne o problemă</NuxtLink>
                     </li>
                 </ul>
             </div>

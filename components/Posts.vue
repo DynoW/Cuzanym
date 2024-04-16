@@ -1,15 +1,10 @@
 <script setup lang="ts">
-
-const { data } = await useFetch("/api/get/posts", {
-    headers: useRequestHeaders(['cookie'])
-});
-
-const posts = data.value;
+const posts = useAttrs().posts
 </script>
 
 <template>
-    <div class="bg-white rounded-lg flex flex-col">
-        <div v-for="post in posts" class="flex flex-col p-5">
+    <div class="flex flex-col gap-4">
+        <div v-for="post in posts" class="flex flex-col p-5 border-b-2 border-neutral-300 bg-white rounded-xl">
             <div class="flex flex-row">
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
                 <div class="flex flex-col ml-3">

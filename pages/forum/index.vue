@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const user = useSupabaseUser()
 const client = useSupabaseClient()
 </script>
@@ -9,10 +8,10 @@ const client = useSupabaseClient()
         <nav>
             <Hierarchy />
         </nav>
-        <main class="container flex flex-col-reverse md:flex-row gap-10 mx-auto pb-80 sm:pb-56 md:pb-44 xl:pb-36 pt-12">
+        <main class="main">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-12">
                 <Announcement>
-                    Welcome to the forum!
+                    Bun venit, pe forum!
                 </Announcement>
                 <Topics />
             </div>

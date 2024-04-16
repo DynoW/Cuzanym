@@ -5,61 +5,61 @@ import { capitalize } from "vue";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-    const user = serverSupabaseUser(event);
+    const user = await serverSupabaseUser(event);
     if (!user) {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const { searchString } = getQuery(event);
+        const query = getQuery(event).q;
         const data = await prisma.post.findMany({
             where: {
                 OR: [
                     {
                         title: {
                             //@ts-ignore
-                            contains: searchString,
+                            contains: query,
                         },
                     },
                     {
                         title: {
                             //@ts-ignore
-                            contains: searchString.toLowerCase(),
+                            contains: query.toLowerCase(),
                         },
                     },
                     {
                         title: {
                             //@ts-ignore
-                            contains: searchString.toUpperCase(),
+                            contains: query.toUpperCase(),
                         },
                     },
                     {
                         title: {
                             //@ts-ignore
-                            contains: capitalize(searchString),
+                            contains: capitalize(query),
                         },
                     },
                     {
                         content: {
                             //@ts-ignore
-                            contains: searchString,
+                            contains: query,
                         },
                     },
                     {
                         content: {
                             //@ts-ignore
-                            contains: searchString.toLowerCase(),
+                            contains: query.toLowerCase(),
                         },
                     },
                     {
                         content: {
                             //@ts-ignore
-                            contains: searchString.toUpperCase(),
+                            contains: query.toUpperCase(),
                         },
                     },
                     {
                         content: {
                             //@ts-ignore
-                            contains: capitalize(searchString),
+                            contains: capitalize(query),
                         },
                     },
                 ],

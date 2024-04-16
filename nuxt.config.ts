@@ -23,5 +23,12 @@ export default defineNuxtConfig({
       callback: '/confirm',
       exclude: ['/policy', '/terms', '/confirm'],
     }
-  }
+  },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'ro',
+      },
+    },
+  },
 })

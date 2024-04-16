@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const { data } = await useFetch("/api/get/tags", {
+    headers: useRequestHeaders(['cookie'])
+});
+
+const tags = data.value;
+</script>
+
 <template>
     <aside class="flex flex-col gap-3">
         <h2 class="side-menu-title">Tags</h2>
@@ -26,13 +34,8 @@
                 </li>
             </ul>
         </nav> -->
-        <div class="">
-            <button class="p-2 m-1 bg-red-200 border-2 rounded-xl border-red-300 text-red-400 font-bold">my tag</button>
-            <button class="p-2 m-1 bg-green-200 border-2 rounded-xl border-green-300 text-green-400 font-bold">my tag</button>
-            <button class="p-2 m-1 bg-blue-200 border-2 rounded-xl border-blue-300 text-blue-400 font-bold">my tag</button>
-            <button class="p-2 m-1 bg-orange-200 border-2 rounded-xl border-orange-300 text-orange-400 font-bold">my tag</button>
-            <button class="p-2 m-1 bg-purple-200 border-2 rounded-xl border-purple-300 text-purple-400 font-bold">my tag</button>
-            <button class="p-2 m-1 bg-slate-200 border-2 rounded-xl border-slate-300 text-slate-400 font-bold">my tag</button>
+        <div v-for="tag in tags">
+            <NuxtLink :to="'/tag/'+tag.name" class="p-2 m-1 bg-red-200 border-2 rounded-xl border-red-300 text-red-400 font-bold">{{ tag.name }}</NuxtLink>
         </div>
     </aside>
 </template>

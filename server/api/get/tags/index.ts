@@ -1,4 +1,3 @@
-// ???
 import { serverSupabaseUser } from "#supabase/server";
 import { PrismaClient } from "@prisma/client";
 
@@ -10,7 +9,7 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const data = await prisma.post.findMany({
+        const data = await prisma.tag.findMany({
         });
 
         return data;
