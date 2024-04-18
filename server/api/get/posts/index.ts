@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if (!user) {
         throw createError({ status: 401, message: "Unauthorized" });
     }
-
+    try {
         const data = await prisma.post.findMany({
             include: {
                 tags: true,
@@ -53,4 +53,7 @@ export default defineEventHandler(async (event) => {
             post = changedPost;
         }
         return data;
+    } catch (error: any) {
+        throw createError({ status: 500, message: error.message });
+    }
 });
