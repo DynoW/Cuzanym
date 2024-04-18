@@ -24,14 +24,14 @@ function formatDate(time: any) {
 
 <template>
     <div class="bg-white rounded-lg flex flex-col">
-        <div class="flex flex-row bg-neutral-100 rounded-lg font-bold text-neutral-500 items-center">
+        <div class="flex flex-row bg-neutral-100 rounded-t-lg font-bold text-neutral-500 items-center">
             <div class="basis-8/12 p-5 text-start">
                 Topic
             </div>
-            <div class="basis-2/12 p-5 text-center">
+            <div class="basis-1/12 p-5 text-center">
                 Postări
             </div>
-            <div class="basis-2/12 p-5 text-center">
+            <div class="basis-3/12 p-5 text-center">
                 Ultima activitate
             </div>
         </div>
@@ -41,10 +41,10 @@ function formatDate(time: any) {
                 <Icon name="icon-park-solid:topic" class="text-neutral-500" />
                 <h3 class="font-bold text-neutral-700">{{ topic.name }}</h3>
             </NuxtLink>
-            <div class="flex justify-center basis-2/12 p-5">
+            <div class="flex justify-center basis-1/12 p-5">
                 {{ topic.count }}
             </div>
-            <div class="flex justify-center basis-2/12 p-5">
+            <div class="flex justify-center basis-3/12 p-5">
                 {{ formatDate(topic.last) }}
             </div>
         </div>

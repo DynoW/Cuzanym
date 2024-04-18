@@ -5,8 +5,8 @@ const tag = useRoute().params.tag.toString();
 const { data } = await useFetch("/api/get/posts/tag/" + capitalize(tag), {
     headers: useRequestHeaders(['cookie'])
 });
-const posts = data.value;
 
+const posts = data.value;
 </script>
 
 <template>

@@ -1,5 +1,35 @@
 <script setup lang="ts">
-const posts = useAttrs().posts
+const posts: Array<{
+    tags: Array<{ name: string }>,
+    title: string, content: string,
+    votes: { up: number, down: number },
+    comments: any,
+    updatedAt: any
+}>  = useAttrs().posts as Array<{
+        tags: Array<{ name: string }>,
+        title: string, content: string,
+        votes: { up: number, down: number },
+        comments: any,
+        updatedAt: any
+    }>;
+
+function formatDate(time: any) {
+    const currentTime = new Date();
+    const lastTime = new Date(time);
+    const timeDiff = currentTime.getTime() - lastTime.getTime();
+    const minutes = Math.floor(timeDiff / (1000 * 60));
+    const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+    if (minutes < 60) {
+        return `acum ${minutes == 1 ? 'un' : minutes} minut${minutes == 1 ? '' : 'e'}`;
+    } else if (hours < 24) {
+        return `acum ${hours == 1 ? 'o' : hours} or${hours == 1 ? 'ă' : 'e'}`;
+    } else {
+        return `acum ${days == 1 ? 'o' : days} zi${days == 1 ? '' : 'le'}`;
+    }
+}
+
 </script>
 
 <template>
@@ -9,7 +39,11 @@ const posts = useAttrs().posts
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
                 <div class="flex flex-col ml-3">
                     <h2 class="text-neutral-700 text-xl font-bold">user</h2>
-                    <p class="font font-thin">tags</p>
+                    <p class="font-thin">tags:
+                        <span v-for="tag in post.tags" class="font-thin">
+                            <span>{{ tag.name }}</span>
+                        </span>
+                    </p>
                 </div>
             </div>
             <br />
@@ -24,19 +58,19 @@ const posts = useAttrs().posts
                 <div class="flex flex-row gap-8">
                     <div>
                         <Icon name="material-symbols:thumb-up" class="mr-2" />
-                        <span>{{ 2 }}</span>
+                        <span>{{ post.votes.up }}</span>
                     </div>
                     <div>
                         <Icon name="material-symbols:thumb-down" class="mr-2" />
-                        <span>{{ 1 }}</span>
+                        <span>{{ post.votes.down }}</span>
                     </div>
                     <div>
                         <Icon name="material-symbols:comment" class="mr-2" />
-                        <span>{{ 69 }}</span>
+                        <span>{{ post.comments.length }}</span>
                     </div>
                 </div>
                 <div>
-                    <span>acum 6 zile</span>
+                    <span>{{ formatDate(post.updatedAt) }}</span>
                 </div>
             </div>
         </div>

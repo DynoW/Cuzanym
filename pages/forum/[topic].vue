@@ -19,9 +19,7 @@ if (!topics?.some((t) => t.name.toLowerCase() === topic.toLowerCase())){
         </nav>
         <main class="main">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-12">
-                <!-- <Announcement>
-                    <span class="not-italic">Topic: </span>{{ capitalize(topic) }}
-                </Announcement> -->
+                <CreatePost />
                 <PostsByTopic />
             </div>
             <div class="basis-2/5 xl:basis-1/4">
