@@ -2,9 +2,7 @@
 const user = useSupabaseUser()
 const client = useSupabaseClient()
 
-import { PrismaClient } from "~/node_modules/@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "~/prisma/client";
 
 const data = await prisma.post.findMany({
     include: {
