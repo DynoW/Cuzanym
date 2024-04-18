@@ -1,6 +1,17 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
 const client = useSupabaseClient()
+
+import { prisma } from '~/prisma/db';
+
+const data = await prisma.post.findMany({
+    include: {
+        tags: true,
+        comments: true,
+    },
+});
+
+console.log(data);
 </script>
 
 <template>
