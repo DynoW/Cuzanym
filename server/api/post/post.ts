@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     //     throw createError({ status: 401, message: "Unauthorized" });
     // }
     try {
-        const { title, content, tags } = await readBody(event);
+        const { title, content, tags, user } = await readBody(event);
 
         const createPost = await prisma.post.create({
             data: {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const user = useSupabaseUser();
 const title = ref('');
 const content = ref('');
 const tags = ref('');
@@ -9,7 +10,8 @@ const createPost = async () => {
         body: {
             title: title.value,
             content: content.value,
-            tags: tags.value.split(' ')
+            tags: tags.value.split(' '),
+            user: user
         }
     })
     window.location.reload();
