@@ -2,8 +2,9 @@ import { serverSupabaseUser } from '#supabase/server'
 
 export default defineEventHandler(async (event) => {
     const user = await serverSupabaseUser(event)
-    if(!user) 
+    const user2 = await useSupabaseUser()
+    if(!user2) 
         return 'user not found'
     else 
-        return user
+        return user2
 })
