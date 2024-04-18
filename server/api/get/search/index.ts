@@ -5,10 +5,10 @@ import { capitalize } from "vue";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-    const user = await serverSupabaseUser(event);
-    if (!user) {
-        throw createError({ status: 401, message: "Unauthorized" });
-    }
+    // const user = await serverSupabaseUser(event);
+    // if (!user) {
+    //     throw createError({ status: 401, message: "Unauthorized" });
+    // }
     try {
         const query = getQuery(event).q;
         const data = await prisma.post.findMany({
