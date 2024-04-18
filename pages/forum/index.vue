@@ -1,6 +1,11 @@
 <script setup lang="ts">
-const user = useSupabaseUser()
 const client = useSupabaseClient()
+
+const { data } = await useFetch('/api/me', {
+    headers: useRequestHeaders(['cookie'])
+})
+
+console.log(data)
 </script>
 
 <template>
