@@ -2,7 +2,7 @@
 const user = useSupabaseUser()
 const client = useSupabaseClient()
 
-import { PrismaClient } from "@prisma/client/edge";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
