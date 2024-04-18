@@ -11,7 +11,7 @@ const client = useSupabaseClient()
         <main class="main">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-12">
                 <Announcement>
-                    Bun venit, pe forum!
+                    Bun venit, pe forum! {{ user?.email }}
                 </Announcement>
                 <Topics />
             </div>
