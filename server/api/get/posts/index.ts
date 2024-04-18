@@ -1,11 +1,8 @@
 import { serverSupabaseUser } from "#supabase/server";
-import {prisma} from "~/prisma/client";
+import { prisma } from "~/prisma/client";
 
 export default defineEventHandler(async (event) => {
     const user = await serverSupabaseUser(event);
-    if (!user) {
-        throw createError({ status: 401, message: "Unauthorized" });
-    }
     try {
         const data = await prisma.post.findMany({
             include: {
