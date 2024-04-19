@@ -13,8 +13,9 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     "@nuxt/image",
+    //  '@nuxtjs/color-mode',  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
     'nuxt-icon',
-//  '@nuxtjs/color-mode',  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
+    "nuxt-vercel-analytics"
   ],
   css: ['@/assets/css/main.css'],
   supabase: {
