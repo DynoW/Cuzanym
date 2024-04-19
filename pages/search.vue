@@ -12,7 +12,7 @@
             <Hierarchy />
         </nav>
         <main class="main">
-            <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-12">
+            <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
                 <Announcement>
                     Search results for: <span class="not-italic">{{ searchString }}</span>
                 </Announcement>

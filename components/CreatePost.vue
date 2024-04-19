@@ -24,7 +24,10 @@ const createPost = async () => {
 <template>
     <div class="bg-white rounded-xl">
         <div v-if="createMenu" class="flex flex-col p-5 gap-4">
-            <h1 class="text-2xl font-bold">Create a post</h1>
+            <div class="flex flex-row justify-between px-1">
+                <h1 class="text-2xl font-bold">Create a post</h1>
+                <Icon name="material-symbols:close" @click="createMenu=!createMenu" class="cursor-pointer" />
+            </div>
             <div class="flex flex-col gap-3">
                 <input v-model="title" type="text" placeholder="Title"
                     class="border-2 border-neutral-300 p-2 rounded-lg" />
@@ -37,7 +40,7 @@ const createPost = async () => {
         </div>
         <div v-else class="flex flex-col p-5 gap-4">
             <button @click=" createMenu=!createMenu" class="bg-sky-600 text-white p-2 rounded-lg">Create a
-            post</button>
+                post</button>
         </div>
     </div>
 </template>

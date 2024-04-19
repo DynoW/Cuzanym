@@ -18,12 +18,11 @@ export default defineNuxtConfig({
   ],
   css: ['@/assets/css/main.css'],
   supabase: {
-    redirect: false,
-    // redirectOptions: {
-    //   login: '/',
-    //   callback: '/confirm',
-    //   exclude: ['/policy', '/terms', '/confirm'],
-    // }
+    redirectOptions: {
+      login: '/',
+      callback: '/confirm',
+      exclude: ['/policy', '/terms', '/confirm'],
+    }
   },
   app: {
     head: {
