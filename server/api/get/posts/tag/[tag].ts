@@ -1,14 +1,13 @@
 import { serverSupabaseUser } from "#supabase/server";
-import { prisma } from "~/prisma/client";
-// import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
-// const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-    // const user = await serverSupabaseUser(event);
-    // if (!user) {
-    //     throw createError({ status: 401, message: "Unauthorized" });
-    // }
+    const user = await serverSupabaseUser(event);
+    if (!user) {
+        throw createError({ status: 401, message: "Unauthorized" });
+    }
     try {
         const tag = getRouterParam(event, "tag");
         const data = await prisma.post.findMany({
@@ -41,14 +40,7 @@ export default defineEventHandler(async (event) => {
                 tags: any;
                 votes?: any;
                 comments: any;
-                // comm?: any[];
             };
-
-            // changedPost.comm = await prisma.comment.findMany({
-            //     where: {
-            //         postId: post.id,
-            //     }
-            // });
 
             changedPost.votes = {
                 up: await prisma.vote.count({
