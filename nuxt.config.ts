@@ -15,7 +15,6 @@ export default defineNuxtConfig({
     "@nuxt/image",
     //  '@nuxtjs/color-mode',  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
     'nuxt-icon',
-    "nuxt-vercel-analytics"
   ],
   css: ['@/assets/css/main.css'],
   supabase: {
