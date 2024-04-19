@@ -25,11 +25,10 @@ export default defineEventHandler(async (event) => {
                     },
                 },
                 tags: {
-                    create: [
-                        ...tags.map((tag: string) => ({
-                            name: tag,
-                        })),
-                    ],
+                    connectOrCreate: tags.map((tag: string) => ({
+                        where: { name: tag },
+                        create: { name: tag },
+                    })),
                 },
             },
         });

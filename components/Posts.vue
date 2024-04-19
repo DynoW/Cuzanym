@@ -29,7 +29,6 @@ function formatDate(time: any) {
         return `acum ${days == 1 ? 'o' : days} zi${days == 1 ? '' : 'le'}`;
     }
 }
-
 </script>
 
 <template>
@@ -38,7 +37,10 @@ function formatDate(time: any) {
             <div class="flex flex-row">
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
                 <div class="flex flex-col ml-3">
-                    <h2 class="text-neutral-700 text-xl font-bold">user</h2>
+                    <h2 class="text-neutral-700 text-xl font-bold">
+                        <small v-if="post.authoId">{{ post.authorId.name }}</small>
+                        <small v-else>Unknown author</small>
+                    </h2>
                     <p class="font-thin">tags:
                         <span v-for="tag in post.tags" class="font-thin">
                             <span>{{ tag.name }}</span>

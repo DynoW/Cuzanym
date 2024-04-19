@@ -16,7 +16,8 @@ async function search() {
                 <div class="flex flex-row gap-8">
                     <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
                     <NuxtLink to="/" class="text-lg text-shadow">Evenimente</NuxtLink>
-                    <NuxtLink to="/" class="text-lg text-shadow">Raportari</NuxtLink>
+                    <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
+                    <!-- <NuxtLink to="/" class="text-lg text-shadow">Cheat sheets</NuxtLink> -->
                     <NuxtLink to="/" class="text-lg text-shadow">Politici</NuxtLink>
                 </div>
             </div>
