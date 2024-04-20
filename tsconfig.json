@@ -1,5 +1,10 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "exclude": ["tailwind.config.js"]
+  "includes": [
+    "types/*.d.ts"
+  ],
+  "exclude": [
+    "tailwind.config.js"
+  ],
 }

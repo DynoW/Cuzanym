@@ -15,6 +15,11 @@ export default defineNuxtConfig({
     "@nuxt/image",
     'nuxt-icon',
   ],
+  colorMode: {
+    classSuffix: '',
+    preference: 'light',
+    fallback: 'light'
+  },
   // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
   css: ['@/assets/css/main.css'],
   supabase: {

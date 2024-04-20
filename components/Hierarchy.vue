@@ -10,7 +10,8 @@ const links = parts.map((part, index) => ({
 </script>
 
 <template>
-    <div class="flex justify-center w-full bg-neutral-100 text-neutral-400">
+    <div
+        class="flex justify-center w-full bg-neutral-100 text-neutral-400 dark:bg-slate-950 dark:dark:text-neutral-100">
         <ul class="container flex flex-row p-2 gap-3">
             <li v-for="link in links" :key="link.name">
                 <NuxtLink :to="link.path">{{ link.name }}</NuxtLink>

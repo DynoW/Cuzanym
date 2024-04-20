@@ -1,14 +1,5 @@
 <script setup lang="ts">
-const posts = useAttrs().posts as Post[]
-
-interface Post {
-    id: string;
-    title: string;
-    content: string;
-    author: {id: string, name?: string};
-    tags: [ {name?: string} ];
-    updatedAt: string;
-}
+const posts = useAttrs().posts as Post[];
 
 function formatDate(time: any) {
     const currentTime = new Date();
@@ -30,17 +21,18 @@ function formatDate(time: any) {
 
 <template>
     <div class="flex flex-col gap-4">
-        <div v-for="post in posts" class="flex flex-col p-5 border-b-2 border-neutral-300 bg-white rounded-xl">
+        <div v-for="post in posts"
+            class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
             <div class="flex flex-row">
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
                 <div class="flex flex-col ml-3">
-                    <h2 class="text-neutral-700 text-xl font-bold">
-                        <small v-if="post.author.name">{{ post.author.name }}</small>
-                        <small v-else>Unknown author</small>
+                    <h2 class="text-neutral-700 text-xl font-bold dark:text-gray-400">
+                        <span v-if="post.author.name">{{ post.author.name }}</span>
+                        <span v-else>Utilizator anonim</span>
                     </h2>
                     <p class="font-thin">tags:
                         <span v-for="tag in post.tags" class="font-thin">
-                            <span>{{ tag.name }}</span>
+                            {{ tag.name }}{{ tag !== post.tags[post.tags.length - 1] ? ', ' : '' }}
                         </span>
                     </p>
                 </div>
@@ -48,7 +40,7 @@ function formatDate(time: any) {
             <br />
             <div class="flex flex-col gap-3">
                 <h3 class="text-xl font-bold">{{ post.title }}</h3>
-                <p class="">
+                <p class="font-bo">
                     {{ post.content }}
                 </p>
             </div>

@@ -7,39 +7,44 @@ const tags = ref('');
 let createMenu = ref(false);
 
 const createPost = async () => {
-    const data = await useFetch('/api/post/post', {
+    const { status } = await useFetch('/api/post/post', {
         method: 'post',
         body: {
             title: title.value,
             content: content.value,
-            tags: tags.value.split(' '),
+            tags: tags.value.split(',').map(tag => tag.trim()),
             user: user
         }
     })
-    window.location.reload();
+    if (status.value === 'success') {
+        window.location.reload();
+    } else {
+        alert('Failed to create post');
+    }
 }
 
 </script>
 
 <template>
-    <div class="bg-white rounded-xl">
+    <div class="rounded-xl bg-white dark:bg-slate-800">
         <div v-if="createMenu" class="flex flex-col p-5 gap-4">
             <div class="flex flex-row justify-between px-1">
                 <h1 class="text-2xl font-bold">Create a post</h1>
                 <Icon name="material-symbols:close" @click="createMenu=!createMenu" class="cursor-pointer" />
             </div>
-            <div class="flex flex-col gap-3">
-                <input v-model="title" type="text" placeholder="Title"
-                    class="border-2 border-neutral-300 p-2 rounded-lg" />
-                <textarea v-model="content" placeholder="Content"
-                    class="h-32 border-2 border-neutral-300 p-2 rounded-lg"></textarea>
-                <input v-model="tags" type="text" placeholder="Tags"
-                    class="border-2 border-neutral-300 p-2 rounded-lg" />
-                <button @click="createPost" class="bg-sky-600 text-white p-2 rounded-lg">Post</button>
+            <div class="flex flex-col gap-3 dark:text-neutral-100">
+                <input v-model="title" type="text" placeholder="Titlu"
+                    class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
+                <textarea v-model="content" placeholder="Conținut"
+                    class="h-32 border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0"></textarea>
+                <input v-model="tags" type="text" placeholder="Tag-uri separate de ,"
+                    class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
+                <button @click="createPost" class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Post</button>
             </div>
         </div>
         <div v-else class="flex flex-col p-5 gap-4">
-            <button @click=" createMenu=!createMenu" class="bg-sky-600 text-white p-2 rounded-lg">Create a
+            <button @click=" createMenu=!createMenu"
+                class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Create a
                 post</button>
         </div>
     </div>

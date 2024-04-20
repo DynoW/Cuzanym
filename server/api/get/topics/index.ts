@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
             },
         });
         for (let topic of data) {
-            const changedTopic = topic as { id: string; name: string; count?: number; last?: Date };
+            const changedTopic = topic as unknown as Topic;
             changedTopic.count = await prisma.post.count({
                 where: {
                     subredditId: topic.id

@@ -2,7 +2,7 @@
 const { data } = await useFetch("/api/get/topics", {
     headers: useRequestHeaders(['cookie'])
 });
-const topics = data.value;
+const topics = data.value as Topic[];
 
 function formatDate(time: any) {
     const currentTime = new Date();
@@ -23,8 +23,9 @@ function formatDate(time: any) {
 </script>
 
 <template>
-    <div class="bg-white rounded-lg flex flex-col">
-        <div class="flex flex-row bg-neutral-100 rounded-t-lg font-bold text-neutral-500 items-center">
+    <div class="bg-white rounded-lg flex flex-col dark:bg-slate-800">
+        <div
+            class="flex flex-row rounded-t-lg font-bold items-center bg-neutral-100 text-neutral-500 dark:bg-slate-950 dark:text-neutral-100">
             <div class="basis-8/12 p-5 text-start">
                 Topic
             </div>
@@ -39,7 +40,7 @@ function formatDate(time: any) {
         <div v-for="topic in topics" :key="topic.id" class="flex flex-row">
             <NuxtLink :to="'/forum/' + topic.name.toLowerCase()" class="flex flex-row gap-6 basis-8/12 p-5">
                 <Icon name="icon-park-solid:topic" class="text-neutral-500" />
-                <h3 class="font-bold text-neutral-700">{{ topic.name }}</h3>
+                <h3 class="font-bold">{{ topic.name }}</h3>
             </NuxtLink>
             <div class="flex justify-center basis-1/12 p-5">
                 {{ topic.count }}
