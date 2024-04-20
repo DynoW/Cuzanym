@@ -10,11 +10,12 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
+    "@nuxt/content",
     "@nuxt/image",
-    //  '@nuxtjs/color-mode',  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
     'nuxt-icon',
-    "@nuxt/content"
   ],
+  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
   css: ['@/assets/css/main.css'],
   supabase: {
     redirectOptions: {

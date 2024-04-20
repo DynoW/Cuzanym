@@ -1,5 +1,5 @@
 <template>
     <NuxtLayout name="home">
-        <ContentDoc />
+        <ContentDoc class="container" />
     </NuxtLayout>
 </template>

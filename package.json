@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/content": "^2.12.1",
     "@nuxt/image": "^1.5.0",
+    "@nuxtjs/color-mode": "^3.4.0",
     "@prisma/client": "^5.12.1",
     "@supabase/gotrue-js": "^2.62.2",
     "@vercel/analytics": "^1.2.2",
