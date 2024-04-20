@@ -9,14 +9,15 @@ async function search() {
 </script>
 
 <template>
-    <nav class="bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-white">
+    <nav class="bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-white dark:from-blue-900 dark:to-slate-900 dark:text-neutral-100">
         <div class="lg:container mx-auto px-3 lg:px-0">
             <div class="flex justify-between items-center h-14">
                 <div class="flex items-center gap-6 lg:gap-12 2xl:gap-32">
-                    <Logo class="text-3xl" />
-                    <div class="hidden md:flex items-center gap-6">
+                    <Logo class="text-3xl text-shadow" />
+                    <div class="hidden lg:flex items-center gap-6 text-center">
                         <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
                         <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
+                        <NuxtLink to="/policy" class="text-lg text-shadow">Top profesori</NuxtLink>
                         <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
                         <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
                     </div>
@@ -29,10 +30,10 @@ async function search() {
                             class="max-w-32 sm:max-w-48 md:w-full bg-gray-200 focus:outline-none" />
                     </div>
                 </div>
-                <SmallMenu class="hidden md:flex" />
+                <SmallMenu class="hidden lg:flex" />
 
-                <div class="md:hidden flex items-center">
-                    <button @click="isOpen = !isOpen" class="md:hidden">
+                <div class="lg:hidden flex items-center">
+                    <button @click="isOpen = !isOpen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
@@ -42,13 +43,14 @@ async function search() {
             </div>
         </div>
 
-        <div class="md:hidden" :class="isOpen ? 'block' : 'hidden'">
+        <div class="lg:hidden" :class="isOpen ? 'block' : 'hidden'">
             <div class="flex flex-col items-end px-4 pb-2">
                 <SmallMenu class="mb-2" />
                 <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
-                <NuxtLink to="/" class="text-lg text-shadow">Evenimente</NuxtLink>
+                <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
+                <NuxtLink to="/policy" class="text-lg text-shadow">Top profesori</NuxtLink>
                 <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
-                <NuxtLink to="/" class="text-lg text-shadow">Politici</NuxtLink>
+                <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
             </div>
         </div>
     </nav>
