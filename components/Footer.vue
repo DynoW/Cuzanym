@@ -31,7 +31,7 @@
                             <NuxtLink to="/policy" class="">Politica de confidențialitate</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/forum/raportări" class="">Sesisează-ne o problemă</NuxtLink>
+                            <NuxtLink to="/forum/raportări" class="">Sesizează-ne o problemă</NuxtLink>
                         </li>
                     </ul>
                 </div>

@@ -1,8 +1,8 @@
 <template>
     <div class="text-center font-bold font-boldini -mt-4 select-none">
-        <h1>
+        <NuxtLink to="/">
             <span class="text-blue-500">CUZA</span>
             <span class="text-slate-600">NYM</span>
-        </h1>
+        </NuxtLink>
     </div>
 </template>

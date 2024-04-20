@@ -17,8 +17,8 @@ export default defineNuxtConfig({
   ],
   colorMode: {
     classSuffix: '',
-    preference: 'light',
-    fallback: 'light'
+    preference: 'system',
+    fallback: 'system'
   },
   // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
   css: ['@/assets/css/main.css'],
