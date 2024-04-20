@@ -1,17 +1,14 @@
 <script setup lang="ts">
-const posts: Array<{
-    tags: Array<{ name: string }>,
-    title: string, content: string,
-    votes: { up: number, down: number },
-    comments: any,
-    updatedAt: any
-}>  = useAttrs().posts as Array<{
-        tags: Array<{ name: string }>,
-        title: string, content: string,
-        votes: { up: number, down: number },
-        comments: any,
-        updatedAt: any
-    }>;
+const posts = useAttrs().posts as Post[]
+
+interface Post {
+    id: string;
+    title: string;
+    content: string;
+    authorId: string;
+    tags: [ {name: string} ];
+    updatedAt: string;
+}
 
 function formatDate(time: any) {
     const currentTime = new Date();
@@ -38,7 +35,7 @@ function formatDate(time: any) {
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
                 <div class="flex flex-col ml-3">
                     <h2 class="text-neutral-700 text-xl font-bold">
-                        <small v-if="post.authoId">{{ post.authorId.name }}</small>
+                        <small v-if="post.authorId">{{ post.authorId }}</small>
                         <small v-else>Unknown author</small>
                     </h2>
                     <p class="font-thin">tags:
@@ -60,15 +57,15 @@ function formatDate(time: any) {
                 <div class="flex flex-row gap-8">
                     <div>
                         <Icon name="material-symbols:thumb-up" class="mr-2" />
-                        <span>{{ post.votes.up }}</span>
+                        <span>{{ 0 }}</span>
                     </div>
                     <div>
                         <Icon name="material-symbols:thumb-down" class="mr-2" />
-                        <span>{{ post.votes.down }}</span>
+                        <span>{{ 0 }}</span>
                     </div>
                     <div>
                         <Icon name="material-symbols:comment" class="mr-2" />
-                        <span>{{ post.comments.length }}</span>
+                        <span>{{ 0 }}</span>
                     </div>
                 </div>
                 <div>
