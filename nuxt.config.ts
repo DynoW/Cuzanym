@@ -7,6 +7,9 @@ export default defineNuxtConfig({
     }
   },
   devtools: { enabled: false },
+  routeRules: {
+    '/survey': { redirect: 'https://docs.google.com/forms/d/e/1FAIpQLSef26aRdhF3lF7ZPSDSh37VadOF8WTFTuetCS0RsbzEUtLnSg/viewform?usp=sf_link' },
+  },
   modules: [
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
