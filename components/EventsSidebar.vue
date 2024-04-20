@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const getRandomItems = (arr: any[], n: number) => {
     let result = arr.sort(() => 0.5 - Math.random());
-    return result.slice(0, n);
+    return result.slice(0, n).sort((a, b) => a.title.localeCompare(b.title));;
 };
 
 </script>
