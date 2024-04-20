@@ -14,7 +14,7 @@
                 </Announcement>
                 <Topics />
             </div>
-            <div class="basis-2/5 xl:basis-1/4">
+            <div class="basis-2/5 xl:basis-1/4 px-4">
                 <EventsSidebar />
             </div>
         </main>

@@ -19,44 +19,18 @@ export default defineEventHandler(async (event) => {
                 },
             },
             include: {
-                comments: true,
+                tags: true,
+                author: {
+                    select: {
+                        id: true,
+                        username: true,
+                    },
+                },
             },
             orderBy: {
                 updatedAt: "desc",
             },
         });
-
-        for (let post of data) {
-            const changedPost = post as {
-                id: string;
-                title: string;
-                content: string;
-                createdAt: Date;
-                updatedAt: Date;
-                authorId: string;
-                subredditId: string;
-                tags: any;
-                votes?: any;
-                comments: any;
-            };
-
-            changedPost.votes = {
-                up: await prisma.vote.count({
-                    where: {
-                        postId: post.id,
-                        type: "UP",
-                    }
-                }),
-                down: await prisma.vote.count({
-                    where: {
-                        postId: post.id,
-                        type: "DOWN",
-                    }
-                })
-            };
-            post = changedPost;
-        }
-
         return data;
     } catch (error: any) {
         throw createError({ status: 500, message: error.message });

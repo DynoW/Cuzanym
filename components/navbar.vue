@@ -12,13 +12,13 @@ async function search() {
     <nav class="bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-white">
         <div class="lg:container mx-auto px-3 lg:px-0">
             <div class="flex justify-between items-center h-14">
-                <div class="flex items-center gap-6 lg:gap-12">
+                <div class="flex items-center gap-6 lg:gap-12 2xl:gap-32">
                     <Logo class="text-3xl" />
                     <div class="hidden md:flex items-center gap-6">
                         <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
-                        <NuxtLink to="/" class="text-lg text-shadow">Evenimente</NuxtLink>
+                        <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
                         <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
-                        <NuxtLink to="/" class="text-lg text-shadow">Politici</NuxtLink>
+                        <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
                     </div>
                 </div>
                 <div>

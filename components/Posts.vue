@@ -5,8 +5,8 @@ interface Post {
     id: string;
     title: string;
     content: string;
-    authorId: string;
-    tags: [ {name: string} ];
+    author: {id: string, name?: string};
+    tags: [ {name?: string} ];
     updatedAt: string;
 }
 
@@ -35,7 +35,7 @@ function formatDate(time: any) {
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
                 <div class="flex flex-col ml-3">
                     <h2 class="text-neutral-700 text-xl font-bold">
-                        <small v-if="post.authorId">{{ post.authorId }}</small>
+                        <small v-if="post.author.name">{{ post.author.name }}</small>
                         <small v-else>Unknown author</small>
                     </h2>
                     <p class="font-thin">tags:

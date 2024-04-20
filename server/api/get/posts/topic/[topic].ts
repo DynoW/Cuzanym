@@ -18,6 +18,12 @@ export default defineEventHandler(async (event) => {
             },
             include: {
                 tags: true,
+                author: {
+                    select: {
+                        id: true,
+                        username: true,
+                    },
+                },
             },
             orderBy: {
                 updatedAt: "desc",

@@ -25,10 +25,10 @@
                     <h2 class="text-xl mb-3 font-montserrat-semibold">Ținem Legătura</h2>
                     <ul class="flex flex-col gap-1">
                         <li>
-                            <NuxtLink to="" class="">Termeni si Condiții</NuxtLink>
+                            <NuxtLink to="/terms" class="">Termeni si Condiții</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="" class="">Politica de confidențialitate</NuxtLink>
+                            <NuxtLink to="/policy" class="">Politica de confidențialitate</NuxtLink>
                         </li>
                         <li>
                             <NuxtLink to="/forum/raportări" class="">Sesisează-ne o problemă</NuxtLink>
