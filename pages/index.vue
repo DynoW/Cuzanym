@@ -10,7 +10,7 @@ watchEffect(() => {
 
 const handleLogin = async () => {
   try {
-    const { error } = await auth.signInWithOAuth({ provider: 'google' })
+    const { error } = await auth.signInWithOAuth({ provider: 'google', options: { redirectTo: 'http://localhost:3000/confirm/' }})
     if (error) throw error
   } catch (error) {
     alert((error as any).error_description || (error as any).message)
