@@ -3,7 +3,7 @@
     const { data } = await useFetch(`/api/get/search?q=${searchString}`, {
         headers: useRequestHeaders(['cookie'])
     });
-    const posts = data.value as Post[];
+    const posts = data.value as unknown as Post[];
 </script>
 
 <template>
