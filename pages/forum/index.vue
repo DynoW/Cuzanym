@@ -7,7 +7,7 @@
         <nav>
             <Hierarchy />
         </nav>
-        <main class="main">
+        <main class="main flex-col">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
                 <Announcement>
                     Bun venit, pe forum!
