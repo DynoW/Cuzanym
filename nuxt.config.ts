@@ -2,9 +2,6 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   nitro: {
-    routeRules: {
-      '/auth/v1/callback': { proxy: 'https://nlcgmuwupgqpxcurbmbi.supabase.co/auth/v1/callback' },
-    },
     prerender: {
       autoSubfolderIndex: false
     }
@@ -23,7 +20,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '/',
       callback: '/confirm',
-      exclude: ['/policy', '/terms', '/confirm', '/auth/v1/callback', '/api/callback'],
+      exclude: ['/policy', '/terms', '/confirm'],
     }
   },
   app: {
