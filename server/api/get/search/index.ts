@@ -64,9 +64,10 @@ export default defineEventHandler(async (event) => {
             },
             include: {
                 tags: true,
+                votes: true,
+                comments: true,
                 author: {
                     select: {
-                        id: true,
                         username: true,
                     },
                 },

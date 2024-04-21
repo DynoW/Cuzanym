@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const user = useSupabaseUser();
 const posts = useAttrs().posts as Post[];
 
 function formatDate(time: any) {
@@ -17,6 +18,29 @@ function formatDate(time: any) {
         return `acum ${hours == 1 ? 'o' : hours} or${hours == 1 ? 'ă' : 'e'}`;
     } else {
         return `acum ${days == 1 ? 'o' : days} zi${days == 1 ? '' : 'le'}`;
+    }
+}
+
+async function reactToPost(post: Post, type: string) {
+    const { reaction, action } = await $fetch('/api/post/reaction', {
+        method: 'post',
+        headers: useRequestHeaders(['cookie']),
+        body: {
+            postId: post.id,
+            type
+        }
+    })
+    if (action == 'deleted') {
+        post.votes = post.votes.filter(vote => vote.userId !== user.value?.id);
+    } else if (action == 'created') {
+        post.votes.push(reaction as unknown as Vote);
+    } else if (action == 'updated') {
+        post.votes = post.votes.map(vote => {
+            if (vote.userId === user.value?.id) {
+                vote.type = type as unknown as VoteType;
+            }
+            return vote;
+        });
     }
 }
 </script>
@@ -50,16 +74,20 @@ function formatDate(time: any) {
             <div class="flex flex-row justify-between text-gray-500">
                 <div class="flex flex-row gap-8">
                     <div>
-                        <Icon name="material-symbols:thumb-up" class="mr-2" />
-                        <span>{{ 0 }}</span>
+                        <button @click="reactToPost(post, 'UP')">
+                            <Icon name="material-symbols:thumb-up" class="mr-2" />
+                        </button>
+                        <span>{{ post.votes.filter(vote => String(vote.type) === 'UP').length }}</span>
                     </div>
                     <div>
-                        <Icon name="material-symbols:thumb-down" class="mr-2" />
-                        <span>{{ 0 }}</span>
+                        <button @click="reactToPost(post, 'DOWN')">
+                            <Icon name="material-symbols:thumb-down" class="mr-2" />
+                        </button>
+                        <span>{{ post.votes.filter(vote => String(vote.type) === 'DOWN').length }}</span>
                     </div>
                     <div>
-                        <Icon name="material-symbols:comment" class="mr-2" />
-                        <span>{{ 0 }}</span>
+                        <Icon name="material-symbols:comment" class="mr-2" @click="" />
+                        <span>{{ post.comments.length }}</span>
                     </div>
                 </div>
                 <div>

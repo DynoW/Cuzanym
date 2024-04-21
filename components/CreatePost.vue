@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-const user = useSupabaseUser();
 const title = ref('');
 const content = ref('');
 const tags = ref('');
@@ -9,11 +8,11 @@ let createMenu = ref(false);
 const createPost = async () => {
     const { status } = await useFetch('/api/post/post', {
         method: 'post',
+        headers: useRequestHeaders(['cookie']),
         body: {
             title: title.value,
             content: content.value,
             tags: tags.value.split(',').map(tag => tag.trim()),
-            user: user
         }
     })
     if (status.value === 'success') {

@@ -325,7 +325,7 @@ model Tag {
 model Post {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title       String
-  content     String?
+  content     String    @default("")
   createdAt   DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
   updatedAt   DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
   authorId    String    @db.Uuid
@@ -340,18 +340,17 @@ model Post {
 }
 
 model Comment {
-  id        String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  text      String
-  createdAt DateTime      @default(now()) @db.Timestamptz(6)
-  authorId  String        @db.Uuid
-  postId    String        @db.Uuid
-  replyToId String?       @db.Uuid
-  commentId String?
-  author    user          @relation(fields: [authorId], references: [id])
-  post      Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
-  replyTo   Comment?      @relation("ReplyTo", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  replies   Comment[]     @relation("ReplyTo")
-  votes     CommentVote[]
+  id            String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  content       String
+  createdAt     DateTime      @default(now()) @db.Timestamptz(6)
+  authorId      String        @db.Uuid
+  postId        String        @db.Uuid
+  commentId     String?       @db.Uuid
+  author        user          @relation(fields: [authorId], references: [id])
+  post          Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  Comment       Comment?      @relation("CommentToComment", fields: [commentId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "public_Comment_commentId_fkey")
+  other_Comment Comment[]     @relation("CommentToComment")
+  votes         CommentVote[]
 
   @@schema("public")
 }

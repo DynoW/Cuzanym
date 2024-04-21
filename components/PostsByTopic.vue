@@ -2,13 +2,14 @@
 import { capitalize } from 'vue';
 const topic = useRoute().params.topic.toString();
 
-const { data } = await useFetch("/api/get/posts/topic/" + capitalize(topic), {
+const { pending, data: posts } = useFetch("/api/get/posts/topic/" + capitalize(topic), {
     headers: useRequestHeaders(['cookie'])
 });
-
-const posts = data.value;
 </script>
 
 <template>
-    <Posts :posts="posts" />
+    <div v-if="pending" class="loading-screen">
+        <p>Loading...</p>
+    </div>
+    <Posts v-else :posts="posts" />
 </template>

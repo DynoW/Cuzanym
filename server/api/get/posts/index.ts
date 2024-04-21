@@ -10,7 +10,13 @@ export default defineEventHandler(async (event) => {
         const data = await prisma.post.findMany({
             include: {
                 tags: true,
+                votes: true,
                 comments: true,
+                author: {
+                    select: {
+                        username: true,
+                    },
+                },
             },
         });
         // for (let post of data) {
