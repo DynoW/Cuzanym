@@ -15,11 +15,11 @@ watchEffect(() => {
   }
 })
 
-async function handleSignInWithGoogle(response) {
+async function handleSignInWithGoogle(response: any) {
   const { data, error } = await auth.signInWithIdToken({
     provider: 'google',
     token: response.credential,
-    nonce: 'NONCE', // must be the same one as provided in data-nonce (if any)
+    nonce: '',
   })
   console.log(data, error)
 }
@@ -32,13 +32,14 @@ async function handleSignInWithGoogle(response) {
       class="bg-neutral-100 p-5 lg:p-0 rounded-lg lg:rounded-none lg:h-full flex flex-col items-center justify-center absolute lg:static max-w-sm lg:max-w-full gap-5">
       <Logo class="text-7xl" />
       <div>
-        <script src="https://accounts.google.com/gsi/client" async></script>
+        <component :is="'script'" src="https://accounts.google.com/gsi/client" async></component>
         <div id="g_id_onload" data-client_id="642198305698-1t92r9k3u12lf3jl5naoeovudj6s5gn0.apps.googleusercontent.com"
-          data-context="signin" data-ux_mode="popup" data-callback="handleSignInWithGoogle" data-nonce=""
-          data-auto_select="true" data-itp_support="true"></div>
+          data-context="signin" data-ux_mode="popup" data-callback="handleSignInWithGoogle" data-auto_prompt="false">
+        </div>
 
         <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
-          data-size="large" data-logo_alignment="left"></div>
+          data-size="large" data-logo_alignment="left">
+        </div>
       </div>
       <div v-if="wrongDomain" class="flex justify-center">
         <p class="text-md text-red-500 text-center w-4/5">
