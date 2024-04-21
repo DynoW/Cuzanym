@@ -8,9 +8,10 @@ watchEffect(() => {
   if (user.value) {
     if (user.value.email?.endsWith('@laicuza.ro'))
       navigateTo('/forum')
-    else
+    else {
       auth.signOut()
       wrongDomain.value = true
+    }
   }
 })
 
