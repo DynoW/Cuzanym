@@ -11,9 +11,9 @@ const getRandomItems = (arr: any[], n: number) => {
         <h2 class="side-menu-title">Events</h2>
         <div class="flex flex-col gap-4">
             <ContentList path="/events" v-slot="{ list }">
-                <div v-for="article in getRandomItems(list, 2)" :key="article._path">
-                    <NuxtLink :to="article._path" class="text-lg font-semibold">
-                        <NuxtImg :src="article.image" :alt="article.title" />
+                <div v-for="event in getRandomItems(list, 2)" :key="event._path">
+                    <NuxtLink :to="'/events#'+event.titlu" class="text-lg font-semibold">
+                        <NuxtImg :src="event.imagine" :alt="event.titlu" />
                     </NuxtLink>
                 </div>
             </ContentList>

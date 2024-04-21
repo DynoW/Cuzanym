@@ -41,4 +41,23 @@ declare global {
         count: number;
         last: date | undefined;
     }
+
+    interface Subreddit {
+        id: string;
+        name: string;
+        description: string;
+        topics: Topic[];
+        posts: Post[];
+    }
+
+    // interface Event {
+    //     _path: string;
+    //     titlu: string;
+    //     descriere: string;
+    //     data: string;
+    //     ora: string;
+    //     locatie: string;
+    //     organizatori: [ { nume: string }];
+    //     imagine: string;
+    // }
 }
