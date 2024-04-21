@@ -9,15 +9,16 @@ async function search() {
 </script>
 
 <template>
-    <nav class="bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-white dark:from-blue-900 dark:to-slate-900 dark:text-neutral-100">
+    <nav
+        class="bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-white dark:from-blue-900 dark:to-slate-900 dark:text-neutral-100">
         <div class="lg:container mx-auto px-3 lg:px-0">
             <div class="flex justify-between items-center h-14">
                 <div class="flex items-center gap-6 lg:gap-12 2xl:gap-32">
                     <Logo class="text-3xl text-shadow" />
                     <div class="hidden lg:flex items-center gap-6 text-center">
                         <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
-                        <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
-                        <NuxtLink to="/top" class="text-lg text-shadow">Top profesori</NuxtLink>
+                        <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Evenimente</NuxtLink>
+                        <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Top profesori</NuxtLink>
                         <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
                         <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
                     </div>
@@ -47,8 +48,8 @@ async function search() {
             <div class="flex flex-col items-end px-4 pb-2">
                 <SmallMenu class="mb-2" />
                 <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
-                <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
-                <NuxtLink to="/top" class="text-lg text-shadow">Top profesori</NuxtLink>
+                <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Evenimente</NuxtLink>
+                <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Top profesori</NuxtLink>
                 <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
                 <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
             </div>

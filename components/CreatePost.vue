@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+const topic = useAttrs().topic;
 const title = ref('');
 const content = ref('');
 const tags = ref('');
@@ -13,6 +14,7 @@ const createPost = async () => {
             title: title.value,
             content: content.value,
             tags: tags.value.split(',').map(tag => tag.trim()),
+            topic
         }
     })
     if (status.value === 'success') {

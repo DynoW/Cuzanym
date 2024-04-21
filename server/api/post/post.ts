@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const { title, content, tags } = await readBody(event);
+        const { title, content, tags, topic } = await readBody(event);
 
         const createPost = await prisma.post.create({
             data: {
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
                 },
                 subreddit: {
                     connect: {
-                        name: 'Diverse',
+                        name: topic
                     },
                 },
                 tags: {

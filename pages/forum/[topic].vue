@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { capitalize } from 'vue';
-const topic = useRoute().params.topic.toString();
+const topic = capitalize(useRoute().params.topic.toString());
 
 const { data } = await useFetch("/api/get/topics", {
     headers: useRequestHeaders(['cookie'])
@@ -19,12 +19,12 @@ if (!topics?.some((t) => t.name.toLowerCase() === topic.toLowerCase())){
         </nav>
         <main class="main">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
-                <CreatePost />
+                <CreatePost :topic="topic" />
                 <PostsByTopic />
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Announcement>
-                    <span class="not-italic">Topic: </span>{{ capitalize(topic) }}
+                    <span class="not-italic">Topic: </span>{{ topic }}
                 </Announcement>
                 <br />
                 <Tags />
