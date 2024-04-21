@@ -8,8 +8,10 @@ function formatDate(time: any) {
     const minutes = Math.floor(timeDiff / (1000 * 60));
     const hours = Math.floor(timeDiff / (1000 * 60 * 60));
     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-
-    if (minutes < 60) {
+    
+    if (minutes < 0) {
+        return `acum câteva secunde`;
+    } else if (minutes < 60) {
         return `acum ${minutes == 1 ? 'un' : minutes} minut${minutes == 1 ? '' : 'e'}`;
     } else if (hours < 24) {
         return `acum ${hours == 1 ? 'o' : hours} or${hours == 1 ? 'ă' : 'e'}`;
