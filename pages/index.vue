@@ -2,15 +2,22 @@
 const user = useSupabaseUser()
 const { auth } = useSupabaseClient()
 
+let wrongDomain = ref(false)
+
 watchEffect(() => {
   if (user.value) {
-    navigateTo('/forum')
+    if (user.value.email?.endsWith('@laicuza.ro'))
+      navigateTo('/forum')
+    else
+      auth.signOut()
+      wrongDomain.value = true
   }
 })
 
 const handleLogin = async () => {
   try {
-    const { error } = await auth.signInWithOAuth({ provider: 'google', options: { redirectTo: 'http://localhost:3000/confirm' }})
+    const { data, error } = await auth.signInWithOAuth({ provider: 'google' })
+    console.log(data)
     if (error) throw error
   } catch (error) {
     alert((error as any).error_description || (error as any).message)
@@ -30,11 +37,16 @@ const handleLogin = async () => {
         <Icon name="logos:google-icon" class="w-5 h-5 mt-1" />
         <p>Sign in with Google</p>
       </button>
-      <div class="flex justify-center">
-        <p class="text-md text-gray-500 text-center w-4/5">Ne rezervam dreptul de a permite accesul pe acest website
-          doar
-          elevilor din Liceul Teoretic Alexandru Ioan
-          Cuza.</p>
+      <div v-if="wrongDomain" class="flex justify-center">
+        <p class="text-md text-red-500 text-center w-4/5">
+          Ne pare rău, dar nu ai acces la acest website. Te rugăm să folosești un cont de email de la Liceul Teoretic "Alexandru Ioan Cuza".
+        </p>
+      </div>
+      <div v-if="!wrongDomain" class="flex justify-center">
+        <p class="text-md text-gray-500 text-center w-4/5">
+          Ne rezervăm dreptul de a permite accesul pe acest website
+          doar elevilor din Liceul Teoretic "Alexandru Ioan Cuza".
+        </p>
       </div>
       <div>
         <p class="text-md text-gray-500 text-center">By students for students, with complete anonymity.</p>

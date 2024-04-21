@@ -17,7 +17,7 @@ async function search() {
                     <div class="hidden lg:flex items-center gap-6 text-center">
                         <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
                         <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
-                        <NuxtLink to="/policy" class="text-lg text-shadow">Top profesori</NuxtLink>
+                        <NuxtLink to="/top" class="text-lg text-shadow">Top profesori</NuxtLink>
                         <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
                         <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
                     </div>
@@ -48,7 +48,7 @@ async function search() {
                 <SmallMenu class="mb-2" />
                 <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
                 <NuxtLink to="/events" class="text-lg text-shadow">Evenimente</NuxtLink>
-                <NuxtLink to="/policy" class="text-lg text-shadow">Top profesori</NuxtLink>
+                <NuxtLink to="/top" class="text-lg text-shadow">Top profesori</NuxtLink>
                 <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportari</NuxtLink>
                 <NuxtLink to="/policy" class="text-lg text-shadow">Politici</NuxtLink>
             </div>
