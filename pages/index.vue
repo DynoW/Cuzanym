@@ -15,14 +15,13 @@ watchEffect(() => {
   }
 })
 
-const handleLogin = async () => {
-  try {
-    const { data, error } = await auth.signInWithOAuth({ provider: 'google' })
-    console.log(data)
-    if (error) throw error
-  } catch (error) {
-    alert((error as any).error_description || (error as any).message)
-  }
+async function handleSignInWithGoogle(response) {
+  const { data, error } = await auth.signInWithIdToken({
+    provider: 'google',
+    token: response.credential,
+    nonce: 'NONCE', // must be the same one as provided in data-nonce (if any)
+  })
+  console.log(data, error)
 }
 </script>
 
@@ -32,15 +31,19 @@ const handleLogin = async () => {
     <div
       class="bg-neutral-100 p-5 lg:p-0 rounded-lg lg:rounded-none lg:h-full flex flex-col items-center justify-center absolute lg:static max-w-sm lg:max-w-full gap-5">
       <Logo class="text-7xl" />
-      <button
-        class="p-3 rounded-full border shadow-md cursor-pointer flex flex-row items-center justify-items-center gap-2"
-        @click="handleLogin()">
-        <Icon name="logos:google-icon" class="w-5 h-5 mt-1" />
-        <p>Sign in with Google</p>
-      </button>
+      <div>
+        <script src="https://accounts.google.com/gsi/client" async></script>
+        <div id="g_id_onload" data-client_id="642198305698-1t92r9k3u12lf3jl5naoeovudj6s5gn0.apps.googleusercontent.com"
+          data-context="signin" data-ux_mode="popup" data-callback="handleSignInWithGoogle" data-nonce=""
+          data-auto_select="true" data-itp_support="true"></div>
+
+        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
+          data-size="large" data-logo_alignment="left"></div>
+      </div>
       <div v-if="wrongDomain" class="flex justify-center">
         <p class="text-md text-red-500 text-center w-4/5">
-          Ne pare rău, dar nu ai acces la acest website. Te rugăm să folosești un cont de email de la Liceul Teoretic "Alexandru Ioan Cuza".
+          Ne pare rău, dar nu ai acces la acest website. Te rugăm să folosești un cont de email de la Liceul Teoretic
+          "Alexandru Ioan Cuza".
         </p>
       </div>
       <div v-if="!wrongDomain" class="flex justify-center">
