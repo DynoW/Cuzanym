@@ -34,7 +34,7 @@ async function handleSignInWithGoogle(response: any) {
       <div>
         <component :is="'script'" src="https://accounts.google.com/gsi/client" async></component>
         <div id="g_id_onload" data-client_id="642198305698-1t92r9k3u12lf3jl5naoeovudj6s5gn0.apps.googleusercontent.com"
-          data-context="signin" data-ux_mode="popup" data-callback="handleSignInWithGoogle" data-auto_prompt="false">
+          data-context="signin" data-ux_mode="redirect" data-callback="handleSignInWithGoogle" data-auto_prompt="false">
         </div>
 
         <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
