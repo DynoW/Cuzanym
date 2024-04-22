@@ -30,7 +30,7 @@ const handleLogout = async () => {
                     </h2>
                     <span title="username" class="input inline-block whitespace-nowrap overflow-hidden max-w-48"
                         role="textbox" contenteditable>
-                        {{ (user?.username == null) ? 'not set' : user?.username }}
+                        {{ (user?.username == null) ? 'Utilizator anonim' : user?.username }}
                     </span>
                     <button>
                         <Icon name="material-symbols:ink-pen" />
