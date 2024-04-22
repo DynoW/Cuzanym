@@ -2,7 +2,7 @@
 import { capitalize } from 'vue';
 const topic = useRoute().params.topic.toString();
 
-const { pending, data: posts } = useFetch("/api/get/posts/topic/" + capitalize(topic), {
+const { pending, data: posts } = useFetch("/api/get/posts/topic/" + capitalize(decodeURIComponent(topic)), {
     headers: useRequestHeaders(['cookie'])
 });
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { capitalize } from 'vue';
-const tag = useRoute().params.tag.toString();
+const tag = decodeURIComponent(useRoute().params.tag.toString());
 
 const { data } = await useFetch("/api/get/tags", {
     headers: useRequestHeaders(['cookie'])
