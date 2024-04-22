@@ -21,13 +21,11 @@ const createPost = async () => {
                 topic
             }
         })
-        console.log(status.value);
         if (data.value == "bad word") {
             alert('Nu ai voie sa folosești cuvinte vulgare!');
         } else if (status.value === "success") {
             window.location.reload();
         } else {
-            console.log(topic)
             alert('A apărut o eroare!');
         }
     }
