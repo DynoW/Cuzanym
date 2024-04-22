@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { capitalize } from 'vue';
-const topic = capitalize(decodeURIComponent(useRoute().params.topic.toString()));
+const topic = useRoute().params.topic as string;
 
 const { data } = await useFetch("/api/get/topics", {
     headers: useRequestHeaders(['cookie'])

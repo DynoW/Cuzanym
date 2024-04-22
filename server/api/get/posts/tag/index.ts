@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const tag = getRouterParam(event, "tag");
+        const { tag } = await readBody(event);
         const data = await prisma.post.findMany({
             where: {
                 tags: {

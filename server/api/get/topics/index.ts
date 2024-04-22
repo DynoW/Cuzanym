@@ -12,9 +12,9 @@ export default defineEventHandler(async (event) => {
                 id: true,
                 name: true,
             },
-        });
+        }) as { id: string, name: string, count: number, last?: any }[];
         for (let topic of data) {
-            const changedTopic = topic as unknown as Topic;
+            const changedTopic = topic;
             changedTopic.count = await prisma.post.count({
                 where: {
                     subredditId: topic.id
@@ -30,6 +30,18 @@ export default defineEventHandler(async (event) => {
                 },
             }))?.createdAt ?? undefined;
             topic = changedTopic;
+        }
+        for (let i = 0; i < data.length - 1; i++) {
+            for (let j = i + 1; j < data.length; j++) {
+                const dateI = new Date(data[i].last);
+                const dateJ = new Date(data[j].last);
+                console.log(dateI, dateJ);
+                if (dateI.getTime() < dateJ.getTime()) {
+                    const temp = data[i];
+                    data[i] = data[j];
+                    data[j] = temp;
+                }
+            }
         }
         return data;
     } catch (error: any) {

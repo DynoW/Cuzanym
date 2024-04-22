@@ -1,9 +1,14 @@
 <script setup lang="ts">
-const tag = useRoute().params.tag.toString();
+const tag = useRoute().params.tag as string;
 
-const { pending, data: posts } = useLazyFetch("/api/get/posts/tag/" + tag, {
-    headers: useRequestHeaders(['cookie'])
+const { pending, data: posts } = useLazyFetch("/api/get/posts/tag", {
+    method: 'post',
+    headers: useRequestHeaders(['cookie']),
+    body: {
+        tag
+    }
 });
+console.log(posts);
 </script>
 
 <template>

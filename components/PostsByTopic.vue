@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { capitalize } from 'vue';
-const topic = useRoute().params.topic.toString();
+const topic = useRoute().params.topic as string;
 
-const { pending, data: posts } = useFetch("/api/get/posts/topic/" + capitalize(decodeURIComponent(topic)), {
-    headers: useRequestHeaders(['cookie'])
+const { pending, data: posts } = useLazyFetch("/api/get/posts/topic", {
+    method: 'post',
+    headers: useRequestHeaders(['cookie']),
+    body: {
+        topic
+    }
 });
+console.log(posts);
 </script>
 
 <template>

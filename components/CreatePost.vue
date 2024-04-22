@@ -11,7 +11,7 @@ const createPost = async () => {
         alert('Titlul este necesar!');
         return;
     } else {
-        const { status, data } = await useFetch('/api/post/post', {
+        const { status, data , error } = await useFetch('/api/post/post', {
             method: 'post',
             headers: useRequestHeaders(['cookie']),
             body: {
@@ -27,6 +27,7 @@ const createPost = async () => {
         } else if (status.value === "success") {
             window.location.reload();
         } else {
+            console.log(topic)
             alert('A apărut o eroare!');
         }
     }

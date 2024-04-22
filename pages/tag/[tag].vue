@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { capitalize } from 'vue';
 const tag = decodeURIComponent(useRoute().params.tag.toString());
 
 const { data } = await useFetch("/api/get/tags", {
@@ -23,7 +22,7 @@ if (!tags?.some((t) => t.name.toLowerCase() === tag.toLowerCase())) {
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Announcement>
-                    <span class="not-italic">Tag: </span>{{ capitalize(tag) }}
+                    <span class="not-italic">Tag: </span>{{ tag }}
                 </Announcement>
                 <br />
                 <Tags />

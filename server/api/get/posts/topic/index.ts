@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const topic = getRouterParam(event, "topic");
+        const { topic } = await readBody(event);
         const data = await prisma.post.findMany({
             where: {
                 subreddit: {
