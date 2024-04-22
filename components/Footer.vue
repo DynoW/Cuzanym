@@ -28,10 +28,10 @@
                             <NuxtLink to="/terms" class="">Termeni si Condiții</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/policy" class="">Politica de confidențialitate</NuxtLink>
+                            <NuxtLink to="/forum/raportări" class="">Sesizează-ne o problemă</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/forum/raportări" class="">Sesizează-ne o problemă</NuxtLink>
+                            <NuxtLink to="/about" class="">Despre noi / Contactează-ne</NuxtLink>
                         </li>
                     </ul>
                 </div>

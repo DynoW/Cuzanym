@@ -17,7 +17,7 @@ if (!tags?.some((t) => t.name.toLowerCase() === tag.toLowerCase())) {
         <nav>
             <Hierarchy />
         </nav>
-        <main class="main">
+        <main class="main main-flex">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
                 <PostsByTag />
             </div>

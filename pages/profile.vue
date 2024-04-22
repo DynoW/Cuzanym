@@ -14,7 +14,7 @@ const handleLogout = async () => {
 
 <template>
     <NuxtLayout name="home">
-        <main class="main">
+        <main class="main main-flex">
             <div class="basis-2/5 xl:basis-1/4 flex flex-col gap-4 rounded-lg p-5 bg-white dark:bg-slate-800">
                 <div class="flex flex-col justify-center text-center">
                     <h1 class="font-extrabold text-2xl">

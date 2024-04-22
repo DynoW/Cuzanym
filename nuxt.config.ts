@@ -40,4 +40,5 @@ export default defineNuxtConfig({
       },
     },
   },
+  extends: '@nuxt-themes/typography'
 })

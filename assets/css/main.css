@@ -45,6 +45,9 @@
         @apply text-black border-b-2 pb-2 border-neutral-200 flex flex-row;
     }
     .main {
-        @apply container flex flex-col-reverse md:flex-row gap-6 md:gap-10 mx-auto pb-64 sm:pb-52 sm:pt-12;
+        @apply container mx-auto pb-64 sm:pb-52 pt-5 sm:pt-12;
+    }
+    .main-flex {
+        @apply flex flex-col-reverse md:flex-row gap-6 md:gap-10
     }
 }
