@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
         const { title, content, tags, topic } = await readBody(event);
 
         const dictionary = [
+            "orfan",
             "intrerupere de sarcina",
             "anal",
             "anus",
@@ -29,6 +30,10 @@ export default defineEventHandler(async (event) => {
             "bitching",
             "sângeros",
             "muie",
+            "muist",
+            "muista",
+            "muiste",
+            "muistă",
             "bollok",
             "ţâţe",
             "sânii",
@@ -76,6 +81,7 @@ export default defineEventHandler(async (event) => {
             "dracului",
             "fuckings",
             "fucks",
+            "fuck",
             "fudge packer",
             "zeu-al naibii",
             "iad",
@@ -103,6 +109,7 @@ export default defineEventHandler(async (event) => {
             "pisată",
             "pissing",
             "pissoff",
+            "porn",
             "porno",
             "pornografie",
             "înțepătură",
@@ -130,6 +137,7 @@ export default defineEventHandler(async (event) => {
             "de pulărie",
             "skank",
             "curvă",
+            "curva",
             "curve",
             "smegma",
             "negru de fum",
