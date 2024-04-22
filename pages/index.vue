@@ -20,7 +20,7 @@ const handleLogin = async () => {
     const { error } = await auth.signInWithOAuth({ provider: 'google', options: {
       queryParams: {
         access_type: 'offline',
-        prompt: 'consent',
+        prompt: 'select_account',
       },
     }})
     if (error) throw error
