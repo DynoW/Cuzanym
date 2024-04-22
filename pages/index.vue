@@ -57,7 +57,8 @@ const handleLogin = async () => {
       <div>
         <p class="text-md text-gray-500 text-center">By students for students, with complete anonymity.</p>
         <p class="text-sm text-slate-600 text-center">
-          <NuxtLink to="/policy">Privacy Policy</NuxtLink>
+          <NuxtLink to="/terms#prelucrarea-datelor-cu-caracter-personal">Privacy Policy
+          </NuxtLink>
           &nbsp;&nbsp;
           <NuxtLink to="/terms">Terms & conditions</NuxtLink>
         </p>
