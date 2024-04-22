@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
+    "@nuxtjs/seo",
     "@nuxt/content",
     "@nuxt/image",
     'nuxt-icon',
@@ -24,7 +25,6 @@ export default defineNuxtConfig({
     preference: 'system',
     fallback: 'system'
   },
-  // const { colorMode, toggleColorMode } = useColorMode() | <button @click="toggleColorMode">Toggle Dark Mode</button>
   css: ['@/assets/css/main.css'],
   supabase: {
     redirectOptions: {
@@ -33,12 +33,11 @@ export default defineNuxtConfig({
       exclude: ['/policy', '/terms'],
     }
   },
-  app: {
-    head: {
-      htmlAttrs: {
-        lang: 'ro',
-      },
-    },
+  extends: '@nuxt-themes/typography',
+  site: {
+    url: 'https://cuzantm.vercel.app',
+    name: 'Cuzanym',
+    description: 'Agile - Skills for the future',
+    defaultLocale: 'ro',
   },
-  extends: '@nuxt-themes/typography'
 })
