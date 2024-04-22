@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { capitalize } from 'vue';
 const tag = useRoute().params.tag.toString();
 
-const { pending, data: posts } = useLazyFetch("/api/get/posts/tag/" + capitalize(tag), {
+const { pending, data: posts } = useLazyFetch("/api/get/posts/tag/" + tag, {
     headers: useRequestHeaders(['cookie'])
 });
 </script>
