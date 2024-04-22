@@ -10,6 +10,9 @@ const createPost = async () => {
     if (!title.value) {
         alert('Titlul este necesar!');
         return;
+    } else if (tags.value && !/[a-zA-Z]/.test(tags.value)) {
+        alert('Tag-urile trebuie să conțină cel puțin un caracter literă!');
+        return;
     } else {
         const { status, data } = await useFetch('/api/post/post', {
             method: 'post',
