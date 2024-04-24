@@ -5,8 +5,9 @@ const path = useRoute().path
 const parts = path.split('/').filter(Boolean)
 const links = parts.map((part, index) => ({
     name: capitalize(decodeURIComponent(part)),
-    path: part === 'tag' ? '/forum' : '/' + parts.slice(0, index + 1).join('/')
+    path: part = '/' + parts.slice(0, index + 1).join('/')
 }))
+console.log(links)
 </script>
 
 <template>

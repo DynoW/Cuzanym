@@ -19,7 +19,7 @@ if (!topics?.some((t) => t.name === topic)){
         <main class="main main-flex">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
                 <CreatePost :topic="topic" />
-                <PostsByTopic />
+                <LoadPosts />
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Announcement>

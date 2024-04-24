@@ -54,11 +54,11 @@ const filteredPosts = computed(() => {
 </script>
 
 <template>
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 break-all">
         <div v-for="post in filteredPosts" :key="post.id"
             class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
             <div class="flex flex-row">
-                <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
+                <Icon name="material-symbols:account-circle" class="size-14 text-gray-500 basis-14" />
                 <div class="flex flex-col ml-3">
                     <h2 class="text-neutral-700 text-xl font-bold dark:text-gray-400">
                         <span v-if="post.author.name">{{ post.author.name }}</span>
