@@ -43,11 +43,19 @@ async function reactToPost(post: Post, type: string) {
         });
     }
 }
+
+const filteredPosts = computed(() => {
+    if (useTag().value) {
+        return posts.filter((post: any) => post.tags.some((t: any) => t.name == useTag().value));
+    } else {
+        return posts;
+    }
+});
 </script>
 
 <template>
     <div class="flex flex-col gap-4">
-        <div v-for="post in posts"
+        <div v-for="post in filteredPosts" :key="post.id"
             class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
             <div class="flex flex-row">
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500" />
@@ -56,9 +64,9 @@ async function reactToPost(post: Post, type: string) {
                         <span v-if="post.author.name">{{ post.author.name }}</span>
                         <span v-else>Utilizator anonim</span>
                     </h2>
-                    <p class="font-thin">tags:
-                        <span v-for="tag in post.tags" class="font-thin">
-                            {{ tag.name }}{{ tag !== post.tags[post.tags.length - 1] ? ', ' : '' }}
+                    <p class="font-thin">
+                        <span v-for="tag in post.tags" :key="tag.name" class="font-thin">
+                            {{ '#' + tag.name + ' '}} 
                         </span>
                     </p>
                 </div>

@@ -17,7 +17,7 @@ const createPost = async () => {
             body: {
                 title: title.value,
                 content: content.value,
-                tags: tags.value.match(/[a-zA-Z]/) ? tags.value.split(',').map(tag => tag.trim()) : [],
+                tags: tags.value.replace(/#/g, ',').replace(/\s+/g, ' ').match(/[a-zA-Z]/) ? tags.value.split(',').map(tag => tag.trim()) : [],
                 topic
             }
         })

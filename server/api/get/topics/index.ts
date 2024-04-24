@@ -35,7 +35,13 @@ export default defineEventHandler(async (event) => {
             for (let j = i + 1; j < data.length; j++) {
                 const dateI = new Date(data[i].last);
                 const dateJ = new Date(data[j].last);
-                console.log(dateI, dateJ);
+                if (isNaN(dateI.getTime())) {
+                    const temp = data[i];
+                    data[i] = data[j];
+                    data[j] = temp;
+                } else if (isNaN(dateJ.getTime())) {
+                    continue;
+                }
                 if (dateI.getTime() < dateJ.getTime()) {
                     const temp = data[i];
                     data[i] = data[j];

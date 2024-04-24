@@ -17,7 +17,10 @@ watchEffect(() => {
 
 const handleLogin = async () => {
   try {
+    const isProduction = process.env.NODE_ENV === 'production';
+    console.log(isProduction)
     const { error } = await auth.signInWithOAuth({ provider: 'google', options: {
+      redirectTo: isProduction ? 'https://cuzanym.vercel.app/' : 'https://localhost:3000/',
       queryParams: {
         access_type: 'offline',
         prompt: 'select_account',

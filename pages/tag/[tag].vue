@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const tag = decodeURIComponent(useRoute().params.tag.toString());
-
 const { data } = await useFetch("/api/get/tags", {
     headers: useRequestHeaders(['cookie'])
 });

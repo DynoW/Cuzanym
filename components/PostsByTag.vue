@@ -8,7 +8,6 @@ const { pending, data: posts } = useLazyFetch("/api/get/posts/tag", {
         tag
     }
 });
-console.log(posts);
 </script>
 
 <template>

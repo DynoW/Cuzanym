@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const topic = useRoute().params.topic as string;
+const route = useRoute();
+const topic = route.params.topic as string;
 
 const { pending, data: posts } = useLazyFetch("/api/get/posts/topic", {
     method: 'post',
@@ -8,7 +9,6 @@ const { pending, data: posts } = useLazyFetch("/api/get/posts/topic", {
         topic
     }
 });
-console.log(posts);
 </script>
 
 <template>

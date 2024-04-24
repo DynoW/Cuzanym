@@ -30,43 +30,61 @@ export default defineEventHandler(async (event) => {
                 updatedAt: "desc",
             },
         });
-        // for (let post of data) {
-        //     const changedPost = post as unknown as {
-        //         id: string;
-        //         title: string;
-        //         content: string;
-        //         createdAt: Date;
-        //         updatedAt: Date;
-        //         authorId: string;
-        //         author: { id: string, username: string };
-        //         subredditId: string;
-        //         tags: Tag[];
-        //         votes: { up: number, down: number };
-        //         comments: Comment[];
-        //         // comm?: any[];
-        //     };
-
-        //     // changedPost.comm = await prisma.comment.findMany({
-        //     //     where: {
-        //     //         postId: post.id,
-        //     //     }
-        //     // });
-
-        //     changedPost.votes = {
-        //         up: await prisma.vote.count({
-        //             where: {
-        //                 postId: post.id,
-        //                 type: "UP",
-        //             }
-        //         }),
-        //         down: await prisma.vote.count({
-        //             where: {
-        //                 postId: post.id,
-        //                 type: "DOWN",
-        //             }
-        //         })
-        //     };
-        //     post = changedPost;
+        // let data;
+        // const { topic, tag } = await readBody(event);
+        // if (tag) {
+        //     data = await prisma.post.findMany({
+        //         where: {
+        //             subreddit: {
+        //                 name: {
+        //                     equals: topic,
+        //                 },
+        //             },
+        //             tags: {
+        //                 some: {
+        //                     name: {
+        //                         equals: tag,
+        //                     },
+        //                 },
+        //             },
+        //         },
+        //         include: {
+        //             tags: true,
+        //             votes: true,
+        //             comments: true,
+        //             author: {
+        //                 select: {
+        //                     username: true,
+        //                 },
+        //             },
+        //         },
+        //         orderBy: {
+        //             updatedAt: "desc",
+        //         },
+        //     });
+        // } else {
+        //     data = await prisma.post.findMany({
+        //         where: {
+        //             subreddit: {
+        //                 name: {
+        //                     equals: topic,
+        //                 },
+        //             },
+        //         },
+        //         include: {
+        //             tags: true,
+        //             votes: true,
+        //             comments: true,
+        //             author: {
+        //                 select: {
+        //                     username: true,
+        //                 },
+        //             },
+        //         },
+        //         orderBy: {
+        //             updatedAt: "desc",
+        //         },
+        //     });
         // }
         return data;
     } catch (error: any) {
