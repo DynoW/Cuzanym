@@ -7,7 +7,6 @@ const links = parts.map((part, index) => ({
     name: capitalize(decodeURIComponent(part)),
     path: part = '/' + parts.slice(0, index + 1).join('/')
 }))
-console.log(links)
 </script>
 
 <template>
