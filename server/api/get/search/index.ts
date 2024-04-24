@@ -60,6 +60,46 @@ export default defineEventHandler(async (event) => {
                             contains: capitalize(query),
                         },
                     },
+                    {
+                        tags: {
+                            some: {
+                                name: {
+                                    //@ts-ignore
+                                    contains: query,
+                                },
+                            },
+                        },
+                    },
+                    {
+                        tags: {
+                            some: {
+                                name: {
+                                    //@ts-ignore
+                                    contains: query.toLowerCase(),
+                                },
+                            },
+                        },
+                    },
+                    {
+                        tags: {
+                            some: {
+                                name: {
+                                    //@ts-ignore
+                                    contains: query.toUpperCase(),
+                                },
+                            },
+                        },
+                    },
+                    {
+                        tags: {
+                            some: {
+                                name: {
+                                    //@ts-ignore
+                                    contains: capitalize(query),
+                                },
+                            },
+                        },
+                    }
                 ],
             },
             include: {
