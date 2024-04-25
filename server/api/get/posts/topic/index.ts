@@ -12,16 +12,20 @@ export default defineEventHandler(async (event) => {
         const data = await prisma.post.findMany({
             where: {
                 OR: [
-                    subreddit: {
-                        name: {
-                            equals: topic,
+                    {
+                        subreddit: {
+                            name: {
+                                equals: topic,
+                            },
                         },
                     },
-                    subreddit: {
-                        name: {
-                            equals: capitalize(topic),
+                    {
+                        subreddit: {
+                            name: {
+                                equals: capitalize(topic),
+                            },
                         },
-                    },
+                    }
                 ],
             },
             include: {
