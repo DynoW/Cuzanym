@@ -1,40 +1,40 @@
-import { serverSupabaseUser } from "#supabase/server";
+// import { serverSupabaseUser } from "#supabase/server";
 import prisma from "~/prisma/client";
 
 export default defineEventHandler(async (event) => {
-    const user = await serverSupabaseUser(event);
-    if (!user) {
-        throw createError({ status: 401, message: "Unauthorized" });
-    }
+//    const user = await serverSupabaseUser(event);
+//     if (!user) {
+//         throw createError({ status: 401, message: "Unauthorized" });
+//     }
     try {
         const data = await prisma.topic.findMany({
             select: {
                 id: true,
                 name: true,
             },
-        }) as { id: string, name: string, count: number, last?: any }[];
+        }) as { id: string, name: string, count?: number, last?: Date }[];
         for (let topic of data) {
             const changedTopic = topic;
             changedTopic.count = await prisma.post.count({
                 where: {
-                    topicId: topic.id
+                    topic_id: topic.id
                 }
             });
             changedTopic.last = (await prisma.post.findFirst({
                 where: {
-                    topicId: topic.id
+                    topic_id: topic.id
                 },
-                orderBy: { createdAt: "desc" },
+                orderBy: { created_at: "desc" },
                 select: {
-                    createdAt: true
+                    created_at: true
                 },
-            }))?.createdAt ?? undefined;
+            }))?.created_at ?? undefined;
             topic = changedTopic;
         }
         for (let i = 0; i < data.length - 1; i++) {
             for (let j = i + 1; j < data.length; j++) {
-                const dateI = new Date(data[i].last);
-                const dateJ = new Date(data[j].last);
+                const dateI = new Date(data[i].last as Date);
+                const dateJ = new Date(data[j].last as Date);
                 if (isNaN(dateI.getTime())) {
                     const temp = data[i];
                     data[i] = data[j];

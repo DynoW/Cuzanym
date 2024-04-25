@@ -1,8 +1,7 @@
 <script setup lang="ts">
-const { data } = await useFetch("/api/get/topics", {
+const { data: topics } = await useFetch("/api/get/topics", {
     headers: useRequestHeaders(['cookie'])
 });
-const topics = data.value as Topicu[];
 
 function formatDate(time: any) {
     const currentTime = new Date();
