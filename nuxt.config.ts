@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     key: process.env.SUPABASE_ANON_KEY,
     redirectOptions: {
       login: '/',
-      callback: '/',
+      callback: '/callback',
       exclude: ['/forum', '/events', '/top', '/terms', '/work-in-progress', '/about', '/api/get/topics'],
     }
   },
