@@ -10,7 +10,7 @@
                 <p>
                     Echipa Bandra formată din elevii “Liceului Teoretic Alexandru Ioan Cuza” împreuna cu ajutorul celor
                     de la Deutsche Bank ne-am propus să aducem la viață prin intermediul proiectului Agile Skills For
-                    The Future,un mediu în care elevii pot să iși exprime opiniile pe site-ul nostru.
+                    The Future, un mediu în care elevii pot să iși exprime opiniile.
                 </p>
                 <br />
                 <p>
