@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const data = await prisma.subreddit.findMany({
+        const data = await prisma.topic.findMany({
             select: {
                 id: true,
                 name: true,
@@ -17,12 +17,12 @@ export default defineEventHandler(async (event) => {
             const changedTopic = topic;
             changedTopic.count = await prisma.post.count({
                 where: {
-                    subredditId: topic.id
+                    topicId: topic.id
                 }
             });
             changedTopic.last = (await prisma.post.findFirst({
                 where: {
-                    subredditId: topic.id
+                    topicId: topic.id
                 },
                 orderBy: { createdAt: "desc" },
                 select: {

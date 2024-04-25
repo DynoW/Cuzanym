@@ -6,8 +6,8 @@ declare global {
         name: string;
     }
 
-    interface Vote {
-        type: VoteType;
+    interface Reaction {
+        type: ReactionType;
         userId: string;
         postId: string;
     }
@@ -27,7 +27,7 @@ declare global {
         content: string | null;
         createdAt: string;
         updatedAt: string;
-        subredditId: string;
+        topicId: string;
         tags: Tag[];
         votes: Vote[];
         comments: Comment[];
@@ -35,14 +35,14 @@ declare global {
         
     }
 
-    interface Topic {
+    interface Topicu {
         id: string;
         name: string;
         count: number;
         last: date | undefined;
     }
 
-    interface Subreddit {
+    interface Topic {
         id: string;
         name: string;
         description: string;

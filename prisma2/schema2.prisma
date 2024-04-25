@@ -4,15 +4,15 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
-  schemas   = ["auth", "public"]
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["auth", "public"]
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model audit_log_entries {
   instance_id String?   @db.Uuid
-  id          String    @id @db.Uuid
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   payload     Json?     @db.Json
   created_at  DateTime? @db.Timestamptz(6)
   ip_address  String    @default("") @db.VarChar(64)
@@ -21,8 +21,9 @@ model audit_log_entries {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model flow_state {
-  id                     String                @id @db.Uuid
+  id                     String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   user_id                String?               @db.Uuid
   auth_code              String
   code_challenge_method  code_challenge_method
@@ -42,6 +43,7 @@ model flow_state {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model identities {
   provider_id     String
   user_id         String    @db.Uuid
@@ -50,7 +52,7 @@ model identities {
   last_sign_in_at DateTime? @db.Timestamptz(6)
   created_at      DateTime? @db.Timestamptz(6)
   updated_at      DateTime? @db.Timestamptz(6)
-  email           String?   @default(dbgenerated("lower((identity_data ->> 'email'::text))"))
+  email           String?
   id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   users           users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
@@ -60,8 +62,9 @@ model identities {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model instances {
-  id              String    @id @db.Uuid
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   uuid            String?   @db.Uuid
   raw_base_config String?
   created_at      DateTime? @db.Timestamptz(6)
@@ -70,6 +73,7 @@ model instances {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model mfa_amr_claims {
   session_id            String   @db.Uuid
   created_at            DateTime @db.Timestamptz(6)
@@ -82,8 +86,9 @@ model mfa_amr_claims {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model mfa_challenges {
-  id          String      @id @db.Uuid
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   factor_id   String      @db.Uuid
   created_at  DateTime    @db.Timestamptz(6)
   verified_at DateTime?   @db.Timestamptz(6)
@@ -94,8 +99,9 @@ model mfa_challenges {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model mfa_factors {
-  id             String           @id @db.Uuid
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   user_id        String           @db.Uuid
   friendly_name  String?
   factor_type    factor_type
@@ -111,6 +117,7 @@ model mfa_factors {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model refresh_tokens {
   instance_id String?   @db.Uuid
   id          BigInt    @id @default(autoincrement())
@@ -132,8 +139,9 @@ model refresh_tokens {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model saml_providers {
-  id                String        @id @db.Uuid
+  id                String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   sso_provider_id   String        @db.Uuid
   entity_id         String        @unique
   metadata_xml      String
@@ -149,8 +157,9 @@ model saml_providers {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model saml_relay_states {
-  id              String        @id @db.Uuid
+  id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   sso_provider_id String        @db.Uuid
   request_id      String
   for_email       String?
@@ -167,14 +176,16 @@ model saml_relay_states {
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model schema_migrations {
   version String @id @db.VarChar(255)
 
   @@schema("auth")
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model sessions {
-  id             String           @id @db.Uuid
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   user_id        String           @db.Uuid
   created_at     DateTime?        @db.Timestamptz(6)
   updated_at     DateTime?        @db.Timestamptz(6)
@@ -196,9 +207,10 @@ model sessions {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model sso_domains {
-  id              String        @id @db.Uuid
+  id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   sso_provider_id String        @db.Uuid
   domain          String
   created_at      DateTime?     @db.Timestamptz(6)
@@ -210,9 +222,10 @@ model sso_domains {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model sso_providers {
-  id                String              @id @db.Uuid
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   resource_id       String?
   created_at        DateTime?           @db.Timestamptz(6)
   updated_at        DateTime?           @db.Timestamptz(6)
@@ -224,10 +237,11 @@ model sso_providers {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model users {
   instance_id                 String?       @db.Uuid
-  id                          String        @id @db.Uuid
+  id                          String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   aud                         String?       @db.VarChar(255)
   role                        String?       @db.VarChar(255)
   email                       String?       @db.VarChar(255)
@@ -252,7 +266,7 @@ model users {
   phone_change                String?       @default("")
   phone_change_token          String?       @default("") @db.VarChar(255)
   phone_change_sent_at        DateTime?     @db.Timestamptz(6)
-  confirmed_at                DateTime?     @default(dbgenerated("LEAST(email_confirmed_at, phone_confirmed_at)")) @db.Timestamptz(6)
+  confirmed_at                DateTime?     @default(now()) @db.Timestamptz(6)
   email_change_token_current  String?       @default("") @db.VarChar(255)
   email_change_confirm_status Int?          @default(0) @db.SmallInt
   banned_until                DateTime?     @db.Timestamptz(6)
@@ -275,99 +289,99 @@ model user {
   id                String        @id @db.Uuid
   username          String?       @unique
   image             String?
-  created_at        DateTime      @default(now()) @db.Timestamptz(6)
-  updated_at        DateTime      @default(now()) @updatedAt @db.Timestamptz(6)
-  comments          comment[]
-  comments_reactions comment_reaction[]
-  posts             post[]
-  created_topics    topic[]   @relation("created_by")
-  reactions         reaction[]
+  createdAt         DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime      @default(now()) @updatedAt @db.Timestamptz(6)
+  Comment           Comment[]
+  CommentVote       CommentVote[]
+  Post              Post[]
+  createdSubreddits Subreddit[]   @relation("CreatedBy")
+  votes             Vote[]
   users             users         @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@schema("public")
 }
 
-model topic {
+model Subreddit {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String   @unique
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  updated_at DateTime @default(now()) @updatedAt @db.Timestamptz(6)
-  creator_id String?  @db.Uuid
-  posts     post[]
-  creator   user?    @relation("created_by", fields: [creator_id], references: [id])
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+  creatorId String?  @db.Uuid
+  posts     Post[]
+  Creator   user?    @relation("CreatedBy", fields: [creatorId], references: [id])
 
   @@index([name])
   @@schema("public")
 }
 
-model tag {
+model Tag {
   name  String @id @unique
-  posts post[] @relation("post_to_tag")
+  posts Post[] @relation("PostToTag")
 
   @@index([name])
   @@schema("public")
 }
 
-model post {
+model Post {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title       String
-  content     String?
-  created_at   DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
-  updated_at   DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
-  author_id    String    @db.Uuid
-  topic_id    String    @db.Uuid
-  comments    comment[]
-  author      user      @relation(fields: [author_id], references: [id])
-  topic       topic     @relation(fields: [topic_id], references: [id])
-  reactions   reaction[]
-  tags        tag[]     @relation("post_to_tag")
+  content     String    @default("")
+  createdAt   DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
+  updatedAt   DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
+  authorId    String    @db.Uuid
+  subredditId String    @db.Uuid
+  comments    Comment[]
+  author      user      @relation(fields: [authorId], references: [id])
+  subreddit   Subreddit @relation(fields: [subredditId], references: [id])
+  votes       Vote[]
+  tags        Tag[]     @relation("PostToTag")
 
   @@schema("public")
 }
 
-model comment {
-  id        String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  text      String
-  created_at DateTime      @default(now()) @db.Timestamptz(6)
-  author_id  String        @db.Uuid
-  post_id    String        @db.Uuid
-  reply_to_id String?       @db.Uuid
-  comment_id String?
-  author    user          @relation(fields: [author_id], references: [id])
-  post      post          @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  reply_to  comment?      @relation("reply_to", fields: [reply_to_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  replies   comment[]     @relation("reply_to")
-  reactions comment_reaction[]
+model Comment {
+  id            String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  content       String
+  createdAt     DateTime      @default(now()) @db.Timestamptz(6)
+  authorId      String        @db.Uuid
+  postId        String        @db.Uuid
+  commentId     String?       @db.Uuid
+  author        user          @relation(fields: [authorId], references: [id])
+  post          Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  Comment       Comment?      @relation("CommentToComment", fields: [commentId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "public_Comment_commentId_fkey")
+  other_Comment Comment[]     @relation("CommentToComment")
+  votes         CommentVote[]
 
   @@schema("public")
 }
 
-model reaction {
-  user_id String   @db.Uuid
-  post_id String   @db.Uuid
-  type   reaction_type
-  post   post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user   user     @relation(fields: [user_id], references: [id])
+model Vote {
+  userId String   @db.Uuid
+  postId String   @db.Uuid
+  type   VoteType
+  post   Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user   user     @relation(fields: [userId], references: [id])
 
-  @@id([user_id, post_id])
+  @@id([userId, postId])
   @@schema("public")
 }
 
-model comment_reaction {
-  user_id    String   @db.Uuid
-  comment_id String   @db.Uuid
-  type      reaction_type
-  comment   comment  @relation(fields: [comment_id], references: [id], onDelete: Cascade)
-  user      user     @relation(fields: [user_id], references: [id])
+model CommentVote {
+  userId    String   @db.Uuid
+  commentId String   @db.Uuid
+  type      VoteType
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      user     @relation(fields: [userId], references: [id])
 
-  @@id([user_id, comment_id])
+  @@id([userId, commentId])
   @@schema("public")
 }
 
-model profesor {
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Profesor {
   id    Int     @id @default(autoincrement()) @db.SmallInt
   email String  @unique
-  nume  String
+  nume  String?
 
   @@schema("public")
 }
@@ -401,7 +415,7 @@ enum factor_type {
   @@schema("auth")
 }
 
-enum reaction_type {
+enum VoteType {
   UP
   DOWN
 

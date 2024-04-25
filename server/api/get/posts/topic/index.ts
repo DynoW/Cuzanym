@@ -13,14 +13,14 @@ export default defineEventHandler(async (event) => {
             where: {
                 OR: [
                     {
-                        subreddit: {
+                        topic: {
                             name: {
                                 equals: topic,
                             },
                         },
                     },
                     {
-                        subreddit: {
+                        topic: {
                             name: {
                                 equals: capitalize(topic),
                             },

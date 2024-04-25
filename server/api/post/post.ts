@@ -170,7 +170,7 @@ export default defineEventHandler(async (event) => {
                 author: {
                     connect: { id: user.id },
                 },
-                subreddit: {
+                topic: {
                     connect: {
                         name: topic
                     },

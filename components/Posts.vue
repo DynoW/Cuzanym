@@ -33,11 +33,11 @@ async function reactToPost(post: Post, type: string) {
     if (action == 'deleted') {
         post.votes = post.votes.filter(vote => vote.userId !== user.value?.id);
     } else if (action == 'created') {
-        post.votes.push(reaction as unknown as Vote);
+        post.votes.push(reaction as unknown as Reaction);
     } else if (action == 'updated') {
         post.votes = post.votes.map(vote => {
             if (vote.userId === user.value?.id) {
-                vote.type = type as unknown as VoteType;
+                vote.type = type as unknown as ReactionType;
             }
             return vote;
         });
