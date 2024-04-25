@@ -2,62 +2,44 @@ export { };
 
 declare global {
 
-    interface Tag {
+    interface tag {
         name: string;
     }
 
-    interface Reaction {
-        type: ReactionType;
-        userId: string;
-        postId: string;
+    interface reaction {
+        type: reaction_type;
+        user_id: string;
+        post_id: string;
     }
 
-    interface Comment {
+    interface comment {
         id: string;
         content: string;
-        createdAt: string;
-        authorId: string;
-        postId: string;
-        commentId: string;
+        created_at: string;
+        author_id: string;
+        post_id: string;
+        comment_id: string;
     }
 
-    interface Post {
+    interface post {
         id: string;
         title: string;
         content: string | null;
-        createdAt: string;
-        updatedAt: string;
-        topicId: string;
-        tags: Tag[];
-        votes: Vote[];
-        comments: Comment[];
+        created_at: string;
+        updated_at: string;
+        topic_id: string;
+        tags: tag[];
+        reactions: reaction[];
+        comments: comment[];
         author: { name: string; };
         
     }
 
-    interface Topicu {
-        id: string;
-        name: string;
-        count: number;
-        last: date | undefined;
-    }
-
-    interface Topic {
+    interface topic {
         id: string;
         name: string;
         description: string;
-        topics: Topic[];
-        posts: Post[];
+        topics: topic[];
+        posts: post[];
     }
-
-    // interface Event {
-    //     _path: string;
-    //     titlu: string;
-    //     descriere: string;
-    //     data: string;
-    //     ora: string;
-    //     locatie: string;
-    //     organizatori: [ { nume: string }];
-    //     imagine: string;
-    // }
 }

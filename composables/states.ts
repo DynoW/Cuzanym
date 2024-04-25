@@ -1,1 +1,2 @@
-export const useTag = () => useState<string | undefined>('tag')
+export const useTag = () => useState<string | undefined>()
+export const useTags = () => useState<string[] | undefined>()

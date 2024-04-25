@@ -104,7 +104,7 @@ export default defineEventHandler(async (event) => {
             },
             include: {
                 tags: true,
-                votes: true,
+                reactions: true,
                 comments: true,
                 author: {
                     select: {
@@ -113,7 +113,7 @@ export default defineEventHandler(async (event) => {
                 },
             },
             orderBy: {
-                updatedAt: "desc",
+                updated_at: "desc",
             },
         });
         

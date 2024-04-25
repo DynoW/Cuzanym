@@ -1,7 +1,5 @@
 <script setup lang="ts">
-const { data: tags } = await useFetch("/api/get/tags", {
-    headers: useRequestHeaders(['cookie'])
-});
+
 </script>
 
 <template>
@@ -12,9 +10,9 @@ const { data: tags } = await useFetch("/api/get/tags", {
                 }}</button>
         </div>
         <div class="">
-            <button v-for="tag in tags" :key="tag.name" @click="useTag().value = tag.name"
+            <button v-for="tag in useTags().value" :key="tag" @click="useTag().value = tag"
                 class="inline-block p-2 m-1 border-2 rounded-xl font-bold">
-                {{ tag.name }}</button>
+                {{ tag }}</button>
         </div>
     </aside>
 </template>

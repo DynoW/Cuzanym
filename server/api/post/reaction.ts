@@ -7,33 +7,33 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const { postId, type } = await readBody(event);
+        const { post_id, type } = await readBody(event);
 
-        const existingReaction = await prisma.vote.findUnique({
+        const existingReaction = await prisma.reaction.findUnique({
             where: {
-                userId_postId: {
-                    userId: user.id,
-                    postId,
+                user_id_post_id: {
+                    user_id: user.id,
+                    post_id,
                 },
             },
         });
 
         if(existingReaction && existingReaction.type === type) {
-            const reaction = await prisma.vote.delete({
+            const reaction = await prisma.reaction.delete({
                 where: {
-                    userId_postId: {
-                        userId: user.id,
-                        postId,
+                    user_id_post_id: {
+                        user_id: user.id,
+                        post_id,
                     },
                 },
             });
             return { reaction, action: "deleted" };
         } else if (existingReaction && existingReaction.type !== type) {
-            const reaction = await prisma.vote.update({
+            const reaction = await prisma.reaction.update({
                 where: {
-                    userId_postId: {
-                        userId: user.id,
-                        postId,
+                    user_id_post_id: {
+                        user_id: user.id,
+                        post_id,
                     },
                 },
                 data: {
@@ -42,11 +42,11 @@ export default defineEventHandler(async (event) => {
             });
             return { reaction, action: "updated" };
         } else {
-            const reaction = await prisma.vote.create({
+            const reaction = await prisma.reaction.create({
                 data: {
                     type,
-                    userId: user.id,
-                    postId,
+                    user_id: user.id,
+                    post_id,
                 },
             });
             return { reaction, action: "created" };

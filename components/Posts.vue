@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const user = useSupabaseUser();
-const posts = useAttrs().posts as Post[];
+const posts = useAttrs().posts as post[];
 
 function formatDate(time: any) {
     const currentTime = new Date();
@@ -21,30 +21,32 @@ function formatDate(time: any) {
     }
 }
 
-async function reactToPost(post: Post, type: string) {
+async function reactToPost(post: post, type: string) {
     const { reaction, action } = await $fetch('/api/post/reaction', {
         method: 'post',
         headers: useRequestHeaders(['cookie']),
         body: {
-            postId: post.id,
+            post_id: post.id,
             type
         }
     })
     if (action == 'deleted') {
-        post.votes = post.votes.filter(vote => vote.userId !== user.value?.id);
+        post.reactions = post.reactions.filter(reaction => reaction.user_id !== user.value?.id);
     } else if (action == 'created') {
-        post.votes.push(reaction as unknown as Reaction);
+        post.reactions.push(reaction as unknown as reaction);
     } else if (action == 'updated') {
-        post.votes = post.votes.map(vote => {
-            if (vote.userId === user.value?.id) {
-                vote.type = type as unknown as ReactionType;
+        post.reactions = post.reactions.map(reaction => {
+            if (reaction.user_id === user.value?.id) {
+                reaction.type = type as unknown as reaction_type;
             }
-            return vote;
+            return reaction;
         });
     }
 }
 
-const filteredPosts = computed(() => {
+useTags().value = [...new Set(posts.flatMap(post => post.tags.map(tag => tag.name)))];
+
+const filtered_posts = computed(() => {
     if (useTag().value) {
         return posts.filter((post: any) => post.tags.some((t: any) => t.name == useTag().value));
     } else {
@@ -55,7 +57,7 @@ const filteredPosts = computed(() => {
 
 <template>
     <div class="flex flex-col gap-4 break-all">
-        <div v-for="post in filteredPosts" :key="post.id"
+        <div v-for="post in filtered_posts" :key="post.id"
             class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
             <div class="flex flex-row">
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500 basis-14" />
@@ -85,13 +87,13 @@ const filteredPosts = computed(() => {
                         <button @click="reactToPost(post, 'UP')">
                             <Icon name="material-symbols:thumb-up" class="mr-2" />
                         </button>
-                        <span>{{ post.votes.filter(vote => String(vote.type) === 'UP').length }}</span>
+                        <span>{{ post.reactions.filter(reaction => String(reaction.type) === 'UP').length }}</span>
                     </div>
                     <div>
                         <button @click="reactToPost(post, 'DOWN')">
                             <Icon name="material-symbols:thumb-down" class="mr-2" />
                         </button>
-                        <span>{{ post.votes.filter(vote => String(vote.type) === 'DOWN').length }}</span>
+                        <span>{{ post.reactions.filter(reaction => String(reaction.type) === 'DOWN').length }}</span>
                     </div>
                     <div>
                         <Icon name="material-symbols:comment" class="mr-2" @click="" />
@@ -99,7 +101,7 @@ const filteredPosts = computed(() => {
                     </div>
                 </div>
                 <div>
-                    <span>{{ formatDate(post.updatedAt) }}</span>
+                    <span>{{ formatDate(post.updated_at) }}</span>
                 </div>
             </div>
         </div>
