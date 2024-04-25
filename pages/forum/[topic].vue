@@ -6,7 +6,7 @@ const { data } = await useFetch("/api/get/topics", {
 });
 const topics = data.value;
 
-if (!topics?.some((t) => t.name === topic)){
+if (!topics?.some((t) => t.name.toLowerCase() === topic)){
     throw createError({ status: 404, message: "Topic not found!" });
 }
 </script>

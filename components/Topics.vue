@@ -38,7 +38,7 @@ function formatDate(time: any) {
         </div>
 
         <div v-for="topic in topics" :key="topic.id" class="flex flex-row">
-            <NuxtLink :to="'/forum/' + topic.name" class="flex flex-row gap-6 basis-8/12 p-5">
+            <NuxtLink :to="'/forum/' + topic.name.toLowerCase()" class="flex flex-row gap-6 basis-8/12 p-5">
                 <Icon name="icon-park-solid:topic" class="text-neutral-500" />
                 <h3 class="font-bold">{{ topic.name }}</h3>
             </NuxtLink>
