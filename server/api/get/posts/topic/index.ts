@@ -1,4 +1,5 @@
 import { serverSupabaseUser } from "#supabase/server";
+import { capitalize } from "vue";
 import prisma from "~/prisma/client";
 
 export default defineEventHandler(async (event) => {
@@ -10,11 +11,18 @@ export default defineEventHandler(async (event) => {
         const { topic } = await readBody(event);
         const data = await prisma.post.findMany({
             where: {
-                subreddit: {
-                    name: {
-                        equals: topic,
+                OR: [
+                    subreddit: {
+                        name: {
+                            equals: topic,
+                        },
                     },
-                },
+                    subreddit: {
+                        name: {
+                            equals: capitalize(topic),
+                        },
+                    },
+                ],
             },
             include: {
                 tags: true,
