@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/survey': { redirect: 'https://docs.google.com/forms/d/e/1FAIpQLSef26aRdhF3lF7ZPSDSh37VadOF8WTFTuetCS0RsbzEUtLnSg/viewform?usp=sf_link' },
     '/?error=server_error&error_code=500&error_description=Database+error+saving+new+user': { redirect: '/' },
+    '/callback': { redirect: 'https://nuzckkykittqpmxxmzlk.supabase.co/auth/v1/callback' },
   },
   modules: [
     '@nuxtjs/supabase',
