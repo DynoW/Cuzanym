@@ -7,8 +7,7 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const data = await prisma.tag.findMany({
-        });
+        const data = await prisma.tag.findMany();
 
         return data;
     } catch (error: any) {
