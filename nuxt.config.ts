@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: false },
   routeRules: {
+    '/': { redirect: '/forum' },
     '/survey': { redirect: 'https://docs.google.com/forms/d/e/1FAIpQLSef26aRdhF3lF7ZPSDSh37VadOF8WTFTuetCS0RsbzEUtLnSg/viewform?usp=sf_link' },
     '/?error=server_error&error_code=500&error_description=Database+error+saving+new+user': { redirect: '/' },
     '/callback': { redirect: 'https://nuzckkykittqpmxxmzlk.supabase.co/auth/v1/callback' },
@@ -31,7 +32,7 @@ export default defineNuxtConfig({
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_ANON_KEY,
     redirectOptions: {
-      login: '/',
+      login: '/login',
       callback: '/callback',
       exclude: ['/forum', '/events', '/top', '/terms', '/work-in-progress', '/about', '/api/get/topics'],
     }
