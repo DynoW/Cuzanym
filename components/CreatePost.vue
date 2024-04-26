@@ -7,7 +7,6 @@ const tags = ref('');
 let createMenu = ref(false);
 
 const createPost = async () => {
-    console.log(title, content, tags, topic)
     if (!title.value) {
         alert('Titlul este necesar!');
         return;
@@ -18,7 +17,7 @@ const createPost = async () => {
             body: {
                 title: title.value,
                 content: content.value,
-                tags: tags.value.replace(/#/g, ',').replace(/\s+/g, ' ').match(/[a-zA-Z]/) ? tags.value.split(',').map(tag => tag.trim()) : [],
+                tags: tags.value.match(/[a-zA-Z]/) ? tags.value.replace(/#/g, ',').replace(/\s+/g, ' ').split(',').map(tag => tag.trim()).filter(tag => tag !== '') : [],
                 topic
             }
         })

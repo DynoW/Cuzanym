@@ -9,6 +9,9 @@ const { pending, data: posts } = useLazyFetch("/api/get/posts/topic", {
         topic
     }
 });
+
+useTags().value = undefined;
+useTag().value = undefined;
 </script>
 
 <template>
