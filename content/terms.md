@@ -12,7 +12,7 @@
 
  Utilizare abuzivă – utilizarea site-ului fără respectarea reglementărilor şi legislației în vigoare sau în orice alt mod care poate aduce prejudicii organizației.
 
- ## Pentru utilizatori
+## Pentru utilizatori
 
  Utilizarea site-urilor noastre este gratuită, disponibilă numai pentru uz personal și necomercial. Conținutul introdus de utilizatori pe site-ul nostru nu reflectă în mod obligatoriu opiniile și convingerile organizației. Utilizatorii își asumă răspunderea pentru toate textele, imaginile și alte tipuri de conținut postat pe site-urile noastre, garantând pentru originalitatea acestuia și că dețin dreptul de a-l publica. 
 
