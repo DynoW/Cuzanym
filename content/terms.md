@@ -8,7 +8,7 @@
 
  Utilizator – persoană care accesează site-ul și care a acceptat termenii şi conditiile de utilizare ale prezentului site;
 
- Organizația – elevii Liceului Al. I. Cuza (Forumul Cuzanym);
+ Organizația – Forumul Cuzanym;
 
  Utilizare abuzivă – utilizarea site-ului fără respectarea reglementărilor şi legislației în vigoare sau în orice alt mod care poate aduce prejudicii organizației.
 
