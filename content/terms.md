@@ -1,30 +1,30 @@
 # Termeni
 
- Pe tot cuprinsul prezentului document, următorii termeni se traduc astfel:
+Pe tot cuprinsul prezentului document, următorii termeni se traduc astfel:
 
- Site – portalul care aparține și este administrat de elevii Liceului Al. I. Cuza, din cadrul următoarelor domenii: site-ul proiectului Skills, inclusiv subsiteurile și subdomeniile acestora;
+Site – portalul care aparține și este administrat de elevii Liceului Al. I. Cuza, din cadrul următoarelor domenii: site-ul proiectului Skills, inclusiv subsiteurile și subdomeniile acestora;
 
- Conținutul site-ului – orice material și informație publicate pe site sub orice formă – text, fotografii, grafică, audio, video;
+Conținutul site-ului – orice material și informație publicate pe site sub orice formă – text, fotografii, grafică, audio, video;
 
- Utilizator – persoană care accesează site-ul și care a acceptat termenii şi conditiile de utilizare ale prezentului site;
+Utilizator – persoană care accesează site-ul și care a acceptat termenii şi conditiile de utilizare ale prezentului site;
 
- Organizația – Forumul Cuzanym;
+Organizația – Forumul Cuzanym;
 
- Utilizare abuzivă – utilizarea site-ului fără respectarea reglementărilor şi legislației în vigoare sau în orice alt mod care poate aduce prejudicii organizației.
+Utilizare abuzivă – utilizarea site-ului fără respectarea reglementărilor şi legislației în vigoare sau în orice alt mod care poate aduce prejudicii organizației.
 
 ## Pentru utilizatori
 
- Utilizarea site-urilor noastre este gratuită, disponibilă numai pentru uz personal și necomercial. Conținutul introdus de utilizatori pe site-ul nostru nu reflectă în mod obligatoriu opiniile și convingerile organizației. Utilizatorii își asumă răspunderea pentru toate textele, imaginile și alte tipuri de conținut postat pe site-urile noastre, garantând pentru originalitatea acestuia și că dețin dreptul de a-l publica. 
+Utilizarea site-urilor noastre este gratuită, disponibilă numai pentru uz personal și necomercial. Conținutul introdus de utilizatori pe site-ul nostru nu reflectă în mod obligatoriu opiniile și convingerile organizației. Utilizatorii își asumă răspunderea pentru toate textele, imaginile și alte tipuri de conținut postat pe site-urile noastre, garantând pentru originalitatea acestuia și că dețin dreptul de a-l publica. 
 
- Accesarea platformei este permisă persoanelor de orice vârstă din cadrul Liceului Al. I. Cuza.
+Accesarea platformei este permisă persoanelor de orice vârstă din cadrul Liceului Al. I. Cuza.
 
- Prin postarea de conținut pe site-ul nostru, oferiți organizației o licență neexclusivă, gratuită, nelimitată în timp și spațiu pentru toate drepturile de autor asupra conținutului publicat de dvs.
+Prin postarea de conținut pe site-ul nostru, oferiți organizației o licență neexclusivă, gratuită, nelimitată în timp și spațiu pentru toate drepturile de autor asupra conținutului publicat de dvs.
 
- Utilizarea site-urilor se face doar în conformitate cu acești Termeni și condiții, numai în scopuri legale și într-un mod care nu încalcă drepturile nimănui și nu restricționează utilizarea site-urilor.
+Utilizarea site-urilor se face doar în conformitate cu acești Termeni și condiții, numai în scopuri legale și într-un mod care nu încalcă drepturile nimănui și nu restricționează utilizarea site-urilor.
 
- Utilizatorii nu au dreptul să colecteze informații despre alți utilizatori ai site-urilor noastre, în scopul de a trimite mesaje nesolicitate sau pentru orice alt scop.
+Utilizatorii nu au dreptul să colecteze informații despre alți utilizatori ai site-urilor noastre, în scopul de a trimite mesaje nesolicitate sau pentru orice alt scop.
 
- Ne rezervăm dreptul ca site-urile noastre să fie temporar suspendate sau inaccesibile pentru o perioadă de timp, fără o notificare prealabilă. Nu vom fi trași la răspundere dacă, din orice motiv, site-urile noastre nu vor fi disponibile în orice moment sau perioadă de timp.
+Ne rezervăm dreptul ca site-urile noastre să fie temporar suspendate sau inaccesibile pentru o perioadă de timp, fără o notificare prealabilă. Nu vom fi trași la răspundere dacă, din orice motiv, site-urile noastre nu vor fi disponibile în orice moment sau perioadă de timp.
 
 ## Drepturi de autor
 
