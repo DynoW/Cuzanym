@@ -18,17 +18,19 @@ Politica de confidențialitate privește datele personale ale membrilor noștri,
 
 ## Pentru colaboratori
 
-Menținerea relației noastre contractuale
+#### Menținerea relației noastre contractuale
 
 Folosim datele dumneavoastră personale relevante pentru a ne menține relația contractuală. Ne bazăm în acest caz pe interesul legitim, asigurând gestionarea adecvată a relației contractuale.
 
-Comunicarea cu dumneavoastră
+#### Comunicarea cu dumneavoastră
 
 Organizația folosește datele dumneavoastră de contact pentru comunicarea cu dumneavoastră privitor la orice aspecte relevante conexe contractului. Ne bazăm, de asemenea, în acest caz, pe interesul legitim de a asigura că relația contractuală este pusă în aplicare în mod adecvat.
 
 ## Pentru utilizatorii site-ului
 
 Folosim adresa de email furnizată de Google OAuth pentru a verifica apartența dumneavoastră la Liceul Teoretic "Alexandru Ioan Cuza". Ne bazăm această activitate de procesare a datelor pe interesul nostru legitim de a asigura funcționarea adecvată a site-ului și îmbunătățirea lui.
+
+#### Stocarea datelor
 
 Stocarea datelor cu caracter personal este efectuată de Supabase: https://supabase.com/privacy
 
