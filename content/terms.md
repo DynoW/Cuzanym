@@ -36,9 +36,9 @@ Conținutul site-ului (text, imagini, material video existent pe site și în co
 
 Site-ul conține linkuri către alte site-uri, acestea fiind afișate cu bună credință, în urma unei monitorizări interne. Organizația nu este responsabilă pentru conținutul unor site-uri din afara domeniilor acesteia. Conexiunea la conținutul aflat în afara platformei se realizează pe propria răspundere a utilizatorului.
 
-## Politica de confidențialitate
+## Prelucrarea datelor cu caracter personal
 
-Site-ul are ca scop anonimizarea utilizatorilor, pentru a le oferi exprimare liberă. Acesta utilizează siteme terțe de stocare si autentificare pecum: Supabase și Google OAuth. Datele cu caracter personal sunt gestionate de terți, pentru mai multe detalii: https://supabase.com/privacy, https://policies.google.com/privacy?hl=ro. Pentru acces pe site-ul nostru aveți nevoie de o adresă @laicuza.ro validă.
+Prelucrarea și stocarea se face în conformitate cu Politica de confidențialitate.
 
 ## Litigii
 

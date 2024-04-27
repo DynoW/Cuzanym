@@ -25,7 +25,7 @@
                     <h2 class="text-xl mb-3 font-montserrat-semibold">Ținem Legătura</h2>
                     <ul class="flex flex-col gap-1">
                         <li>
-                            <NuxtLink to="/terms#politica-de-confiden%C8%9Bialitate" class="">Politică de
+                            <NuxtLink to="/policy" class="">Politică de
                                 confidențialitate</NuxtLink>
                         </li>
                         <li>
