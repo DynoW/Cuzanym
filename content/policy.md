@@ -28,7 +28,7 @@ Organizația folosește datele dumneavoastră de contact pentru comunicarea cu d
 
 ## Pentru utilizatorii site-ului
 
-Folosim adresa de email furnizată de Google OAuth pentru a verifica apartența dumneavoastră la Liceul Teoretic "Alexandru Ioan Cuza". Ne bazăm această activitate de procesare a datelor pe interesul nostru legitim de a asigura funcționarea adecvată a site-ului și îmbunătățirea lui.
+Folosim adresa de email furnizată de Google OAuth pentru a verifica apartenența dumneavoastră la Liceul Teoretic "Alexandru Ioan Cuza". Ne bazăm această activitate de procesare a datelor pe interesul nostru legitim de a asigura funcționarea adecvată a site-ului și îmbunătățirea lui.
 
 #### Stocarea datelor
 
