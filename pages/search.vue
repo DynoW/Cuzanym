@@ -1,9 +1,10 @@
 <script setup lang="ts">
     const searchString = useRoute().query.q;
-    const { data } = await useFetch(`/api/get/search?q=${searchString}`, {
+    const { pending, data: posts, error } = await useFetch(`/api/get/search?q=${searchString}`, {
         headers: useRequestHeaders(['cookie'])
     });
-    const posts = data.value as unknown as Post[];
+    useTags().value = undefined;
+    useTag().value = undefined;
 </script>
 
 <template>
@@ -16,7 +17,13 @@
                 <Announcement>
                     Search results for: <span class="not-italic">{{ searchString }}</span>
                 </Announcement>
-                <Posts :posts="posts" />
+                <div v-if="pending" class="loading-screen">
+                    <p>Loading...</p>
+                </div>
+                <Posts v-else-if="!error" :posts="posts" />
+                <div v-else>
+                    <h3 class="text-lg text-center">Nu a fost găsit nici un rezultat.</h3>
+                </div>
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Tags />
