@@ -108,7 +108,7 @@ filtered_posts.value.map((post: any) => {
                     <div>
                         <button @click="reactToPost(post, 'DOWN')">
                             <Icon name="material-symbols:thumb-down"
-                                :class="post.dislikedByUser ? 'mr-2 text-gray-200' : 'mr-2 hover:text-gray-300'" />
+                                :class="post.dislikedByUser ? 'mr-2 text-gray-300' : 'mr-2 hover:text-gray-300'" />
                         </button>
                         <span>{{ post.reactions.filter((reaction: any) => String(reaction.type) === 'DOWN').length
                             }}</span>
