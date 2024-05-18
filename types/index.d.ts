@@ -42,4 +42,9 @@ declare global {
         topics: topic[];
         posts: post[];
     }
+
+    enum reaction_type {
+        UP,
+        DOWN,
+    }
 }

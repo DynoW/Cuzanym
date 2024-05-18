@@ -21,7 +21,7 @@ function formatDate(time: any) {
     }
 }
 
-async function reactToPost(post: post, type: string) {
+async function reactToPost(post: any, type: string) {
     const { reaction, action } = await $fetch('/api/post/reaction', {
         method: 'post',
         headers: useRequestHeaders(['cookie']),
@@ -31,16 +31,23 @@ async function reactToPost(post: post, type: string) {
         }
     })
     if (action == 'deleted') {
-        post.reactions = post.reactions.filter(reaction => reaction.user_id !== user.value?.id);
+        post.reactions = post.reactions.filter((reaction: any) => reaction.user_id !== user.value?.id);
     } else if (action == 'created') {
         post.reactions.push(reaction as unknown as reaction);
     } else if (action == 'updated') {
-        post.reactions = post.reactions.map(reaction => {
+        post.reactions = post.reactions.map((reaction: any) => {
             if (reaction.user_id === user.value?.id) {
                 reaction.type = type as unknown as reaction_type;
             }
             return reaction;
         });
+    }
+    if(type === 'UP') {
+        post.likedByUser = !post.likedByUser;
+        post.dislikedByUser = false;
+    } else {
+        post.dislikedByUser = !post.dislikedByUser;
+        post.likedByUser = false;
     }
 }
 
@@ -53,11 +60,18 @@ const filtered_posts = computed(() => {
         return posts;
     }
 });
+
+filtered_posts.value.map((post: any) => {
+    post.comm = false;
+    post.likedByUser = post.reactions.some((reaction: any) => reaction.user_id === user.value?.id && reaction.type === 'UP');
+    post.dislikedByUser = post.reactions.some((reaction: any) => reaction.user_id === user.value?.id && reaction.type === 'DOWN');
+    return post;
+});
 </script>
 
 <template>
     <div class="flex flex-col gap-4 break-all">
-        <div v-for="post in filtered_posts" :key="post.id"
+        <div v-for="post in filtered_posts as any" :key="post.id"
             class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
             <div class="flex flex-row">
                 <Icon name="material-symbols:account-circle" class="size-14 text-gray-500 basis-14" />
@@ -68,7 +82,7 @@ const filtered_posts = computed(() => {
                     </h2>
                     <p class="font-thin">
                         <span v-for="tag in post.tags" :key="tag.name" class="font-thin">
-                            {{ '#' + tag.name + ' '}} 
+                            {{ '#' + tag.name + ' '}}
                         </span>
                     </p>
                 </div>
@@ -85,24 +99,34 @@ const filtered_posts = computed(() => {
                 <div class="flex flex-row gap-8">
                     <div>
                         <button @click="reactToPost(post, 'UP')">
-                            <Icon name="material-symbols:thumb-up" class="mr-2" />
+                            <Icon name="material-symbols:thumb-up"
+                                :class="post.likedByUser ? 'mr-2 text-gray-300' :'mr-2 hover:text-gray-300'" />
                         </button>
-                        <span>{{ post.reactions.filter(reaction => String(reaction.type) === 'UP').length }}</span>
+                        <span>{{ post.reactions.filter((reaction: any) => String(reaction.type) === 'UP').length
+                            }}</span>
                     </div>
                     <div>
                         <button @click="reactToPost(post, 'DOWN')">
-                            <Icon name="material-symbols:thumb-down" class="mr-2" />
+                            <Icon name="material-symbols:thumb-down"
+                                :class="post.dislikedByUser ? 'mr-2 text-gray-200' : 'mr-2 hover:text-gray-300'" />
                         </button>
-                        <span>{{ post.reactions.filter(reaction => String(reaction.type) === 'DOWN').length }}</span>
+                        <span>{{ post.reactions.filter((reaction: any) => String(reaction.type) === 'DOWN').length
+                            }}</span>
                     </div>
                     <div>
-                        <Icon name="material-symbols:comment" class="mr-2" @click="" />
+                        <button @click="post.comm = !post.comm">
+                            <Icon name="material-symbols:comment" class="mr-2 hover:text-gray-300" />
+                        </button>
                         <span>{{ post.comments.length }}</span>
                     </div>
                 </div>
                 <div>
                     <span>{{ formatDate(post.updated_at) }}</span>
                 </div>
+            </div>
+            <div v-if="post.comm">
+                <br />
+                ntza
             </div>
         </div>
     </div>
