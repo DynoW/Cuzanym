@@ -4,6 +4,7 @@ const { data: topics } = await useFetch("/api/get/topics", {
 });
 
 function formatDate(time: any) {
+    if (!time) return '-';
     const currentTime = new Date();
     const lastTime = new Date(time);
     const timeDiff = currentTime.getTime() - lastTime.getTime();
