@@ -16,11 +16,7 @@ async function search() {
                 <div class="flex items-center gap-6 lg:gap-12 2xl:gap-32">
                     <Logo class="text-3xl text-shadow" />
                     <div class="hidden lg:flex items-center gap-6 text-center">
-                        <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
-                        <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Evenimente</NuxtLink>
-                        <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Top profesori</NuxtLink>
-                        <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportări</NuxtLink>
-                        <NuxtLink to="/terms" class="text-lg text-shadow">Termeni</NuxtLink>
+                        <Links />
                     </div>
                 </div>
                 <div>
@@ -47,11 +43,7 @@ async function search() {
         <div class="lg:hidden" :class="isOpen ? 'block' : 'hidden'">
             <div class="flex flex-col items-end px-4 pb-2">
                 <SmallMenu class="mb-2" />
-                <NuxtLink to="/forum" class="text-lg text-shadow">Forum</NuxtLink>
-                <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Evenimente</NuxtLink>
-                <NuxtLink to="/work-in-progress" class="text-lg text-shadow">Top profesori</NuxtLink>
-                <NuxtLink to="/forum/raportări" class="text-lg text-shadow">Raportări</NuxtLink>
-                <NuxtLink to="/terms" class="text-lg text-shadow">Termeni</NuxtLink>
+                <Links />
             </div>
         </div>
     </nav>
