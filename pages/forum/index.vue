@@ -1,5 +1,14 @@
 <script setup lang="ts">
+// const supabase = useSupabaseClient()
+// const user = useSupabaseUser()
 
+// const { data } = await supabase
+//     .from('user')
+//     .select('id, is_admin, is_director, is_event_creator, is_banned')
+//     .eq('id', user.value?.id as string)
+//     .single()
+// if (data)
+//     console.log(data)
 </script>
 
 <template>

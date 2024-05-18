@@ -11,7 +11,7 @@ const createPost = async () => {
         alert('Titlul este necesar!');
         return;
     } else {
-        const { status, data , error } = await useFetch('/api/post/post', {
+        const { data , error } = await useFetch('/api/post/post', {
             method: 'post',
             headers: useRequestHeaders(['cookie']),
             body: {
@@ -21,9 +21,7 @@ const createPost = async () => {
                 topic
             }
         })
-        if (data.value == "bad word") {
-            alert('Nu ai voie sa folosești cuvinte vulgare!');
-        } else if (status.value === "success") {
+        if (!error) {
             window.location.reload();
         } else {
             alert('A apărut o eroare!');
