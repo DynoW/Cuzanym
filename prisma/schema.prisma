@@ -331,12 +331,11 @@ model post {
 
 model comment {
   id          String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  text        String
+  content     String
   created_at  DateTime           @default(now()) @db.Timestamptz(6)
   author_id   String             @db.Uuid
   post_id     String             @db.Uuid
   reply_to_id String?            @db.Uuid
-  comment_id  String?
   author      user               @relation(fields: [author_id], references: [id])
   post        post               @relation(fields: [post_id], references: [id], onDelete: Cascade)
   reply_to    comment?           @relation("reply_to", fields: [reply_to_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
