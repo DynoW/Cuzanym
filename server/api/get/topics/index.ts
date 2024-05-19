@@ -17,7 +17,8 @@ export default defineEventHandler(async (event) => {
             const changedTopic = topic;
             changedTopic.count = await prisma.post.count({
                 where: {
-                    topic_id: topic.id
+                    topic_id: topic.id,
+                    is_hidden: false
                 }
             });
             changedTopic.last = (await prisma.post.findFirst({
