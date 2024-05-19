@@ -5,16 +5,27 @@ let posts = useAttrs().posts as post[];
 
 const { data: user_roles } = await supabase
     .from('user')
-    .select('id, is_admin')
+    .select('id, is_admin, is_director')
     .eq('id', user.value?.id as string)
     .single()
 
 if (user_roles && user_roles.is_admin == false) {
     posts = posts.filter((post: any) => {
-        if (post.author_id == user.value?.id && post.is_hidden == true) {
-            post.pending = true;
+        if (post.topic_id != "a622945f-1f3c-487a-aca7-9fb1fbc2872f") {
+            if (post.author_id == user.value?.id && post.is_hidden == true) {
+                post.pending = true;
+            }
+            return post.is_hidden == false || post.author_id == user.value?.id;
+        } else {
+            if (post.author_id == user.value?.id && post.is_hidden == true) {
+                post.pending = true;
+            }
+            if (user_roles.is_director == true) {
+                return post.is_hidden == false;
+            } else {
+                return post.author_id == user.value?.id;
+            }
         }
-        return post.is_hidden == false || post.author_id == user.value?.id;
     });
 } else if (!user_roles) {
     posts = []
@@ -60,7 +71,7 @@ async function reactToPost(post: any, type: string) {
             return reaction;
         });
     }
-    if(type === 'UP') {
+    if (type === 'UP') {
         post.likedByUser = !post.likedByUser;
         post.dislikedByUser = false;
     } else {
@@ -134,12 +145,12 @@ async function updatePost(post: any, is_hidden: boolean) {
                     </h2>
                     <p class="font-thin">
                         <span v-for="tag in post.tags" :key="tag.name" class="font-thin">
-                            {{ '#' + tag.name + ' '}}
+                            {{ '#' + tag.name + ' ' }}
                         </span>
                     </p>
                 </div>
                 <div class="grow flex flex-col">
-                    <div v-if="user_roles && user_roles.is_admin==true" class="flex flex-row justify-end">
+                    <div v-if="user_roles && user_roles.is_admin == true" class="flex flex-row justify-end">
                         <button v-if="post.is_hidden" @click="updatePost(post, false)">
                             <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
                         </button>
@@ -158,7 +169,7 @@ async function updatePost(post: any, is_hidden: boolean) {
             <br />
             <div class="flex flex-col gap-3">
                 <h3 class="text-xl font-bold">{{ post.title }}</h3>
-                <p class="font-bo">
+                <p class="font-bold">
                     {{ post.content }}
                 </p>
             </div>
@@ -168,7 +179,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                     <div>
                         <button @click="reactToPost(post, 'UP')">
                             <Icon name="material-symbols:thumb-up"
-                                :class="post.likedByUser ? 'mr-2 text-gray-300' :'mr-2 hover:text-gray-300'" />
+                                :class="post.likedByUser ? 'mr-2 text-gray-300' : 'mr-2 hover:text-gray-300'" />
                         </button>
                         <span>{{ post.reactions.filter((reaction: any) => String(reaction.type) === 'UP').length
                             }}</span>
@@ -183,7 +194,8 @@ async function updatePost(post: any, is_hidden: boolean) {
                     </div>
                     <div>
                         <button @click="post.comm = !post.comm">
-                            <Icon name="material-symbols:comment" class="mr-2 hover:text-gray-300" />
+                            <Icon name="material-symbols:comment"
+                                :class="post.comm ? 'mr-2 text-gray-300' : 'mr-2 hover:text-gray-300'" />
                         </button>
                         <span>{{ post.comments.length }}</span>
                     </div>
@@ -207,7 +219,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                     </div>
                     <br />
                     <div class="flex flex-col gap-3">
-                        <p class="font-bo">
+                        <p class="font-bold">
                             {{ comment.content }}
                         </p>
                     </div>
