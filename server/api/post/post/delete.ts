@@ -11,7 +11,6 @@ export default defineEventHandler(async (event) => {
     }
     try {
         const { post_id } = await readBody(event);
-        console.log(post_id);
 
         const deletePost = await prisma.post.delete({
             where: {
