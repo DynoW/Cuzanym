@@ -23,7 +23,8 @@ export default defineEventHandler(async (event) => {
             });
             changedTopic.last = (await prisma.post.findFirst({
                 where: {
-                    topic_id: topic.id
+                    topic_id: topic.id,
+                    is_hidden: false
                 },
                 orderBy: { created_at: "desc" },
                 select: {
