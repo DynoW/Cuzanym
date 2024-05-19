@@ -126,7 +126,32 @@ filtered_posts.value.map((post: any) => {
             </div>
             <div v-if="post.comm">
                 <br />
-                ntza
+                <div v-for="comment in post.comments" :key="comment.id"
+                    class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
+                    <div class="flex flex-row">
+                        <Icon name="material-symbols:account-circle" class="size-14 text-gray-500 basis-14" />
+                        <div class="flex flex-col ml-3">
+                            <h2 class="text-neutral-700 text-xl font-bold dark:text-gray-400">
+                                <span v-if="comment.author?.name">{{ comment.author.name }}</span>
+                                <span v-else>Utilizator anonim</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="flex flex-col gap-3">
+                        <p class="font-bo">
+                            {{ comment.content }}
+                        </p>
+                    </div>
+                    <br />
+                    <div class="flex flex-row justify-between text-gray-500">
+                        <div>
+                            <span>{{ formatDate(comment.created_at) }}</span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <CreateComment :post="post" />
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ const createPost = async () => {
         alert('Titlul este necesar!');
         return;
     } else {
-        const { data , error } = await useFetch('/api/post/post', {
+        const { status } = await useFetch('/api/post/post', {
             method: 'post',
             headers: useRequestHeaders(['cookie']),
             body: {
@@ -21,7 +21,7 @@ const createPost = async () => {
                 topic
             }
         })
-        if (!error) {
+        if (status.value === "success") {
             window.location.reload();
         } else {
             alert('A apărut o eroare!');
@@ -39,11 +39,11 @@ const createPost = async () => {
                 <Icon name="material-symbols:close" @click="createMenu = !createMenu" class="cursor-pointer" />
             </div>
             <div class="flex flex-col gap-3 dark:text-neutral-100">
-                <input v-model="title" type="text" placeholder="Titlu"
+                <input v-model="title" type="text" placeholder="Titlu" maxlength="92"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
-                <textarea v-model="content" placeholder="Conținut"
+                <textarea v-model="content" placeholder="Conținut" maxlength="700"
                     class="h-32 border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0"></textarea>
-                <input v-model="tags" type="text" placeholder="Tag-uri separate de ,"
+                <input v-model="tags" type="text" placeholder="Tag-uri separate de ," maxlength="92"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
                 <button @click="createPost" class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Post</button>
             </div>
