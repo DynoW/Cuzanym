@@ -7,19 +7,15 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const { post_id, content } = await readBody(event);
+        const { comment_id } = await readBody(event);
 
-        const createComment = await prisma.comment.create({
-            data: {
-                post: { connect: { id: post_id } },
-                content,
-                author: {
-                    connect: { id: user.id },
-                },
-            },
+        const deleteComment = await prisma.comment.delete({
+            where: {
+                id: comment_id
+            }
         });
 
-        return createComment;
+        return deleteComment;
     } catch (error: any) {
         throw createError({ status: 500, message: error.message });
     }

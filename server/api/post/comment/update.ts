@@ -10,18 +10,17 @@ export default defineEventHandler(async (event) => {
         throw createError({ status: 403, message: "Forbidden" });
     }
     try {
-        const { post_id, is_hidden } = await readBody(event);
-
-        const createPost = await prisma.post.update({
+        const { comment_id, is_hidden } = await readBody(event);
+        const updateComment = await prisma.comment.update({
             where: {
-                id: post_id
+                id: comment_id
             },
             data: {
                 is_hidden
             }
         });
 
-        return createPost;
+        return updateComment;
     } catch (error: any) {
         throw createError({ status: 500, message: error.message });
     }

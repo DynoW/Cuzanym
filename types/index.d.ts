@@ -18,7 +18,8 @@ declare global {
         created_at: string;
         author_id: string;
         post_id: string;
-        comment_id: string;
+        reply_to_id: string | null;
+        is_hidden: boolean;
     }
 
     interface post {

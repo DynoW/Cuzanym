@@ -11,7 +11,15 @@ export default defineEventHandler(async (event) => {
             include: {
                 tags: true,
                 reactions: true,
-                comments: true,
+                comments: {
+                    include: {
+                        author: {
+                            select: {
+                                username: true,
+                            },
+                        },
+                    },
+                },
                 author: {
                     select: {
                         username: true,

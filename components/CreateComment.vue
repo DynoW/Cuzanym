@@ -1,5 +1,4 @@
 <script setup lang="ts">
-    const user = useSupabaseUser();
     const post = useAttrs().post as any; 
     const content = ref('');
     const createPost = async () => {
@@ -7,7 +6,7 @@
             alert('Conținutul este necesar!');
             return;
         } else {
-            const { status } = await useFetch('/api/post/comment', {
+            const { data, status } = await useFetch('/api/post/comment', {
                 method: 'post',
                 headers: useRequestHeaders(['cookie']),
                 body: {
@@ -17,11 +16,13 @@
             })
             if (status.value === "success") {
                 post.comments.push({
-                    content: content.value,
-                    created_at: new Date().toISOString(),
-                    user: {
-                        id: user.value?.id,
-                    }
+                    id: data.value?.id,
+                    content: data.value?.content,
+                    created_at: data.value?.created_at,
+                    author_id: data.value?.author_id,
+                    post_id: data.value?.post_id,
+                    reply_to_id: data.value?.reply_to_id,
+                    is_hidden: data.value?.is_hidden
                 });
                 content.value = '';
             } else {

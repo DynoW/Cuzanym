@@ -6,22 +6,23 @@ export default defineEventHandler(async (event) => {
     if (!user) {
         throw createError({ status: 401, message: "Unauthorized" });
     }
-    if ((await prisma.user.findFirst({ where: { id: user.id } }))?.is_admin != true) {
-        throw createError({ status: 403, message: "Forbidden" });
+    if (!user) {
+        throw createError({ status: 401, message: "Unauthorized" });
     }
     try {
-        const { post_id, is_hidden } = await readBody(event);
+        const { post_id, content } = await readBody(event);
 
-        const createPost = await prisma.post.update({
-            where: {
-                id: post_id
-            },
+        const createComment = await prisma.comment.create({
             data: {
-                is_hidden
-            }
+                post: { connect: { id: post_id } },
+                content,
+                author: {
+                    connect: { id: user.id },
+                },
+            },
         });
 
-        return createPost;
+        return createComment;
     } catch (error: any) {
         throw createError({ status: 500, message: error.message });
     }
