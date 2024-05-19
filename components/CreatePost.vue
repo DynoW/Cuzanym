@@ -7,7 +7,7 @@ const tags = ref('');
 let createMenu = ref(false);
 
 const createPost = async () => {
-    if (!title.value) {
+    if (!title.value.trim()) {
         alert('Titlul este necesar!');
         return;
     } else {

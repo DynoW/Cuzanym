@@ -3,7 +3,7 @@
     const post = useAttrs().post as any; 
     const content = ref('');
     const createPost = async () => {
-        if (!content.value) {
+        if (!content.value.trim()) {
             alert('Conținutul este necesar!');
             return;
         } else {
