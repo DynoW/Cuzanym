@@ -15,7 +15,7 @@ const handleLogout = async () => {
 <template>
     <NuxtLayout name="home">
         <main class="main main-flex">
-            <div class="basis-2/5 xl:basis-1/4 flex flex-col gap-4 rounded-lg p-5 bg-white dark:bg-slate-800">
+            <div class="basis-2/5 xl:basis-1/3 flex flex-col gap-4 rounded-lg p-5 bg-white dark:bg-slate-800">
                 <div class="flex flex-col justify-center text-center">
                     <h1 class="font-extrabold text-2xl">
                         Profile
@@ -28,8 +28,9 @@ const handleLogout = async () => {
                     <h2>
                         Username:
                     </h2>
-                    <span title="username" class="input inline-block whitespace-nowrap overflow-hidden max-w-48"
-                        role="textbox" contenteditable>
+                    <span title="username"
+                        class="input inline-block whitespace-nowrap overflow-hidden min-w-2 max-w-60 xl:max-w-60 " role="textbox"
+                        minlength="3" maxlenght="25" contenteditable>
                         {{ (user?.username == null) ? 'Utilizator anonim' : user?.username }}
                     </span>
                     <button>
@@ -40,7 +41,7 @@ const handleLogout = async () => {
                     <button @click="handleLogout()" class="text-red-500 font-extrabold text-lg">Sign out</button>
                 </div>
             </div>
-            <div class="basis-3/5 xl:basis-3/4">
+            <div class="basis-3/5 xl:basis-2/3">
 
             </div>
         </main>

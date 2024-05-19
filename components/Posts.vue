@@ -1,6 +1,17 @@
 <script setup lang="ts">
+const supabase = useSupabaseClient();
 const user = useSupabaseUser();
-const posts = useAttrs().posts as post[];
+let posts = useAttrs().posts as post[];
+
+const { data: user_roles } = await supabase
+    .from('user')
+    .select('id, is_admin')
+    .eq('id', user.value?.id as string)
+    .single()
+
+if (user_roles && user_roles.is_admin == false) {
+    posts = posts.filter((post: any) => !post.is_hidden);
+}
 
 function formatDate(time: any) {
     const currentTime = new Date();
@@ -67,6 +78,40 @@ filtered_posts.value.map((post: any) => {
     post.dislikedByUser = post.reactions.some((reaction: any) => reaction.user_id === user.value?.id && reaction.type === 'DOWN');
     return post;
 });
+
+async function deletePost(post: any) {
+    const { status } = await useFetch('/api/post/post/delete', {
+        method: 'post',
+        headers: useRequestHeaders(['cookie']),
+        body: {
+            post_id: post.id
+        }
+    })
+    if (status.value === "success") {
+        const index = filtered_posts.value.findIndex((p: any) => p.id === post.id);
+        if (index !== -1) {
+            filtered_posts.value.splice(index, 1);
+        }
+    } else {
+        alert('A apărut o eroare!');
+    }
+}
+
+async function updatePost(post: any, is_hidden: boolean) {
+    const { status } = await useFetch('/api/post/post/update', {
+        method: 'post',
+        headers: useRequestHeaders(['cookie']),
+        body: {
+            post_id: post.id,
+            is_hidden
+        }
+    })
+    if (status.value === "success") {
+        post.is_hidden = !post.is_hidden;
+    } else {
+        alert('A apărut o eroare!');
+    }
+}
 </script>
 
 <template>
@@ -85,6 +130,19 @@ filtered_posts.value.map((post: any) => {
                             {{ '#' + tag.name + ' '}}
                         </span>
                     </p>
+                </div>
+                <div class="grow">
+                    <div v-if="user_roles && user_roles.is_admin==true" class="flex flex-row justify-end">
+                        <button v-if="post.is_hidden" @click="updatePost(post, false)">
+                            <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
+                        </button>
+                        <button v-if="!post.is_hidden" @click="updatePost(post, true)">
+                            <Icon name="bx:show" class="mr-2 text-blue-700 hover:text-blue-500" />
+                        </button>
+                        <button @click="deletePost(post)">
+                            <Icon name="material-symbols:delete" class="mr-2 text-red-500 hover:text-red-400" />
+                        </button>
+                    </div>
                 </div>
             </div>
             <br />
@@ -121,7 +179,7 @@ filtered_posts.value.map((post: any) => {
                     </div>
                 </div>
                 <div>
-                    <span>{{ formatDate(post.updated_at) }}</span>
+                    <span>{{ formatDate(post.created_at) }}</span>
                 </div>
             </div>
             <div v-if="post.comm">

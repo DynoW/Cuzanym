@@ -35,23 +35,22 @@ const createPost = async () => {
     <div class="rounded-xl bg-white dark:bg-slate-800">
         <div v-if="createMenu" class="flex flex-col p-5 gap-4">
             <div class="flex flex-row justify-between px-1">
-                <h1 class="text-2xl font-bold">Create a post</h1>
+                <h1 class="text-2xl font-bold">Creează o postare</h1>
                 <Icon name="material-symbols:close" @click="createMenu = !createMenu" class="cursor-pointer" />
             </div>
             <div class="flex flex-col gap-3 dark:text-neutral-100">
-                <input v-model="title" type="text" placeholder="Titlu" maxlength="92"
+                <input v-model="title" type="text" placeholder="Titlu" maxlength="100"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
                 <textarea v-model="content" placeholder="Conținut" maxlength="700"
                     class="h-32 border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0"></textarea>
-                <input v-model="tags" type="text" placeholder="Tag-uri separate de ," maxlength="92"
+                <input v-model="tags" type="text" placeholder="Tag-uri separate de ," maxlength="70"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
-                <button @click="createPost" class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Post</button>
+                <button @click="createPost" class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Postează</button>
             </div>
         </div>
         <div v-else class="flex flex-col p-5 gap-4">
             <button @click=" createMenu = !createMenu"
-                class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Create a
-                post</button>
+                class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Creează o postare</button>
         </div>
     </div>
 </template>

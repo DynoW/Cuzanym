@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
                 },
             },
             orderBy: {
-                updated_at: "desc",
+                created_at: "desc",
             },
         });
         // let data;

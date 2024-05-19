@@ -316,10 +316,11 @@ model post {
   id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title      String
   content    String?
-  created_at DateTime   @default(now()) @updatedAt @db.Timestamptz(6)
+  created_at DateTime   @default(now()) @db.Timestamptz(6)
   updated_at DateTime   @default(now()) @updatedAt @db.Timestamptz(6)
   author_id  String     @db.Uuid
   topic_id   String     @db.Uuid
+  is_hidden  Boolean    @default(true)
   comments   comment[]
   author     user       @relation(fields: [author_id], references: [id])
   topic      topic      @relation(fields: [topic_id], references: [id])

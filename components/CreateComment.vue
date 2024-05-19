@@ -35,6 +35,6 @@
     <div class="flex flex-col gap-2">
         <textarea v-model="content" placeholder="Conținut" maxlength="500"
             class="max-h-32 border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0"></textarea>
-        <button @click="createPost" class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Post</button>
+        <button @click="createPost" class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Comentează</button>
     </div>
 </template>

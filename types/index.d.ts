@@ -32,7 +32,7 @@ declare global {
         reactions: reaction[];
         comments: comment[];
         author: { name: string; };
-        
+        is_hidden: boolean;
     }
 
     interface topic {
