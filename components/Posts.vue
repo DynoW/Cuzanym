@@ -10,7 +10,14 @@ const { data: user_roles } = await supabase
     .single()
 
 if (user_roles && user_roles.is_admin == false) {
-    posts = posts.filter((post: any) => !post.is_hidden);
+    posts = posts.filter((post: any) => {
+        if (post.author_id == user.value?.id && post.is_hidden == true) {
+            post.pending = true;
+        }
+        return post.is_hidden == false || post.author_id == user.value?.id;
+    });
+} else if (!user_roles) {
+    posts = []
 }
 
 function formatDate(time: any) {
@@ -131,7 +138,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                         </span>
                     </p>
                 </div>
-                <div class="grow">
+                <div class="grow flex flex-col">
                     <div v-if="user_roles && user_roles.is_admin==true" class="flex flex-row justify-end">
                         <button v-if="post.is_hidden" @click="updatePost(post, false)">
                             <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
@@ -142,6 +149,9 @@ async function updatePost(post: any, is_hidden: boolean) {
                         <button @click="deletePost(post)">
                             <Icon name="material-symbols:delete" class="mr-2 text-red-500 hover:text-red-400" />
                         </button>
+                    </div>
+                    <div v-if="post.pending" class="text-end text-orange-200">
+                        pending
                     </div>
                 </div>
             </div>
