@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout name="home">
-        <div class="main main-flex">
+        <main class="main main-flex">
             <div class="basis-3/5">
                 <NuxtImg src="/img/about/about.png" alt="About Us" />
             </div>
@@ -17,6 +17,6 @@
                     Contact: <NuxtLink to="mailto:cuzanym@gmail.com" class="underline">cuzanym@gmail.com</NuxtLink>
                 </p>
             </div>
-        </div>
+        </main>
     </NuxtLayout>
 </template>
