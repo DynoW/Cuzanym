@@ -39,7 +39,9 @@
                         forum.
                     </h4>
                     <h4>
-                        3. Secțiunea "Raportează" este rezervată pentru comunicarea în situații serioase, deoarece este
+                        3. Secțiunea <NuxtLink to="/forum/raportări" class="text-orange-200">"Raportează"</NuxtLink> este rezervată pentru comunicarea
+                        în situații serioase,
+                        deoarece este
                         o conexiune directă între director și elev. Orice plângere banală sau
                         nejustificată nu va fi trimisă.
                     </h4>
@@ -51,23 +53,32 @@
                 </div>
                 <div class="text-lg pt-2">
                     <h4>
-                        1. Pentru o discuție normală cu alți elevi, folosiți topicul "Diverse".
+                        1. Pentru o discuție normală cu alți elevi, folosiți topicul <NuxtLink to="/forum/diverse"
+                            class="text-orange-200">"Diverse"</NuxtLink>.
                     </h4>
                     <h4>
-                        2. Puteți folosi tag-uri precum: #mate, #romana.
+                        2. Puteți folosi tag-uri precum: <span class="text-orange-200">#mate, #romana</span>.
                     </h4>
                     <h4>
-                        3. Pentru discuții localizate, folosiți topicurile special amenajate. (Exemplu: Activități
-                        extrașcolare, Liceu, etc.)
+                        3. Pentru discuții localizate, folosiți topicurile special amenajate. (Exemplu: <span
+                            class="text-orange-200">Activități
+                            extrașcolare, Liceu, etc.</span>)
                     </h4>
                     <h4>
-                        4. Topicul "Liceu" este rezervat numai pentru sugestii despre liceu sau semnalarea unor probleme
-                        în
-                        liceu.
-                    </h4>
+                        4. Topicul <NuxtLink to="/forum/liceu" class="text-orange-200">"Liceu"</NuxtLink> este rezervat numai pentru sugestii
+                        despre liceu
+                        sau semnalarea unor probleme în liceu. </h4>
                     <h4>
-                        5. Dacă aveți o problemă serioasă sau sunteți sigur(ă) că vi s-a făcut o nedreptate, folosiți
-                        secțiunea "Raportări", în care puteți vedea doar raportările dvs.
+                        5. Dacă aveți o problemă serioasă sau sunteți sigur(ă) că vi s-a făcut o nedreptate,
+                        folosiți
+                        secțiunea <NuxtLink to="/forum/raportări" class="text-orange-200">"Raportări"</NuxtLink>, în care puteți vedea doar
+                        raportările
+                        dvs.
+                    </h4>
+                    <h4 class="text-base">
+                        Obs: Moderarea postărilor se face de către moderatori, dacă o postare are <span
+                            class="text-orange-200">"pending"</span>
+                        înseamnă că trebuie aprobată de un moderator.
                     </h4>
                 </div>
                 <div class="text-xl pt-3 text-sky-700 dark:text-amber-400">

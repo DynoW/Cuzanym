@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
                 id: true,
                 name: true,
             },
+            orderBy: { name: "desc" }
         }) as { id: string, name: string, count?: number, last?: Date }[];
         for (let topic of data) {
             const changedTopic = topic;

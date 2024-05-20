@@ -27,6 +27,13 @@ if (!topics?.some((t) => t.name.toLowerCase() === topic)){
                     <span class="not-italic">Topic: </span>{{ capitalize(topic) }}
                 </Announcement>
                 <br />
+                <Announcement>
+                    <p v-if="topic =='raportări'" class="text-base not-italic text-amber-200">Această secțiune este
+                        pentru a trimite mesaje directorului</p>
+                    <NuxtLink to="/forum/tutorial" v-else class="text-lg not-italic text-sky-600">(Postările
+                        trebuie moderate de moderatori → Tutorial)</NuxtLink>
+                </Announcement>
+                <br />
                 <Tags />
             </div>
         </main>
