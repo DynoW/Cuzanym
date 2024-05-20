@@ -34,7 +34,7 @@ const handleLogin = async () => {
 
 <template>
   <div class="h-screen w-full flex relative justify-center items-center">
-    <NuxtImg src="/img/login/banci.jpg" alt="login-bg" class="-z-10 w-full lg:w-3/5 h-full object-cover" />
+    <NuxtImg preload src="/img/login/banci.jpg" alt="login-bg" class="-z-10 w-full lg:w-3/5 h-full object-cover" />
     <div
       class="bg-neutral-100 p-5 lg:p-0 rounded-lg lg:rounded-none lg:h-full flex flex-col items-center justify-center absolute lg:static max-w-sm lg:max-w-full gap-5">
       <Logo class="text-7xl" />
