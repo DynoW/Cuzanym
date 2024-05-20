@@ -89,6 +89,11 @@
                         -> profil utilizatori
                     </h4>
                 </div>
+                <div class="text-lg pt-3 text-amber-400">
+                    <h3>
+                        Vă rugăm să ne semnalați orice problemă sau sugestie pe care o aveți. (topicul "Bug-uri site", respectiv "Sugestii site" din forum)
+                    </h3>
+                </div>
             </div>
         </div>
     </NuxtLayout>
