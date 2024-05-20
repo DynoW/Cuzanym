@@ -1,4 +1,4 @@
-# Termeni
+# Termenii & Condițiile
 
 Pe tot cuprinsul prezentului document, următorii termeni se traduc astfel:
 

@@ -4,11 +4,11 @@
             <Hierarchy />
         </nav>
         <div class="main flex flex-col">
-            <div class="rounded-lg p-5 w-full bg-white dark:bg-slate-800 text-amber-100">
-                <div class="text-3xl pb-1 border-b text-amber-400">
+            <div class="rounded-lg p-5 w-full bg-white dark:bg-slate-800 dark:text-amber-100">
+                <div class="text-3xl pb-1 border-b text-sky-700 dark:text-amber-400">
                     <h2>Tutorial</h2>
                 </div>
-                <div class="text-xl pt-3 text-amber-400">
+                <div class="text-xl pt-3 text-sky-700 dark:text-amber-400">
                     <h3>
                         Cuvânt înainte & Scop.
                     </h3>
@@ -24,7 +24,7 @@
                         anonimatului.
                     </h4>
                 </div>
-                <div class="text-xl pt-3 text-amber-400">
+                <div class="text-xl pt-3 text-sky-700 dark:text-amber-400">
                     <h3>
                         Reguli de folosire.
                     </h3>
@@ -44,7 +44,7 @@
                         nejustificată nu va fi trimisă.
                     </h4>
                 </div>
-                <div class="text-xl pt-3 text-amber-400">
+                <div class="text-xl pt-3 text-sky-700 dark:text-amber-400">
                     <h3>
                         Cum să folosiți Cuzanym:
                     </h3>
@@ -70,14 +70,14 @@
                         secțiunea "Raportări", în care puteți vedea doar raportările dvs.
                     </h4>
                 </div>
-                <div class="text-xl pt-3 text-amber-400">
+                <div class="text-xl pt-3 text-sky-700 dark:text-amber-400">
                     <h3>
                         Lucruri work in progress:
                     </h3>
                 </div>
                 <div class="text-lg pt-2">
                     <h4>
-                       -> cluburi
+                        -> cluburi
                     </h4>
                     <h4>
                         -> evenimente
@@ -89,9 +89,10 @@
                         -> profil utilizatori
                     </h4>
                 </div>
-                <div class="text-lg pt-3 text-amber-400">
+                <div class="text-lg pt-3 text-sky-700 dark:text-amber-400">
                     <h3>
-                        Vă rugăm să ne semnalați orice problemă sau sugestie pe care o aveți. (topicul "Bug-uri site", respectiv "Sugestii site" din forum)
+                        Vă rugăm să ne semnalați orice problemă sau sugestie pe care o aveți. (topicul "Bug-uri site",
+                        respectiv "Sugestii site" din forum)
                     </h3>
                 </div>
             </div>
