@@ -207,7 +207,6 @@ async function updatePost(post: any, is_hidden: boolean) {
             <div v-if="post.comm">
                 <br />
                 <Comments :comments="post.comments" :user_roles="user_roles" />
-                <br />
                 <CreateComment :post="post" />
             </div>
         </div>
