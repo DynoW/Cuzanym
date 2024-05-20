@@ -6,6 +6,9 @@ export default defineEventHandler(async (event) => {
     if (!user) {
         throw createError({ status: 401, message: "Unauthorized" });
     }
+    if ((await prisma.user.findFirst({ where: { id: user.id } }))?.is_admin != true) {
+        throw createError({ status: 403, message: "Forbidden" });
+    }
     try {
         const { comment_id } = await readBody(event);
 
