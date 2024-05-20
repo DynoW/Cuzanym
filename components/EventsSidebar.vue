@@ -12,7 +12,7 @@ const getRandomItems = (arr: any[], n: number) => {
         <div class="flex flex-col gap-4">
             <ContentList path="/events" v-slot="{ list }">
                 <div v-for="event in getRandomItems(list, 2)" :key="event._path">
-                    <NuxtLink :to="'/events#'+event.titlu" class="text-lg font-semibold">
+                    <NuxtLink to="/work-in-progress" class="text-lg font-semibold">
                         <NuxtImg :src="event.imagine" :alt="event.titlu" />
                     </NuxtLink>
                 </div>
