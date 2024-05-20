@@ -113,6 +113,9 @@ export default defineEventHandler(async (event) => {
                             },
                         },
                     },
+                    orderBy: {
+                        created_at: "asc",
+                    },
                 },
                 author: {
                     select: {

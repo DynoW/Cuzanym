@@ -1,30 +1,22 @@
 <script setup lang="ts">
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
 const comments = useAttrs().comments as any;
+const user = useSupabaseUser();
+const user_roles = useAttrs().user_roles as any;
 
-const { data: user_roles } = await supabase
-    .from('user')
-    .select('id, is_admin, is_director')
-    .eq('id', user.value?.id as string)
-    .single()
-
-if (user_roles && user_roles.is_admin == false) {
-    if (comments.value) {
-        comments.value = comments.value.filter((comment: any) => {
+const filtered_comments = computed(() => {
+    if (user_roles && user_roles.is_admin == false) {
+        return comments.filter((comment: any) => {
             if (comment.author_id == user.value?.id && comment.is_hidden == true) {
                 comment.pending = true;
             }
             return comment.is_hidden == false || comment.author_id == user.value?.id;
         });
+    } else if (!user_roles) {
+        return [];
+    } else {
+        return comments;
     }
-}
-
-const filtered_comments = computed(() => {
-    return comments;
 });
-
-
 
 async function deleteComment(comment: any) {
     const { status } = await useFetch('/api/post/comment/delete', {
@@ -82,14 +74,15 @@ function formatDate(time: any) {
 
 <template>
     <div v-for="comment in filtered_comments" :key="comment.id"
-        class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
+        class="flex flex-col mb-2 p-5 border-l-2 border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
         <div class="flex flex-row">
             <Icon name="material-symbols:account-circle" class="size-14 text-gray-500 basis-14" />
             <div class="flex flex-col ml-3">
-                <h2 class="text-neutral-700 text-xl font-bold dark:text-gray-400">
+                <h4 class="text-neutral-700 text-xl font-bold dark:text-gray-400">
                     <span v-if="comment.author?.username">{{ comment.author.username }}</span>
                     <span v-else>Utilizator anonim</span>
-                </h2>
+                </h4>
+                <p class="text-gray-500">{{ formatDate(comment.created_at) }}</p>
             </div>
             <div class="grow flex flex-col">
                 <div v-if="user_roles && user_roles.is_admin == true" class="flex flex-row justify-end">
@@ -108,17 +101,10 @@ function formatDate(time: any) {
                 </div>
             </div>
         </div>
-        <br />
-        <div class="flex flex-col gap-3">
-            <p class="font-bold">
+        <div class="pt-1">
+            <p class="">
                 {{ comment.content }}
             </p>
-        </div>
-        <br />
-        <div class="flex flex-row justify-between text-gray-500">
-            <div>
-                <span>{{ formatDate(comment.created_at) }}</span>
-            </div>
         </div>
     </div>
 </template>
