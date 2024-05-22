@@ -174,8 +174,8 @@ async function updatePost(post: any, is_hidden: boolean) {
                 </p>
             </div>
             <br />
-            <div class="flex flex-row justify-between text-gray-500">
-                <div class="flex flex-row gap-8">
+            <div class="flex flex-row justify-between text-gray-500 gap-1">
+                <div class="flex flex-row gap-4 sm:gap-6 md:gap-8">
                     <div>
                         <button @click="reactToPost(post, 'UP')">
                             <Icon name="material-symbols:thumb-up"
