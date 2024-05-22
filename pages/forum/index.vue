@@ -22,7 +22,8 @@
                     📜 Bun venit, pe forum!&nbsp;&nbsp;<span class="not-italic">|</span>&nbsp;<NuxtLink
                         to="/forum/tutorial" class="text-sky-600">Tutorial aici 📖
                     </NuxtLink>&nbsp;<span class="not-italic">|</span>&nbsp;
-                    <span class="text-amber-600">Apreciem orice sugestie 🤗</span>
+                    <NuxtLink to="/forum/sugestii%20site" class="text-amber-600">
+                        Apreciem orice sugestie 🤗</NuxtLink>
                 </Announcement>
                 <Topics />
             </div>
