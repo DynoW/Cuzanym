@@ -4,7 +4,7 @@ const user = useSupabaseUser();
 const user_roles = useAttrs().user_roles as any;
 
 const filtered_comments = computed(() => {
-    if (user_roles && user_roles.is_admin == false) {
+    if (user_roles && (user_roles.is_admin == false || user_roles.is_moderator == false)) {
         return comments.filter((comment: any) => {
             if (comment.author_id == user.value?.id && comment.is_hidden == true) {
                 comment.pending = true;
@@ -85,14 +85,14 @@ function formatDate(time: any) {
                 <p class="text-gray-500">{{ formatDate(comment.created_at) }}</p>
             </div>
             <div class="grow flex flex-col">
-                <div v-if="user_roles && user_roles.is_admin == true" class="flex flex-row justify-end">
+                <div v-if="user_roles && user_roles.is_moderator == true" class="flex flex-row justify-end">
                     <button v-if="comment.is_hidden" @click="updateComment(comment, false)">
                         <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
                     </button>
                     <button v-if="!comment.is_hidden" @click="updateComment(comment, true)">
                         <Icon name="bx:show" class="mr-2 text-blue-700 hover:text-blue-500" />
                     </button>
-                    <button @click="deleteComment(comment)">
+                    <button v-if="user_roles.is_admin" @click="deleteComment(comment)">
                         <Icon name="material-symbols:delete" class="mr-2 text-red-500 hover:text-red-400" />
                     </button>
                 </div>

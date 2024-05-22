@@ -281,6 +281,7 @@ model user {
   is_admin           Boolean            @default(false)
   is_director        Boolean            @default(false)
   is_event_creator   Boolean            @default(false)
+  is_moderator       Boolean            @default(false)
   comments           comment[]
   comments_reactions comment_reaction[]
   posts              post[]

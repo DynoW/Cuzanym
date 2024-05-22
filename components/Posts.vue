@@ -5,11 +5,11 @@ let posts = useAttrs().posts as post[];
 
 const { data: user_roles } = await supabase
     .from('user')
-    .select('id, is_admin, is_director')
+    .select('id, is_admin, is_director, is_moderator')
     .eq('id', user.value?.id as string)
     .single()
 
-if (user_roles && user_roles.is_admin == false) {
+if (user_roles && (user_roles.is_admin == false && user_roles.is_moderator == false)) {
     posts = posts.filter((post: any) => {
         if (post.topic_id != "a622945f-1f3c-487a-aca7-9fb1fbc2872f") {
             if (post.author_id == user.value?.id && post.is_hidden == true) {
@@ -150,14 +150,14 @@ async function updatePost(post: any, is_hidden: boolean) {
                     </p>
                 </div>
                 <div class="grow flex flex-col">
-                    <div v-if="user_roles && user_roles.is_admin == true" class="flex flex-row justify-end">
+                    <div v-if="user_roles && user_roles.is_moderator == true" class="flex flex-row justify-end">
                         <button v-if="post.is_hidden" @click="updatePost(post, false)">
                             <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
                         </button>
                         <button v-if="!post.is_hidden" @click="updatePost(post, true)">
                             <Icon name="bx:show" class="mr-2 text-blue-700 hover:text-blue-500" />
                         </button>
-                        <button @click="deletePost(post)">
+                        <button v-if="user_roles.is_admin" @click="deletePost(post)">
                             <Icon name="material-symbols:delete" class="mr-2 text-red-500 hover:text-red-400" />
                         </button>
                     </div>
