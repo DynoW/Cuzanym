@@ -17,9 +17,9 @@ const handleLogout = async () => {
         <main class="main main-flex">
             <div class="basis-2/5 xl:basis-1/3 flex flex-col gap-4 rounded-lg p-5 bg-white dark:bg-slate-800">
                 <div class="flex flex-col justify-center text-center">
-                    <h1 class="font-extrabold text-2xl">
+                    <h2 class="font-extrabold text-2xl">
                         Profile
-                    </h1>
+                    </h2>
                     <span>
                         <Icon name="material-symbols:account-circle" class="size-48 text-neutral-500" />
                     </span>
