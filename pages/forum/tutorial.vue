@@ -102,8 +102,10 @@
                 </div>
                 <div class="text-lg pt-3 text-sky-700 dark:text-amber-400">
                     <h3>
-                        Vă rugăm să ne semnalați orice problemă sau sugestie pe care o aveți. (topicul "Bug-uri site",
-                        respectiv "Sugestii site" din forum)
+                        Vă rugăm să ne semnalați orice problemă sau sugestie pe care o aveți. (În topicul "<NuxtLink
+                            to="/forum/bug-uri%20site" class="text-orange-200">Bug-uri site</NuxtLink>",
+                        respectiv "<NuxtLink to="/forum/sugestii%20site" class="text-orange-200">Sugestii site
+                        </NuxtLink>" din forum)
                     </h3>
                 </div>
             </div>
