@@ -4,7 +4,7 @@ const user = useSupabaseUser();
 const user_roles = useAttrs().user_roles as any;
 
 const filtered_comments = computed(() => {
-    if (user_roles && (user_roles.is_admin == false || user_roles.is_moderator == false)) {
+    if (user_roles && (user_roles.is_admin == false && user_roles.is_moderator == false)) {
         return comments.filter((comment: any) => {
             if (comment.author_id == user.value?.id && comment.is_hidden == true) {
                 comment.pending = true;
