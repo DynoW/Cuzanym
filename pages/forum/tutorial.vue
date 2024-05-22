@@ -15,13 +15,10 @@
                 </div>
                 <div class="text-lg pt-2">
                     <h4>
-                        Principalul scop al acestui website este promovarea comunicării de la elev la cadru didactic,
-                        sau
-                        bineînțeles, de la elev la elev. Dorim să încurajăm generațiile următoare să își exprime
-                        opiniile,
-                        să discute și să fie activi sociali, așa că propunem o deschidere spre acest viitor prin
-                        intermediul
-                        anonimatului.
+                        Principalul scop al acestui website este de a conecta elevii cu directoratul & consiliul
+                        elevilor, pentru a rezolva problemele comune din liceu.
+                        Dorim să încurajăm generațiile următoare să își exprime opiniile, așa că propunem o deschidere
+                        spre acest viitor prin intermediul anonimatului.
                     </h4>
                 </div>
                 <div class="text-xl pt-3 text-sky-700 dark:text-amber-400">
@@ -39,7 +36,8 @@
                         forum.
                     </h4>
                     <h4>
-                        3. Secțiunea <NuxtLink to="/forum/raportări" class="text-orange-200">"Raportează"</NuxtLink> este rezervată pentru comunicarea
+                        3. Secțiunea <NuxtLink to="/forum/raportări" class="text-orange-200">"Raportează"</NuxtLink>
+                        este rezervată pentru comunicarea
                         în situații serioase,
                         deoarece este
                         o conexiune directă între director și elev. Orice plângere banală sau
@@ -65,13 +63,15 @@
                             extrașcolare, Liceu, etc.</span>)
                     </h4>
                     <h4>
-                        4. Topicul <NuxtLink to="/forum/liceu" class="text-orange-200">"Liceu"</NuxtLink> este rezervat numai pentru sugestii
+                        4. Topicul <NuxtLink to="/forum/liceu" class="text-orange-200">"Liceu"</NuxtLink> este rezervat
+                        numai pentru sugestii
                         despre liceu
                         sau semnalarea unor probleme în liceu. </h4>
                     <h4>
                         5. Dacă aveți o problemă serioasă sau sunteți sigur(ă) că vi s-a făcut o nedreptate,
                         folosiți
-                        secțiunea <NuxtLink to="/forum/raportări" class="text-orange-200">"Raportări"</NuxtLink>, în care puteți vedea doar
+                        secțiunea <NuxtLink to="/forum/raportări" class="text-orange-200">"Raportări"</NuxtLink>, în
+                        care puteți vedea doar
                         raportările
                         dvs.
                     </h4>
