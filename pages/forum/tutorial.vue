@@ -76,8 +76,8 @@
                         dvs.
                     </h4>
                     <h4 class="text-base">
-                        Obs: Moderarea postărilor se face de către moderatori, dacă o postare are <span
-                            class="text-orange-200">"pending"</span>
+                        Obs: Moderarea postărilor se face de către moderatori. Dacă o postare are <span
+                            class="text-orange-200">"pending"</span>,
                         înseamnă că trebuie aprobată de un moderator.
                     </h4>
                 </div>

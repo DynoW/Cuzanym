@@ -31,7 +31,7 @@ if (!topics?.some((t) => t.name.toLowerCase() === topic)){
                     <p v-if="topic =='raportări'" class="text-base not-italic text-amber-200">Această secțiune este
                         pentru a trimite mesaje directorului</p>
                     <NuxtLink to="/forum/tutorial" v-else class="text-lg not-italic text-sky-600">(Postările
-                        trebuie moderate de moderatori → Tutorial)</NuxtLink>
+                        trebuie moderate de către moderatori → vezi Tutorial)</NuxtLink>
                 </Announcement>
                 <br />
                 <Tags />
