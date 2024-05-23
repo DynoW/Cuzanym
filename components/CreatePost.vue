@@ -41,7 +41,7 @@ const createPost = async () => {
             <div class="flex flex-col gap-3 dark:text-neutral-100">
                 <input v-model="title" type="text" placeholder="Titlu" maxlength="100"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
-                <textarea v-model="content" placeholder="Conținut (opțional)" maxlength="700"
+                <textarea v-model="content" placeholder="Conținut (opțional)" maxlength="750"
                     class="h-32 border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0"></textarea>
                 <input v-model="tags" type="text" placeholder="Tag-uri separate de , (opțional)" maxlength="70"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
