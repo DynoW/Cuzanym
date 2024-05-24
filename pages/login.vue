@@ -5,14 +5,21 @@ const queryParams = useRoute().query
 
 let wrongDomain = ref(false)
 
+watchEffect(() => {
+  if (user.value) {
+    if (user.value.email && user.value.email.endsWith('@laicuza.ro')) {
+      navigateTo('/forum')
+    } else {
+      wrongDomain.value = true
+    }
+  }
+})
+
 if (queryParams.wrong_domain == 'true') {
-  console.log(user.value)
-  auth.signOut()
   wrongDomain.value = true
 }
 
 if (queryParams.is_banned == 'true') {
-  auth.signOut()
   wrongDomain.value = true
 }
 
