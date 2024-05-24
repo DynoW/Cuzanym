@@ -102,7 +102,7 @@ function formatDate(time: any) {
             </div>
         </div>
         <div class="pt-1">
-            <p class="">
+            <p class="break-normal">
                 {{ comment.content }}
             </p>
         </div>
