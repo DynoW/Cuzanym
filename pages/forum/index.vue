@@ -12,7 +12,7 @@ const user = useSupabaseUser()
 //     console.log(data)
 watchEffect(() => {
     if (user.value)
-        if (user.value.email && !user.value.email.endsWith('@atcuzanym.ro'))
+        if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
             navigateTo('/login?wrong_domain=true')
 })
 </script>
