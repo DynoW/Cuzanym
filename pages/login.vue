@@ -1,11 +1,15 @@
 <script setup lang="ts">
-const user = useSupabaseUser()
 const { auth } = useSupabaseClient()
-const queryWrongDomain = useRoute().query.wrongDomain
+const queryParams = useRoute().query
 
 let wrongDomain = ref(false)
 
-if (queryWrongDomain) {
+if (queryParams.wrong_domain == 'true') {
+  auth.signOut()
+  wrongDomain.value = true
+}
+
+if (queryParams.is_banned == 'true') {
   auth.signOut()
   wrongDomain.value = true
 }
