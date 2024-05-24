@@ -16,6 +16,7 @@ watchEffect(() => {
 })
 
 if (queryParams.wrong_domain == 'true') {
+  auth.signOut()
   wrongDomain.value = true
 }
 

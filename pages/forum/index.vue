@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const user = useSupabaseUser()
 // const supabase = useSupabaseClient()
 // const user = useSupabaseUser()
 
@@ -9,16 +10,9 @@
 //     .single()
 // if (data)
 //     console.log(data)
-definePageMeta({
-    middleware: function () {
-        const user = useSupabaseUser()
-        if (user.value) {
-            if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
-                return navigateTo('/login?wrong_domain=true')
-        } else
-            return navigateTo('/login')
-    },
-});
+if (user.value)
+    if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
+        navigateTo('/login?wrong_domain=true')
 </script>
 
 <template>
