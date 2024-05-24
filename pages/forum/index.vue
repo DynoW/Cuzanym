@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const user = useSupabaseUser()
 // const supabase = useSupabaseClient()
 // const user = useSupabaseUser()
 
@@ -9,6 +10,10 @@
 //     .single()
 // if (data)
 //     console.log(data)
+watchEffect(() => {
+    if (user.value && user.value.email && !user.value.email.endsWith('@atcuzanym.ro'))
+        navigateTo('/login?wrongDomain=true')
+})
 </script>
 
 <template>

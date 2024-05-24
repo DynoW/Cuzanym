@@ -1,19 +1,14 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
 const { auth } = useSupabaseClient()
+const queryWrongDomain = useRoute().query.wrongDomain
 
 let wrongDomain = ref(false)
 
-watchEffect(() => {
-  if (user.value) {
-    if (user.value.email?.endsWith('@laicuza.ro'))
-      navigateTo('/forum')
-    else {
-      auth.signOut()
-      wrongDomain.value = true
-    }
-  }
-})
+if (queryWrongDomain) {
+  auth.signOut()
+  wrongDomain.value = true
+}
 
 const handleLogin = async () => {
   try {
