@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const route = useRoute();
-const topic = route.params.topic as string;
+const topic = useAttrs().topic;
 
 const { pending, data: posts } = useLazyFetch("/api/get/posts/topic", {
     method: 'post',

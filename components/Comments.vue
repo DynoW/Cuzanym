@@ -18,23 +18,41 @@ const filtered_comments = computed(() => {
     }
 });
 
-async function deleteComment(comment: any) {
+async function deleteComment(comment_id: any, comments: any) {
     const { status } = await useFetch('/api/post/comment/delete', {
         method: 'post',
         headers: useRequestHeaders(['cookie']),
         body: {
-            comment_id: comment.id
+            comment_id
         }
     })
     if (status.value === "success") {
-        const index = filtered_comments.value.findIndex((c: any) => c.id === comment.id);
+        const index = comments.findIndex((c: any) => c.id === comment_id);
         if (index !== -1) {
-            filtered_comments.value.splice(index, 1);
+            comments.splice(index, 1);
         }
     } else {
         alert('A apărut o eroare!');
     }
 }
+
+// async function deleteComment(comment_id: any) {
+//     const { status } = await useFetch('/api/post/comment/delete', {
+//         method: 'post',
+//         headers: useRequestHeaders(['cookie']),
+//         body: {
+//             comment_id: comment_id
+//         }
+//     })
+//     if (status.value === "success") {
+//         const index = filtered_comments.value.findIndex((c: any) => c.id === comment_id);
+//         if (index !== -1) {
+//             filtered_comments.value.splice(index, 1);
+//         }
+//     } else {
+//         alert('A apărut o eroare!');
+//     }
+// }
 
 async function updateComment(comment: any, is_hidden: boolean) {
     const { status } = await useFetch('/api/post/comment/update', {
@@ -92,7 +110,7 @@ function formatDate(time: any) {
                     <button v-if="!comment.is_hidden" @click="updateComment(comment, true)">
                         <Icon name="bx:show" class="mr-2 text-blue-700 md:hover:text-blue-500" />
                     </button>
-                    <button v-if="user_roles.is_admin" @click="deleteComment(comment)">
+                    <button v-if="user_roles.is_admin" @click="deleteComment(comment.id, filtered_comments)">
                         <Icon name="material-symbols:delete" class="mr-2 text-red-500 md:hover:text-red-400" />
                     </button>
                 </div>

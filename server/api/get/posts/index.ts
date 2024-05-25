@@ -29,6 +29,9 @@ export default defineEventHandler(async (event) => {
                     },
                 },
             },
+            orderBy: {
+                created_at: "desc",
+            },
         });
         // for (let post of data) {
         //     const changedPost = post as {

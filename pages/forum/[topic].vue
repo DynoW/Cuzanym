@@ -20,7 +20,7 @@ if (!topics?.some((t) => t.name.toLowerCase() === topic)){
         <main class="main main-color main-flex">
             <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
                 <CreatePost :topic="capitalize(topic)" />
-                <LoadPosts />
+                <LoadPosts :topic="topic" />
             </div>
             <div class="basis-2/5 xl:basis-1/4">
                 <Announcement>

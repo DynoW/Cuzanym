@@ -1,18 +1,23 @@
 <script setup lang="ts">
-const user = useSupabaseUser()
-// const supabase = useSupabaseClient()
-// const user = useSupabaseUser()
+import Dashboard from './dashboard.vue';
 
-// const { data } = await supabase
-//     .from('user')
-//     .select('id, is_admin, is_director, is_event_creator, is_banned')
-//     .eq('id', user.value?.id as string)
-//     .single()
-// if (data)
-//     console.log(data)
+const user = useSupabaseUser()
 if (user.value)
     if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
         navigateTo('/login?wrong_domain=true')
+
+const supabase = useSupabaseClient()
+const { data: user_roles } = await supabase
+    .from('user')
+    .select('id, is_admin, is_moderator')
+    .eq('id', user.value?.id as string)
+    .single()
+
+let dashboard = false
+
+if (user_roles && (user_roles.is_admin == true || user_roles.is_moderator == true)) {
+    dashboard = true
+}
 </script>
 
 <template>
@@ -25,9 +30,15 @@ if (user.value)
                 <Announcement>
                     📜 Bun venit, pe forum!&nbsp;&nbsp;<span class="not-italic">|</span>&nbsp;<NuxtLink
                         to="/forum/tutorial" class="text-sky-600">Tutorial aici 📖
-                    </NuxtLink>&nbsp;<span class="not-italic">|</span>&nbsp;
+                    </NuxtLink>&nbsp;
+                    <span class="not-italic">|</span>&nbsp;
                     <NuxtLink to="/forum/sugestii%20site" class="text-amber-600">
-                        Apreciem orice sugestie 🤗</NuxtLink>
+                        Apreciem orice sugestie 🤗
+                    </NuxtLink>&nbsp;
+                    <span class="not-italic">|</span>&nbsp;
+                    <NuxtLink v-if="dashboard" to="/forum/dashboard" class="text-gray-400">
+                        Dashboard 🛠️
+                    </NuxtLink>
                 </Announcement>
                 <Topics />
             </div>

@@ -97,18 +97,18 @@ filtered_posts.value.map((post: any) => {
     return post;
 });
 
-async function deletePost(post: any) {
+async function deletePost(post_id: any, posts: any) {
     const { status } = await useFetch('/api/post/post/delete', {
         method: 'post',
         headers: useRequestHeaders(['cookie']),
         body: {
-            post_id: post.id
+            post_id
         }
     })
     if (status.value === "success") {
-        const index = filtered_posts.value.findIndex((p: any) => p.id === post.id);
+        const index = posts.findIndex((p: any) => p.id === post_id);
         if (index !== -1) {
-            filtered_posts.value.splice(index, 1);
+            posts.splice(index, 1);
         }
     } else {
         alert('A apărut o eroare!');
@@ -157,8 +157,8 @@ async function updatePost(post: any, is_hidden: boolean) {
                         <button v-if="!post.is_hidden" @click="updatePost(post, true)">
                             <Icon name="bx:show" class="mr-2 text-blue-700 md:hover:text-blue-500" />
                         </button>
-                        <button v-if="user_roles.is_admin" @click="deletePost(post)">
-                            <Icon name="material-symbols:delete" class="mr-2 md:text-red-500 hover:text-red-400" />
+                        <button v-if="user_roles.is_admin" @click="deletePost(post.id, filtered_posts)">
+                            <Icon name="material-symbols:delete" class="mr-2 text-red-500 md:hover:text-red-400" />
                         </button>
                     </div>
                     <div v-if="post.pending" class="text-end text-orange-200">
