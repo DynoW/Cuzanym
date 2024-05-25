@@ -40,12 +40,13 @@ const createPost = async () => {
             class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0"></input>
         <div class="flex flex-row justify-between gap-2">
             <button @click="createPost"
-                class="basis-full p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Comentează</button>
-            <button @click="createMenu = false" class="basis-10 p-2 rounded-lg bg-neutral-300 dark:bg-neutral-600">X</button>
+                class="basis-full p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900">Comentează</button>
+            <button @click="createMenu = false"
+                class="basis-10 p-2 rounded-lg bg-neutral-300 dark:bg-neutral-600">X</button>
         </div>
     </div>
     <div v-else class="text-end">
         <button @click="createMenu = true"
-            class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Comentează</button>
+            class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900">Comentează</button>
     </div>
 </template>

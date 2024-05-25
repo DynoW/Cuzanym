@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout name="home">
-        <main class="main flex-col items-center justify-center">
+        <main class="main flex-col items-center justify-center text-neutral-100">
             <div class="text-center">
                 <h1 class="text-5xl">Work in Progress
                     <Icon name="⚠️" size="48px" />

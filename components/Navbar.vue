@@ -10,7 +10,7 @@ async function search() {
 
 <template>
     <nav
-        class="bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-white dark:from-blue-900 dark:to-slate-900 dark:text-neutral-100">
+        class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 via-15% vua text-white dark:from-blue-900 dark:to-slate-900 dark:text-neutral-100">
         <div class="lg:container mx-auto px-3 lg:px-0">
             <div class="flex justify-between items-center h-14">
                 <div class="flex items-center gap-6 lg:gap-12 2xl:gap-32">

@@ -1,6 +1,6 @@
 <template>
     <footer
-        class="absolute bottom-0 w-full py-5 bg-gradient-to-r from-sky-50 via-sky-300 via-15% vua to-blue-700 text-shadow text-white dark:from-blue-900 dark:to-slate-900 dark:dark:text-neutral-100">
+        class="absolute bottom-0 w-full py-5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 via-15% vuatext-shadow text-white dark:from-blue-900 dark:to-slate-900 dark:dark:text-neutral-100">
         <div class="md:container mx-auto flex flex-col justify-between sm:flex-row px-3">
             <div class="flex flex-row gap-2 md:gap-10 lg:ml-10 items-center justify-around">
                 <div class="">

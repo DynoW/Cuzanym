@@ -3,7 +3,7 @@
         <nav>
             <Hierarchy />
         </nav>
-        <div class="main flex flex-col">
+        <div class="main main-color flex flex-col">
             <div class="rounded-lg p-5 w-full bg-white dark:bg-slate-800 dark:text-amber-100">
                 <div class="text-3xl pb-1 border-b text-sky-700 dark:text-amber-400">
                     <h2>Tutorial</h2>

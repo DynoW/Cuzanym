@@ -29,7 +29,7 @@ function formatDate(time: any) {
 <template>
     <div class="bg-white rounded-lg flex flex-col dark:bg-slate-800">
         <div
-            class="flex flex-row rounded-t-lg font-bold items-center bg-neutral-100 text-neutral-500 dark:bg-slate-950 dark:text-neutral-100">
+            class="flex flex-row rounded-t-lg font-bold items-center bg-indigo-50 text-neutral-500 dark:bg-slate-950 dark:text-neutral-100">
             <div class="basis-8/12 p-5 text-start">
                 Topic
             </div>

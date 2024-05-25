@@ -7,7 +7,7 @@ const getRandomItems = (arr: any[], n: number) => {
 </script>
 
 <template>
-    <aside class="flex flex-col gap-3">
+    <aside class="flex flex-col gap-3 text-neutral-100">
         <h2 class="side-menu-title">Events</h2>
         <div class="flex flex-col gap-4">
             <ContentList path="/events" v-slot="{ list }">

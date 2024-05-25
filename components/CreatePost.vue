@@ -46,12 +46,12 @@ const createPost = async () => {
                 <input v-model="tags" type="text" placeholder="Tag-uri separate de , (opțional)" maxlength="70"
                     class="border-2 p-2 rounded-lg border-neutral-300 dark:bg-slate-500 dark:border-0" />
                 <button @click="createPost"
-                    class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Postează</button>
+                    class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900">Postează</button>
             </div>
         </div>
         <div v-else class="flex flex-col p-5 gap-4">
             <button @click=" createMenu = !createMenu"
-                class="p-2 rounded-lg bg-sky-600 text-white dark:bg-blue-900">Creează o postare</button>
+                class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900">Creează o postare</button>
         </div>
     </div>
 </template>

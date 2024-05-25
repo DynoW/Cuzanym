@@ -152,13 +152,13 @@ async function updatePost(post: any, is_hidden: boolean) {
                 <div class="grow flex flex-col">
                     <div v-if="user_roles && user_roles.is_moderator == true" class="flex flex-row justify-end">
                         <button v-if="post.is_hidden" @click="updatePost(post, false)">
-                            <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
+                            <Icon name="bx:hide" class="mr-2 text-gray-400 md:hover:text-gray-300" />
                         </button>
                         <button v-if="!post.is_hidden" @click="updatePost(post, true)">
-                            <Icon name="bx:show" class="mr-2 text-blue-700 hover:text-blue-500" />
+                            <Icon name="bx:show" class="mr-2 text-blue-700 md:hover:text-blue-500" />
                         </button>
                         <button v-if="user_roles.is_admin" @click="deletePost(post)">
-                            <Icon name="material-symbols:delete" class="mr-2 text-red-500 hover:text-red-400" />
+                            <Icon name="material-symbols:delete" class="mr-2 md:text-red-500 hover:text-red-400" />
                         </button>
                     </div>
                     <div v-if="post.pending" class="text-end text-orange-200">
@@ -174,12 +174,12 @@ async function updatePost(post: any, is_hidden: boolean) {
                 </p>
             </div>
             <br />
-            <div class="flex flex-row justify-between text-gray-500 gap-1">
+            <div class="flex flex-row justify-between text-gray-400 dark:text-gray-500 gap-1">
                 <div class="flex flex-row gap-4 sm:gap-6 md:gap-8">
                     <div>
                         <button @click="reactToPost(post, 'UP')">
                             <Icon name="material-symbols:thumb-up"
-                                :class="post.likedByUser ? 'mr-2 text-gray-300' : 'mr-2 hover:text-gray-300'" />
+                                :class="post.likedByUser ? 'mr-2 text-gray-500 dark:text-gray-300' : 'mr-2 md:hover:text-gray-500 dark:md:hover:text-gray-300'" />
                         </button>
                         <span>{{ post.reactions.filter((reaction: any) => String(reaction.type) === 'UP').length
                             }}</span>
@@ -187,7 +187,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                     <div>
                         <button @click="reactToPost(post, 'DOWN')">
                             <Icon name="material-symbols:thumb-down"
-                                :class="post.dislikedByUser ? 'mr-2 text-gray-300' : 'mr-2 hover:text-gray-300'" />
+                                :class="post.dislikedByUser ? 'mr-2 text-gray-500 dark:text-gray-300' : 'mr-2 md:hover:text-gray-500 dark:md:hover:text-gray-300'" />
                         </button>
                         <span>{{ post.reactions.filter((reaction: any) => String(reaction.type) === 'DOWN').length
                             }}</span>
@@ -195,7 +195,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                     <div>
                         <button @click="post.comm = !post.comm">
                             <Icon name="material-symbols:comment"
-                                :class="post.comm ? 'mr-2 text-gray-300' : 'mr-2 hover:text-gray-300'" />
+                                :class="post.comm ? 'mr-2 text-gray-500 dark:text-gray-300' : 'mr-2 md:hover:text-gray-500 dark:md:hover:text-gray-300'" />
                         </button>
                         <span>{{ post.comments.length }}</span>
                     </div>

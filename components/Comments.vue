@@ -87,13 +87,13 @@ function formatDate(time: any) {
             <div class="grow flex flex-col">
                 <div v-if="user_roles && user_roles.is_moderator == true" class="flex flex-row justify-end">
                     <button v-if="comment.is_hidden" @click="updateComment(comment, false)">
-                        <Icon name="bx:hide" class="mr-2 text-gray-400 hover:text-gray-300" />
+                        <Icon name="bx:hide" class="mr-2 text-gray-400 md:hover:text-gray-300" />
                     </button>
                     <button v-if="!comment.is_hidden" @click="updateComment(comment, true)">
-                        <Icon name="bx:show" class="mr-2 text-blue-700 hover:text-blue-500" />
+                        <Icon name="bx:show" class="mr-2 text-blue-700 md:hover:text-blue-500" />
                     </button>
                     <button v-if="user_roles.is_admin" @click="deleteComment(comment)">
-                        <Icon name="material-symbols:delete" class="mr-2 text-red-500 hover:text-red-400" />
+                        <Icon name="material-symbols:delete" class="mr-2 text-red-500 md:hover:text-red-400" />
                     </button>
                 </div>
                 <div v-if="comment.pending" class="text-end text-orange-200">

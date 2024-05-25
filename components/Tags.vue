@@ -3,10 +3,11 @@
 </script>
 
 <template>
-    <aside class="flex flex-col gap-3 break-all">
+    <aside class="flex flex-col gap-3 break-all text-neutral-100">
         <div class="flex flex-row justify-between align-top side-menu-title px-4">
             <h2 class="">Tags</h2>
-            <button v-if="useTag().value != undefined" class="font-thin" @click="useTag().value = undefined">{{ 'selected: ' + useTag().value
+            <button v-if="useTag().value != undefined" class="font-thin" @click="useTag().value = undefined">{{
+                'selected: ' + useTag().value
                 }}</button>
         </div>
         <div class="">

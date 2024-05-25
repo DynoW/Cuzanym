@@ -47,6 +47,9 @@
     .main {
         @apply container mx-auto pb-64 sm:pb-52 pt-5 sm:pt-12;
     }
+    .main-color {
+        @apply text-neutral-700 dark:text-neutral-100;
+    }
     .main-flex {
         @apply flex flex-col-reverse md:flex-row gap-6 md:gap-10
     }
