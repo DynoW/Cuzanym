@@ -26,7 +26,7 @@ const query: QueryBuilderParams = {
                             <p>prof. coordonator: {{ club.coord.join(', ') ||
                                 'necunoscut' }}</p>
                         </div>
-                        <NuxtLink :to="club._path"
+                        <NuxtLink to="/work-in-progress"
                             class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white dark:bg-slate-700">
                             Detalii
                         </NuxtLink>

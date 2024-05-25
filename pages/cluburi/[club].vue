@@ -10,7 +10,7 @@
             <ContentDoc v-slot="{ doc }">
                     <h1>{{ doc.name }}</h1>
                     <p>{{ doc.desc }}</p>
-                    <p>Coordonator: {{ doc.coord || 'necunoscut' }}</p>
+                    <p>Coordonator: {{ doc.coord.join(',') || 'necunoscut' }}</p>
                     <p>Număr de membri: {{ doc.members || 'necunoscut' }}</p>
                     <p>Evenimente</p>
                     <p>Contact</p>
