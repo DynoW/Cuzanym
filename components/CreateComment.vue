@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const post = useAttrs().post as any;
+const comment_id = useAttrs().comment_id as any;
 const content = ref('');
 let createMenu = ref(false);
 
@@ -14,18 +15,17 @@ const createPost = async () => {
             body: {
                 post_id: post.id,
                 content: content.value,
+                comment_id
             }
         })
         if (status.value === "success") {
-            post.comments.push({
-                id: data.value?.id,
-                content: data.value?.content,
-                created_at: data.value?.created_at,
-                author_id: data.value?.author_id,
-                post_id: data.value?.post_id,
-                reply_to_id: data.value?.reply_to_id,
-                is_hidden: data.value?.is_hidden
-            });
+            post.comments.push(
+                data.value
+            );
+            if(data.value?.reply_to_id) {
+                const comment = post.comments.find((comment: any) => comment.id === data.value?.reply_to_id);
+                comment.replies.push(data.value);
+            }
             content.value = '';
         } else {
             alert('A apărut o eroare!');

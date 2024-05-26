@@ -112,6 +112,17 @@ export default defineEventHandler(async (event) => {
                                 username: true,
                             },
                         },
+                        replies: {
+                            include: {
+                                author: {
+                                    select: {
+                                        username: true,
+                                    },
+                                },
+                                reactions: true,
+                            },
+                        },
+                        reactions: true,
                     },
                     orderBy: {
                         created_at: "asc",

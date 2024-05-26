@@ -51,7 +51,7 @@ function formatDate(time: any) {
 }
 
 async function reactToPost(post: any, type: string) {
-    const { reaction, action } = await $fetch('/api/post/reaction', {
+    const { reaction, action } = await $fetch('/api/post/post/reaction', {
         method: 'post',
         headers: useRequestHeaders(['cookie']),
         body: {
@@ -97,7 +97,7 @@ filtered_posts.value.map((post: any) => {
     return post;
 });
 
-async function deletePost(post_id: any, posts: any) {
+async function deletePost(post_id: any) {
     const { status } = await useFetch('/api/post/post/delete', {
         method: 'post',
         headers: useRequestHeaders(['cookie']),
@@ -106,9 +106,9 @@ async function deletePost(post_id: any, posts: any) {
         }
     })
     if (status.value === "success") {
-        const index = posts.findIndex((p: any) => p.id === post_id);
+        const index = filtered_posts.value.findIndex((p: any) => p.id === post_id);
         if (index !== -1) {
-            posts.splice(index, 1);
+            filtered_posts.value.splice(index, 1);
         }
     } else {
         alert('A apărut o eroare!');
@@ -157,7 +157,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                         <button v-if="!post.is_hidden" @click="updatePost(post, true)">
                             <Icon name="bx:show" class="mr-2 text-blue-700 md:hover:text-blue-500" />
                         </button>
-                        <button v-if="user_roles.is_admin" @click="deletePost(post.id, filtered_posts)">
+                        <button v-if="user_roles.is_admin" @click="deletePost(post.id)">
                             <Icon name="material-symbols:delete" class="mr-2 text-red-500 md:hover:text-red-400" />
                         </button>
                     </div>
@@ -197,7 +197,7 @@ async function updatePost(post: any, is_hidden: boolean) {
                             <Icon name="material-symbols:comment"
                                 :class="post.comm ? 'mr-2 text-gray-500 dark:text-gray-300' : 'mr-2 md:hover:text-gray-500 dark:md:hover:text-gray-300'" />
                         </button>
-                        <span>{{ post.comments.length }}</span>
+                        <span>{{ post.comments.filter((comment:any)=> comment.reply_to_id==null).length }}</span>
                     </div>
                 </div>
                 <div>
@@ -206,7 +206,7 @@ async function updatePost(post: any, is_hidden: boolean) {
             </div>
             <div v-if="post.comm">
                 <br />
-                <Comments :comments="post.comments" :user_roles="user_roles" />
+                <Comments :post="post" :user_roles="user_roles" />
                 <CreateComment :post="post" />
             </div>
         </div>
