@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Dashboard from './dashboard.vue';
-
 const user = useSupabaseUser()
 if (user.value)
     if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
@@ -34,10 +32,6 @@ if (user_roles && (user_roles.is_admin == true || user_roles.is_moderator == tru
                     <span class="not-italic">|</span>&nbsp;
                     <NuxtLink to="/forum/sugestii%20site" class="text-amber-600">
                         Apreciem orice sugestie 🤗
-                    </NuxtLink>&nbsp;
-                    <span class="not-italic">|</span>&nbsp;
-                    <NuxtLink v-if="dashboard" to="/forum/dashboard" class="text-gray-400">
-                        Dashboard 🛠️
                     </NuxtLink>
                 </Announcement>
                 <Topics />
