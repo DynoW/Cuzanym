@@ -7,13 +7,13 @@ const query: QueryBuilderParams = {
 </script>
 
 <template>
-    <div class="min-h-screen w-full relative bg-neutral-50 dark:bg-gradient-to-r text-neutral-700 dark:from-slate-900 dark:to-slate-950 dark:text-neutral-100 font-poppins"
-        style="background-image: url('/img/clubs/cluburi-bg-darkish.png'); background-position: center center;">
+    <div
+        class="min-h-screen w-full relative bg-[url('/img/clubs/cluburi-bg-darkish.png')] dark:bg-[url('/img/clubs/cluburi-bg-dark.png')] bg-center font-poppins">
         <Navbar class="fixed w-full" />
-        <nav class="fixed w-full top-14">
+        <nav class="hidden lg:block fixed w-full top-14">
             <Hierarchy class="bg-blue-900 text-white" />
         </nav>
-        <main class="main pt-32">
+        <main class="main pt-20 lg:pt-32">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-12">
                 <ContentList :query="query" v-slot="{ list }">
                     <div v-for="club in list" :key="club._path"
@@ -27,7 +27,7 @@ const query: QueryBuilderParams = {
                                 'necunoscut' }}</p>
                         </div>
                         <NuxtLink to="/work-in-progress"
-                            class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white dark:bg-slate-700">
+                            class="mt-4 px-4 py-2 rounded-lg bg-blue-600 dark:bg-blue-900 text-white">
                             Detalii
                         </NuxtLink>
                     </div>

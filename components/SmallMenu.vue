@@ -9,17 +9,17 @@ const toggleTheme = () => {
         colorMode.preference = 'light';
     }
 };
-const dashboard = false;
+// const dashboard = false;
 </script>
 
 <template>
     <div class="flex flex-row gap-5 items-center">
-        <NuxtLink v-if="dashboard" to="/forum/dashboard">
+        <!-- <NuxtLink v-if="dashboard" to="/forum/dashboard">
             <Icon name="mdi:monitor-dashboard" class="cursor-pointer" />
-        </NuxtLink>
-        <button title="notifiactions">
+        </NuxtLink> -->
+        <NuxtLink to="/forum/dashboard">
             <Icon name="material-symbols:notifications-outline" class="cursor-pointer" />
-        </button>
+        </NuxtLink>
         <NuxtLink title="profile" to="/profile">
             <Icon name="material-symbols:account-circle" class="cursor-pointer" />
         </NuxtLink>
