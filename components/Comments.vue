@@ -175,9 +175,6 @@ function formatDate(time: any) {
                     <span>{{ comment.replies.length }}</span>
                 </div>
             </div>
-            <div v-if="comment.pending" class="text-end text-orange-200">
-                pending
-            </div>
         </div>
         <div v-if="comment.comm">
             <br />

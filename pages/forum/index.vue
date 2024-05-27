@@ -3,19 +3,6 @@ const user = useSupabaseUser()
 if (user.value)
     if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
         navigateTo('/login?wrong_domain=true')
-
-const supabase = useSupabaseClient()
-const { data: user_roles } = await supabase
-    .from('user')
-    .select('id, is_admin, is_moderator')
-    .eq('id', user.value?.id as string)
-    .single()
-
-let dashboard = false
-
-if (user_roles && (user_roles.is_admin == true || user_roles.is_moderator == true)) {
-    dashboard = true
-}
 </script>
 
 <template>

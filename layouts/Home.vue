@@ -4,6 +4,15 @@ useHead({
         return titleChunk ? `${decodeURIComponent(titleChunk)} | Cuzanym` : 'Cuzanym';
     }
 })
+
+const user = useSupabaseUser();
+const supabase = useSupabaseClient();
+const { data: user_roles } = await supabase
+    .from('user')
+    .select('id, is_admin, is_director, is_moderator')
+    .eq('id', user.value?.id as string)
+    .single()
+useUserRoles().value = user_roles;
 </script>
 
 <template>

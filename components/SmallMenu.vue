@@ -9,14 +9,18 @@ const toggleTheme = () => {
         colorMode.preference = 'light';
     }
 };
-// const dashboard = false;
+const dashboard = ref(false);
+const user_roles = useUserRoles().value;
+if (user_roles?.is_moderator || user_roles?.is_admin) {
+    dashboard.value = true;
+}
 </script>
 
 <template>
     <div class="flex flex-row gap-5 items-center">
-        <!-- <NuxtLink v-if="dashboard" to="/forum/dashboard">
+        <NuxtLink v-if="dashboard" to="/forum/dashboard">
             <Icon name="mdi:monitor-dashboard" class="cursor-pointer" />
-        </NuxtLink> -->
+        </NuxtLink>
         <NuxtLink to="/forum/dashboard">
             <Icon name="material-symbols:notifications-outline" class="cursor-pointer" />
         </NuxtLink>

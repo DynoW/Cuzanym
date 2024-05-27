@@ -135,6 +135,9 @@ function formatDate(time: any) {
                         <Icon name="material-symbols:delete" class="mr-2 text-red-500 md:hover:text-red-400" />
                     </button>
                 </div>
+                <div v-if="comment.pending" class="text-end text-orange-200">
+                    pending
+                </div>
             </div>
         </div>
         <div class="pt-1">
@@ -160,9 +163,6 @@ function formatDate(time: any) {
                     <span>{{ comment.reactions.filter((reaction: any) => String(reaction.type) === 'DOWN').length
                         }}</span>
                 </div>
-            </div>
-            <div v-if="comment.pending" class="text-end text-orange-200">
-                pending
             </div>
         </div>
     </div>

@@ -1,29 +1,22 @@
 <script setup lang="ts">
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
 let posts = useAttrs().posts as post[];
-
-const { data: user_roles } = await supabase
-    .from('user')
-    .select('id, is_admin, is_director, is_moderator')
-    .eq('id', user.value?.id as string)
-    .single()
+const user_roles = useUserRoles().value;
 
 if (user_roles && (user_roles.is_admin == false && user_roles.is_moderator == false)) {
     posts = posts.filter((post: any) => {
         if (post.topic_id != "a622945f-1f3c-487a-aca7-9fb1fbc2872f") {
-            if (post.author_id == user.value?.id && post.is_hidden == true) {
+            if (post.author_id == user_roles?.id && post.is_hidden == true) {
                 post.pending = true;
             }
-            return post.is_hidden == false || post.author_id == user.value?.id;
+            return post.is_hidden == false || post.author_id == user_roles?.id;
         } else {
-            if (post.author_id == user.value?.id && post.is_hidden == true) {
+            if (post.author_id == user_roles?.id && post.is_hidden == true) {
                 post.pending = true;
             }
             if (user_roles.is_director == true) {
                 return post.is_hidden == false;
             } else {
-                return post.author_id == user.value?.id;
+                return post.author_id == user_roles?.id;
             }
         }
     });
@@ -60,12 +53,12 @@ async function reactToPost(post: any, type: string) {
         }
     })
     if (action == 'deleted') {
-        post.reactions = post.reactions.filter((reaction: any) => reaction.user_id !== user.value?.id);
+        post.reactions = post.reactions.filter((reaction: any) => reaction.user_id !== user_roles?.id);
     } else if (action == 'created') {
         post.reactions.push(reaction as unknown as reaction);
     } else if (action == 'updated') {
         post.reactions = post.reactions.map((reaction: any) => {
-            if (reaction.user_id === user.value?.id) {
+            if (reaction.user_id === user_roles?.id) {
                 reaction.type = type as unknown as reaction_type;
             }
             return reaction;
@@ -92,8 +85,8 @@ const filtered_posts = computed(() => {
 
 filtered_posts.value.map((post: any) => {
     post.comm = false;
-    post.likedByUser = post.reactions.some((reaction: any) => reaction.user_id === user.value?.id && reaction.type === 'UP');
-    post.dislikedByUser = post.reactions.some((reaction: any) => reaction.user_id === user.value?.id && reaction.type === 'DOWN');
+    post.likedByUser = post.reactions.some((reaction: any) => reaction.user_id === user_roles?.id && reaction.type === 'UP');
+    post.dislikedByUser = post.reactions.some((reaction: any) => reaction.user_id === user_roles?.id && reaction.type === 'DOWN');
     return post;
 });
 

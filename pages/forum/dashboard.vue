@@ -1,12 +1,5 @@
 <script setup lang="ts">
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-
-const { data: user_roles } = await supabase
-    .from('user')
-    .select('id, is_admin, is_director, is_moderator')
-    .eq('id', user.value?.id as string)
-    .single()
+const user_roles = useUserRoles().value;
 
 if (!user_roles || (user_roles?.is_moderator == false && user_roles?.is_admin == false)) {
     navigateTo('/forum');
