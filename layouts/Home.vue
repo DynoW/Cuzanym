@@ -5,14 +5,19 @@ useHead({
     }
 })
 
-const user = useSupabaseUser();
-const supabase = useSupabaseClient();
-const { data: user_roles } = await supabase
-    .from('user')
-    .select('id, is_admin, is_director, is_moderator')
-    .eq('id', user.value?.id as string)
-    .single()
-useUserRoles().value = user_roles;
+await callOnce(async () => {
+    const user = useSupabaseUser();
+    if (user.value) {
+        if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
+            navigateTo('/login?wrong_domain=true')
+        else {
+            useUserRoles().value = await $fetch('/api/get/user', {
+                method: 'get',
+                headers: useRequestHeaders(['cookie']),
+            })
+        }
+    }
+})
 </script>
 
 <template>

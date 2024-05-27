@@ -1,10 +1,3 @@
-<script setup lang="ts">
-const user = useSupabaseUser()
-if (user.value)
-    if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
-        navigateTo('/login?wrong_domain=true')
-</script>
-
 <template>
     <NuxtLayout name="home">
         <nav>
