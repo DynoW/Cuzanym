@@ -1,10 +1,23 @@
 <script setup lang="ts">
-    const searchString = useRoute().query.q;
-    const { pending, data: posts, error } = await useFetch(`/api/get/search?q=${searchString}`, {
-        headers: useRequestHeaders(['cookie'])
-    });
-    useTags().value = undefined;
-    useTag().value = undefined;
+const searchString = useRoute().query.q;
+const { pending, data: posts, error } = await useFetch(`/api/get/search?q=${searchString}`, {
+    headers: useRequestHeaders(['cookie'])
+});
+useTags().value = undefined;
+useTag().value = undefined;
+await callOnce(async () => {
+    const user = useSupabaseUser();
+    if (user.value) {
+        if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
+            navigateTo('/login?wrong_domain=true')
+        else {
+            useUserRoles().value = await $fetch('/api/get/user', {
+                method: 'get',
+                headers: useRequestHeaders(['cookie']),
+            })
+        }
+    }
+})
 </script>
 
 <template>
