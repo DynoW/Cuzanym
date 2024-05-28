@@ -1,4 +1,18 @@
 <script setup lang="ts">
+await callOnce(async () => {
+    const user = useSupabaseUser();
+    if (user.value) {
+        if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
+            navigateTo('/login?wrong_domain=true')
+        else {
+            useUserRoles().value = await $fetch('/api/get/user', {
+                method: 'get',
+                headers: useRequestHeaders(['cookie']),
+            })
+        }
+    }
+})
+
 const user_roles = useUserRoles().value;
 
 if (!user_roles || (user_roles?.is_moderator == false && user_roles?.is_admin == false)) {

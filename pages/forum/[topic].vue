@@ -10,6 +10,20 @@ const topics = data.value;
 if (!topics?.some((t) => t.name.toLowerCase() === topic)){
     throw createError({ status: 404, message: "Topic not found!" });
 }
+
+await callOnce(async () => {
+    const user = useSupabaseUser();
+    if (user.value) {
+        if (user.value.email && !user.value.email.endsWith('@laicuza.ro'))
+            navigateTo('/login?wrong_domain=true')
+        else {
+            useUserRoles().value = await $fetch('/api/get/user', {
+                method: 'get',
+                headers: useRequestHeaders(['cookie']),
+            })
+        }
+    }
+})
 </script>
 
 <template>
