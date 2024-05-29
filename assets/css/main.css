@@ -5,18 +5,22 @@
 @layer components {
     @font-face {
         font-family: Boldini;
+        font-display: block;
         src: url(/assets/fonts/Boldini.ttf);
     }
     @font-face {
         font-family: Poppins;
+        font-display: block;
         src: url(/assets/fonts/Poppins.ttf);
     }
     @font-face {
         font-family: Montserrat-Regular;
+        font-display: block;
         src: url(/assets/fonts/Montserrat-Regular.ttf);
     }
     @font-face {
         font-family: Montserrat-SemiBold;
+        font-display: block;
         src: url(/assets/fonts/Montserrat-SemiBold.ttf);
     }
     .font-boldini {

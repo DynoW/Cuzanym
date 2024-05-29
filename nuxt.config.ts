@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '/login',
       callback: '/callback',
-      exclude: ['/forum', '/forum/tutorial', '/terms', '/policy', '/work-in-progress', '/about', '/api/get/topics'],
+      exclude: ['/forum', '/forum/tutorial', '/cluburi', '/evenimente', '/terms', '/policy', '/work-in-progress', '/about', '/api/get/topics'],
     }
   },
   extends: '@nuxt-themes/typography',

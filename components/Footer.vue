@@ -4,7 +4,7 @@
         <div class="md:container mx-auto flex flex-col justify-between sm:flex-row px-3">
             <div class="flex flex-row gap-2 md:gap-10 lg:ml-10 items-center justify-around">
                 <div class="">
-                    <h4 class="text-xl mb-3 font-montserrat-semibold">Parteneri</h4>
+                    <h3 class="text-xl mb-3 font-montserrat-semibold">Parteneri</h3>
                     <ul class="flex flex-col gap-1">
                         <li>
                             <NuxtLink to="https://cuza.pages.dev/" target="_blank" class="">Resurse
@@ -22,7 +22,7 @@
                     </ul>
                 </div>
                 <div class="">
-                    <h4 class="text-xl mb-3 font-montserrat-semibold">Ținem Legătura</h4>
+                    <h3 class="text-xl mb-3 font-montserrat-semibold">Ținem Legătura</h3>
                     <ul class="flex flex-col gap-1">
                         <li>
                             <NuxtLink to="/policy" class="">Politică de
