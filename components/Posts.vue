@@ -162,7 +162,7 @@ async function updatePost(post: any, is_hidden: boolean) {
             <br />
             <div class="flex flex-col gap-3">
                 <h3 class="text-xl font-bold">{{ post.title }}</h3>
-                <p class="font-bold break-normal">
+                <p class="font-bold break-normal overflow-x-auto">
                     {{ post.content }}
                 </p>
             </div>

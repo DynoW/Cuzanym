@@ -32,7 +32,7 @@ await callOnce(async () => {
             <Hierarchy />
         </nav>
         <main class="main main-color main-flex">
-            <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6">
+            <div class="basis-3/5 xl:basis-3/4 flex flex-col gap-6 md:max-w-[60%] lg:max-w-[70%]">
                 <CreatePost :topic="capitalize(topic)" />
                 <LoadPosts :topic="topic" />
             </div>
