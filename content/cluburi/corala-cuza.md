@@ -1,7 +1,7 @@
 ---
 name: 'Corala Cuza'
 desc: ''
-coord: ['']
+coord: ['Bolboașă Alin']
 contact: ''
 meetings: ''
 image: 'corala.jpg'
