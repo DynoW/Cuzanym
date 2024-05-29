@@ -4,6 +4,6 @@ desc: ''
 coord: ['']
 contact: ''
 meetings: ''
-image: ''
+image: 'mun.png'
 order: 'b'
 ---

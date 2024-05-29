@@ -4,6 +4,6 @@ desc: ''
 coord: ['']
 contact: ''
 meetings: ''
-image: ''
+image: 'filozofie.jpg'
 order: 'k'
 ---

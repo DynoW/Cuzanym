@@ -6,6 +6,6 @@ participare la competiții și concursuri.'
 coord: ['Burlacu Camelia']
 contact: ''
 meetings: 'suspendate (proiect de modernizare)'
-image: ''
+image: 'baschet.jpg'
 order: 'o'
 ---

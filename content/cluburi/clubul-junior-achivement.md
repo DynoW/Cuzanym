@@ -4,7 +4,7 @@ desc: 'În cadrul clubului JA, elevii se organizează în societăți comerciale
 coord: ['Goruneanu Grațiela']
 contact: ''
 meetings: ''
-image: ''
+image: 'ja.png'
 order: 'i'
 ---
 în cadrul clubului elevii se organizează

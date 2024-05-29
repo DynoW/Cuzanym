@@ -6,6 +6,6 @@ literare.'
 coord: ['Ana Szekely']
 contact: ''
 meetings: 'trimestriale'
-image: ''
+image: 'lectura.jpeg'
 order: 'g'
 ---

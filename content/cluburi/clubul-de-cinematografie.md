@@ -1,9 +1,9 @@
 ---
-name: 'Clubul de cinematografe'
+name: 'Clubul de cinematografie'
 desc: ''
 coord: ['']
 contact: ''
 meetings: ''
-image: ''
+image: 'cinematografie.jpg'
 order: 'e'
 ---

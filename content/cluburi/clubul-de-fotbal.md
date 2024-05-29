@@ -6,6 +6,6 @@ participare la competiții și concursuri.'
 coord: ['Coman Daniel']
 contact: ''
 meetings: 'suspendate (proiect de modernizare)'
-image: ''
+image: 'fotbal.jpg'
 order: 'r'
 ---

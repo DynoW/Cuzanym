@@ -4,7 +4,7 @@ desc: 'În cadrul clubului de debate se organizează dezbateri și pregătiri pe
 coord: ['Păvăloiu Simona', 'Vergu Patricia', 'Goruneanu Grațiela']
 contact: ''
 meetings: 'săptămânal'
-image: ''
+image: 'debate.webp'
 order: 'h'
 ---
 

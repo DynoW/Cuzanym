@@ -4,6 +4,6 @@ desc: ''
 coord: ['']
 contact: ''
 meetings: ''
-image: ''
+image: 'corala.jpg'
 order: 'f'
 ---

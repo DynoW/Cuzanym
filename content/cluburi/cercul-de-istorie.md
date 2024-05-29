@@ -7,6 +7,6 @@ documentate din surse istorice.'
 coord: ['Burlacu Janina']
 contact: ''
 meetings: ''
-image: ''
+image: 'istorie.jpg'
 order: 'j'
 ---

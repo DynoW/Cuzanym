@@ -6,6 +6,6 @@ prestabilită.'
 coord: ['Catrangiu Adriana']
 contact: ''
 meetings: 'lunare'
-image: ''
+image: 'fotografie.jpg'
 order: 'd'
 ---

@@ -4,7 +4,7 @@ desc: ''
 coord: ['']
 contact: ''
 meetings: ''
-image: ''
+image: 'robot.jpg'
 order: 'a'
 ---
 Clubul de robotică

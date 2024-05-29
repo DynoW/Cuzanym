@@ -6,6 +6,6 @@ participare la competiții și concursuri.'
 coord: ['Mitrache Iuliana']
 contact: ''
 meetings: 'suspendate (proiect de modernizare)'
-image: ''
+image: 'majorete.jpg'
 order: 'p'
 ---

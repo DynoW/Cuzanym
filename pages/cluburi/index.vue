@@ -18,6 +18,8 @@ const query: QueryBuilderParams = {
                 <ContentList :query="query" v-slot="{ list }">
                     <div v-for="club in list" :key="club._path"
                         class="flex flex-col justify-evenly text-center rounded-[32px] p-4 bg-neutral-100 dark:bg-slate-800 shadow-xl">
+                        <NuxtImg :src="'/img/clubs/' + club.title.toLowerCase().replace(/\s+/g, '-') + '/' + club.image"
+                            :alt="club.image.replace(/\.[^.]+$/, '')" class="rounded-[32px] w-full h-48 object-cover" />
                         <h2 class="text-2xl font-bold font-montserrat-semibold text-slate-800 dark:text-white">{{
                             club.name }}</h2>
                         <div class="font-montserrat-regular text-sm mt-2 dark:text-white">

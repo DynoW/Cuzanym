@@ -6,6 +6,6 @@ Bacalureat (Logică)'
 coord: ['Goruneanu Grațiela']
 contact: ''
 meetings: 'săptămânale'
-image: ''
+image: 'top.jpg'
 order: 'l'
 ---
