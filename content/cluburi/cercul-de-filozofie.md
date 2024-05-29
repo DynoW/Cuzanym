@@ -1,7 +1,7 @@
 ---
 name: 'Cercul de filozofie'
 desc: ''
-coord: ['']
+coord: ['Goruneanu Grațiela']
 contact: ''
 meetings: ''
 image: 'filozofie.jpg'

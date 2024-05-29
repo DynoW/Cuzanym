@@ -1,9 +1,9 @@
 ---
 name: 'Clubul de robotică'
 desc: ''
-coord: ['']
+coord: ['Badea Corina']
 contact: ''
-meetings: ''
+meetings: 'work in progress'
 image: 'robot.jpg'
 order: 'a'
 ---
