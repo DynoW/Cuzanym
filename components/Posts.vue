@@ -126,7 +126,7 @@ async function updatePost(post: any, is_hidden: boolean) {
 </script>
 
 <template>
-    <div class="flex flex-col gap-4 break-all">
+    <div class="flex flex-col gap-4">
         <div v-for="post in filtered_posts as any" :key="post.id"
             class="flex flex-col p-5 border-b-2 rounded-xl border-neutral-300 bg-white dark:bg-slate-800 dark:border-neutral-600">
             <div class="flex flex-row">

@@ -1,11 +1,14 @@
 ---
 name: 'Cercul de lectură "LEGO"'
-desc: 'În cadrul cercului de lectură se realizează
-dezbateri privind receptarea unor texte
-literare.'
-coord: ['Ana Szekely']
-contact: ''
-meetings: 'trimestriale'
 image: 'lectura.jpeg'
+desc: 'În cadrul cercului de lectură se realizează dezbateri privind receptarea unor texte literare.'
+desc_long: ''
+coord: ['Szekely Ana']
+meetings: 'trimestriale'
+time: ''
+req: null
+contact: ''
+event: ''
 order: 'g'
 ---
+enabled

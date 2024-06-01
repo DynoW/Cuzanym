@@ -1,9 +1,13 @@
 ---
 name: 'Clubul de cinematografie'
-desc: ''
-coord: ['']
-contact: ''
-meetings: ''
 image: 'cinematografie.jpg'
+desc: '(Work in progress)'
+desc_long: ''
+coord: ['']
+meetings: ''
+time: ''
+req: null
+contact: ''
+event: ''
 order: 'e'
 ---

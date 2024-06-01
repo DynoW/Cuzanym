@@ -1,11 +1,13 @@
 ---
 name: 'Clubul Absolvenți de top'
-desc: 'în cadrul clubului se organizează
-pregătire suplimentară pentru
-Bacalureat (Logică)'
-coord: ['Goruneanu Grațiela']
-contact: ''
-meetings: 'săptămânale'
 image: 'top.jpg'
+desc: 'în cadrul clubului se organizează pregătire suplimentară pentru Bacalureat (Logică)'
+desc_long: ''
+coord: ['Goruneanu Grațiela']
+meetings: 'săptămânale'
+time: ''
+req: null
+contact: ''
+event: ''
 order: 'l'
 ---

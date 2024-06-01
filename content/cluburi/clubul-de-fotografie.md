@@ -1,11 +1,14 @@
 ---
 name: 'Clubul de fotografie'
-desc: 'În cadrul clubului se realizează
-fotografii în funcție de o temă
-prestabilită.'
-coord: ['Catrangiu Adriana']
-contact: ''
-meetings: 'lunare'
 image: 'fotografie.jpg'
+desc: 'În cadrul clubului se realizează fotografii în funcție de o temă prestabilită.'
+desc_long: ''
+coord: ['Catrangiu Adriana']
+meetings: 'lunare'
+time: ''
+req: null
+contact: ''
+event: ''
 order: 'd'
 ---
+enabled

@@ -26,9 +26,8 @@ if (queryParams.is_banned == 'true') {
 
 const handleLogin = async () => {
   try {
-    const isProduction = process.env.NODE_ENV === 'production';
     const { error } = await auth.signInWithOAuth({ provider: 'google', options: {
-      redirectTo: isProduction ? 'https://cuzanym.vercel.app/' : 'https://localhost:3000/',
+      redirectTo: window.location.origin,
       queryParams: {
         access_type: 'offline',
         prompt: 'select_account',

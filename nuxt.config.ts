@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   },
   extends: '@nuxt-themes/typography',
   site: {
-    url: 'https://cuzantm.vercel.app',
+    url: process.env.SITE_URL,
     name: 'Cuzanym',
     description: 'Agile - Skills for the future',
     defaultLocale: 'ro',

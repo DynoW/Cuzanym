@@ -5,7 +5,6 @@ data: '22 aprilie'
 ora: ''
 locatie: ''
 organizatori: ['Clubul de șah']
-imagine: '/img/events/turneu-sah.jpg'
+imagine: '/img/evenimente/turneu-sah.jpg'
 ---
-
-# sah
+enabled

@@ -1,11 +1,7 @@
 <script setup lang="ts">
-let { data: topics } = await useFetch("/api/get/topics", {
+const { data: topics } = await useFetch("/api/get/topics", {
     headers: useRequestHeaders(['cookie'])
 });
-
-if (topics.value) {
-    topics.value = topics.value.filter((topic: any) => topic.id !== 'a622945f-1f3c-487a-aca7-9fb1fbc2872f');
-}
 
 function formatDate(time: any) {
     if (!time) return '-';

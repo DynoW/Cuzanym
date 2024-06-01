@@ -8,14 +8,19 @@ const getRandomItems = (arr: any[], n: number) => {
 
 <template>
     <aside class="flex flex-col gap-3 text-neutral-100">
-        <h2 class="side-menu-title">Events</h2>
+        <h2 class="side-menu-title">Evenimente</h2>
         <div class="flex flex-col gap-4">
-            <ContentList path="/events" v-slot="{ list }">
-                <div v-for="event in getRandomItems(list, 2)" :key="event._path">
-                    <NuxtLink to="/work-in-progress" class="text-lg font-semibold">
-                        <NuxtImg :src="event.imagine" :alt="event.titlu" />
-                    </NuxtLink>
-                </div>
+            <ContentList path="/evenimente">
+                <template v-slot="{ list }">
+                    <div v-for="event in getRandomItems(list, 2)" :key="event._path">
+                        <NuxtLink to="/work-in-progress" class="text-lg font-semibold">
+                            <NuxtImg :src="event.imagine" :alt="event.titlu" />
+                        </NuxtLink>
+                    </div>
+                </template>
+                <template #not-found>
+                    <p>Server is down!</p>
+                </template>
             </ContentList>
         </div>
     </aside>

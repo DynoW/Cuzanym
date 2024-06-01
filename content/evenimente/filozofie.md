@@ -5,7 +5,7 @@ data: 'Vineri, 12 aprilie'
 ora: '12:00'
 locatie: 'Sala de festivități'
 organizatori: ['Grațiela Goruneanu', '', '']
-imagine: '/img/events/cerc-filozofic.jpg'
+imagine: '/img/evenimente/cerc-filozofic.jpg'
 ---
 
 # filozofie

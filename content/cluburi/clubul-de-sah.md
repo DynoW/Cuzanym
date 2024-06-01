@@ -1,11 +1,14 @@
 ---
 name: 'Clubul de șah'
-desc: 'În cadrul clubului de șah se realizează
-pregătire de specialitate pentru
-participare la competiții și concursuri.'
-coord: ['Mitrache Iuliana']
-contact: ''
-meetings: 'suspendate (proiect de modernizare)'
 image: 'sah.png'
+desc: 'În cadrul clubului de șah se realizează pregătire de specialitate pentru participarea la competiții și concursuri.'
+desc_long: ''
+coord: ['Mitrache Iuliana']
+meetings: ''
+time: ''
+req: null
+contact: ''
+event: '/img/evenimente/turneu-sah.jpg'
 order: 'c'
 ---
+enabled

@@ -1,10 +1,14 @@
 ---
 name: 'Clubul de robotică'
-desc: ''
-coord: ['Badea Corina']
-contact: ''
-meetings: 'work in progress'
 image: 'robot.jpg'
+desc: ''
+desc_long: ''
+coord: ['Badea Corina']
+meetings: 'work in progress'
+time: ''
+req: null
+contact: ''
+event: ''
 order: 'a'
 ---
-Clubul de robotică
+enabled

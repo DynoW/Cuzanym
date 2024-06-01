@@ -8,6 +8,9 @@ export default defineEventHandler(async (event) => {
 //     }
     try {
         const data = await prisma.topic.findMany({
+            where: {
+                is_hidden: false
+            },
             select: {
                 id: true,
                 name: true,

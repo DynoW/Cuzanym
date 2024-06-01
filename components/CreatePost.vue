@@ -49,8 +49,8 @@ const createPost = async () => {
                     class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900">Postează</button>
             </div>
         </div>
-        <div v-else class="flex flex-col p-5 gap-4">
-            <button @click=" createMenu = !createMenu"
+        <div v-else class="flex flex-col p-5">
+            <button @click="createMenu = !createMenu"
                 class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900">Creează o postare</button>
         </div>
     </div>
