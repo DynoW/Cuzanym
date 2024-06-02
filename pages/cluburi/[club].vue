@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const postsList = ref(false);
+const showTooltip = ref(false);
 const user = useSupabaseUser();
 </script>
 
@@ -18,14 +19,25 @@ const user = useSupabaseUser();
                                 <button v-if="!postsList" @click="postsList = !postsList"
                                     class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900 mt-2">Afisează
                                     postările</button>
-                                <LoadPostsClub v-if="postsList && user" :club="doc._path.replace('/cluburi/','')" />
-                                <p v-if="postsList && !user" class="text-sm text-center">Trebuie să te autentifici pentru a vedea postările!</p>
+                                <LoadPostsClub v-if="postsList && user" :club="doc._path.replace('/cluburi/', '')" />
+                                <p v-if="postsList && !user" class="text-sm text-center">Trebuie să te autentifici
+                                    pentru a vedea postările!</p>
                             </div>
                             <div class="md:basis-72 lg:basis-96 flex flex-col gap-3">
-                                <p class="text-lg">Prof. Coordonator: {{ doc.coord.join(',') || 'necunoscut' }}</p>
+                                <div class="flex flex-row justify-between">
+                                    <p class="text-lg">Prof. Coordonator: {{ doc.coord.join(', ') || 'necunoscut' }}</p>
+                                    <div class="relative inline-block">
+                                        <Icon name="material-symbols:info" class="text-6xl text-gray-300 cursor-pointer" @mouseover="showTooltip = true" @mouseleave="showTooltip = false" />
+                                        <p v-if="showTooltip" class="text-center text-xs p-3 rounded-lg bg-slate-900 border absolute z-10 bottom-full left-1/2 ml-[-110px] w-56">Pentru a
+                                            actualiza delatliile
+                                            clubului puteți sa ne trimiteți un email la
+                                            <b>cuzanym@gmail.com</b>
+                                        </p>
+                                    </div>
+                                </div>
                                 <div>
                                     <p>Întâlniri: {{ doc.meetings || 'necunoscut' }}</p>
-                                    <p v-if="doc.time && doc.time!=''">({{ doc.time }})</p>
+                                    <p v-if="doc.time && doc.time != ''">({{ doc.time }})</p>
                                 </div>
                                 <div v-if="doc.req && doc.req.length > 0">
                                     <p>Cerințe:</p>
@@ -33,7 +45,7 @@ const user = useSupabaseUser();
                                         <li class="ml-6">{{ cerinta }}</li>
                                     </ul>
                                 </div>
-                                <p v-else-if="doc.req && doc.req.length==0">Nu sunt cerințe pentru a intra în
+                                <p v-else-if="doc.req && doc.req.length == 0">Nu sunt cerințe pentru a intra în
                                     acest club</p>
                                 <p v-else>Cerințe: necunoscut</p>
                                 <p v-if="!doc.desc_long || doc.desc_long == ''">Descriere:
@@ -41,7 +53,7 @@ const user = useSupabaseUser();
                                     {{ doc.desc }}
                                 </p>
                                 <p v-else>Descriere: {{ doc.desc_long }}</p>
-                                <div v-if="doc.contact && doc.contact!=''" class="flex flex-row justify-around gap-2">
+                                <div v-if="doc.contact && doc.contact != ''" class="flex flex-row justify-around gap-2">
                                     <p v-if="doc.req && doc.req.includes('invitație')"
                                         class="font-thin text-orange-200">
                                         Acest club este pe bază de invitație din partea coordonatorului!
@@ -51,12 +63,6 @@ const user = useSupabaseUser();
                                         Contact&nbsp;&nbsp;>
                                     </NuxtLink>
                                 </div>
-                                <!-- <div v-if="doc.event && doc.event != ''"
-                                    class="flex flex-col gap-4">
-                                    <h2 class="w-fit">Evenimente recente:</h2>
-                                    <NuxtImg :src="doc.event" alt="event"
-                                        class="rounded-md w-full max-w-xs object-cover mx-auto" />
-                                </div> -->
                             </div>
                         </div>
                         <div v-if="doc.event && doc.event != ''"

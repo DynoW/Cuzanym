@@ -5,7 +5,8 @@ const topic = useRoute().params.topic as string;
 const { data } = await useFetch("/api/get/topics", {
     headers: useRequestHeaders(['cookie'])
 });
-const topics = data.value;
+let topics = data.value;
+topics = topics ? [...topics, { id: "a622945f-1f3c-487a-aca7-9fb1fbc2872f", name: "Raportări" }] : [{ id: "a622945f-1f3c-487a-aca7-9fb1fbc2872f", name: "Raportări" }];
 
 if (!topics?.some((t) => t.name.toLowerCase() === topic)){
     throw createError({ status: 404, message: "Topic not found!" });
