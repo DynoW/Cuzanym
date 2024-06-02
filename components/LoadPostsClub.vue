@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const club = useAttrs().club;
-console.log(club)
 const user = useSupabaseUser();
 await callOnce(async () => {
     if (user.value) {

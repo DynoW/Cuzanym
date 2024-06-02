@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const postsList = ref(false);
+const user = useSupabaseUser();
 </script>
 
 <template>
@@ -17,7 +18,8 @@ const postsList = ref(false);
                                 <button v-if="!postsList" @click="postsList = !postsList"
                                     class="p-2 rounded-lg bg-blue-600 text-white dark:bg-blue-900 mt-2">Afisează
                                     postările</button>
-                                <LoadPostsClub v-if="postsList" :club="doc._path.replace('/cluburi/','')" />
+                                <LoadPostsClub v-if="postsList && user" :club="doc._path.replace('/cluburi/','')" />
+                                <p v-if="postsList && !user" class="text-sm text-center">Trebuie să te autentifici pentru a vedea postările!</p>
                             </div>
                             <div class="md:basis-72 lg:basis-96 flex flex-col gap-3">
                                 <p class="text-lg">Prof. Coordonator: {{ doc.coord.join(',') || 'necunoscut' }}</p>
