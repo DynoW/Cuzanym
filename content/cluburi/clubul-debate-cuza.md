@@ -13,12 +13,4 @@ contact: ''
 event: ''
 order: 'h'
 ---
-
-în cadrul clubului de debate se vor
-realiza următoarele activități:
-Construirea argumentelor și contraargumentelor;
-Construirea unui caz;
-Format de dezbateri World School;
-Documentare;
-Arbitraj;
-participări la meciuri locale și regionale, la Olimpiada națională Tinerii dezbat.
+enabled

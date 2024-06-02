@@ -4,7 +4,7 @@ image: 'robot.jpg'
 desc: ''
 desc_long: ''
 coord: ['Badea Corina']
-meetings: 'work in progress'
+meetings: ''
 time: ''
 req: null
 contact: ''
