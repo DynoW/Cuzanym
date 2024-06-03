@@ -27,8 +27,11 @@ const user = useSupabaseUser();
                                 <div class="flex flex-row justify-between">
                                     <p class="text-lg">Prof. Coordonator: {{ doc.coord.join(', ') || 'necunoscut' }}</p>
                                     <div class="relative inline-block">
-                                        <Icon name="material-symbols:info" class="text-6xl text-gray-300 cursor-pointer" @mouseover="showTooltip = true" @mouseleave="showTooltip = false" />
-                                        <p v-if="showTooltip" class="text-center text-xs p-3 rounded-lg bg-slate-900 border absolute z-10 bottom-full left-1/2 ml-[-110px] w-56">Pentru a
+                                        <Icon name="material-symbols:info" class="text-6xl text-gray-300 cursor-pointer"
+                                            @mouseover="showTooltip = true" @mouseleave="showTooltip = false" />
+                                        <p v-if="showTooltip"
+                                            class="text-center text-xs p-3 rounded-lg bg-slate-900 border absolute z-10 bottom-full left-1/2 ml-[-200px] md:ml-[-110px] w-56">
+                                            Pentru a
                                             actualiza delatliile
                                             clubului puteți sa ne trimiteți un email la
                                             <b>cuzanym@gmail.com</b>
