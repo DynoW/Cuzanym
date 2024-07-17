@@ -1,3 +1,9 @@
+# End Of Life product - Forum Cuzanym
+![Screenshot 2024-07-17 102241](https://github.com/user-attachments/assets/c4794dbd-d4fd-4d93-bf8e-a37ffc400af1)
+
+# Details:
+### This was a project for Skills For The Future Competition 2024 organized by Deutsche Bank AG & Junior Achievement
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
